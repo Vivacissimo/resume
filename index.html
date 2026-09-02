@@ -17,8 +17,26 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <aside class="section-indicator" aria-label="Resume sections">
+      <a class="indicator-link is-active" href="#introduce" data-section="introduce" aria-label="01 Introduce">
+        <span>01</span><i></i>
+      </a>
+      <a class="indicator-link" href="#journey" data-section="journey" aria-label="02 Career Journey">
+        <span>02</span><i></i>
+      </a>
+      <a class="indicator-link" href="#experience" data-section="experience" aria-label="03 Experience">
+        <span>03</span><i></i>
+      </a>
+      <a class="indicator-link" href="#skills" data-section="skills" aria-label="04 Stack and Skills">
+        <span>04</span><i></i>
+      </a>
+      <a class="indicator-link" href="#projects" data-section="projects" aria-label="05 Selected Projects and Tools">
+        <span>05</span><i></i>
+      </a>
+    </aside>
+
     <main class="resume">
-      <header class="profile" id="introduce">
+      <header class="profile">
         <div class="profile-title">
           <p class="role">DEVOPS / CLOUD ENGINEER</p>
           <h1>김준우 <span>Joon Woo Kim</span></h1>
@@ -36,7 +54,7 @@
         </div>
       </header>
 
-      <section class="resume-section intro-section">
+      <section class="resume-section intro-section" id="introduce">
         <div class="section-heading">
           <span class="section-number">01</span>
           <h2>INTRODUCE</h2>
@@ -95,7 +113,7 @@
               <div>
                 <h3>Cocoavision</h3>
                 <p class="journey-subtitle">2022.09 ~ 2026.03</p>
-                <p>VFX Production → Pipeline / IT Infrastructure — 제작 Workflow를 경험하고 Linux, Render Farm, Pipeline 운영과 자동화로 관심을 확장.</p>
+                <p>NewMedia R&amp;D → VFX Pipeline / IT Infrastructure — 실시간 콘텐츠 R&amp;D에서 시작해 제작 시스템과 인프라 운영으로 역할을 확장.</p>
               </div>
             </li>
             <li class="is-current">
@@ -144,7 +162,7 @@
             <div class="experience-body">
               <h3>Pipeline / IT Infrastructure</h3>
               <p>
-                NewMedia R&D 경험 이후 VFX본부로 이동해 아티스트와 제작 도구가 안정적으로 동작할 수 있도록 Pipeline과 제작 인프라를 담당했습니다.
+                NewMedia R&amp;D 경험 이후 VFX본부로 이동해 아티스트와 제작 도구가 안정적으로 동작할 수 있도록 Pipeline과 제작 인프라를 담당했습니다.
               </p>
               <ul>
                 <li>Linux 기반 VFX 제작 환경과 Render Farm 운영 및 Troubleshooting</li>
@@ -179,7 +197,7 @@
       <section class="resume-section" id="skills">
         <div class="section-heading">
           <span class="section-number">04</span>
-          <h2>STACK & SKILLS</h2>
+          <h2>STACK &amp; SKILLS</h2>
         </div>
 
         <div class="section-content skill-list">
@@ -200,7 +218,7 @@
           </article>
 
           <article class="skill-item">
-            <h3>CI/CD & GitOps</h3>
+            <h3>CI/CD &amp; GitOps</h3>
             <div>
               <strong>Jenkins · GitHub Actions · ArgoCD</strong>
               <p>Pipeline · Agent · Webhook · Workflow · Build · GitOps · Sync</p>
@@ -234,8 +252,8 @@
           <article class="skill-item">
             <h3>VFX / Pipeline</h3>
             <div>
-              <strong>Houdini · Nuke · Maya · Tractor · Python</strong>
-              <p>Production Pipeline · Render Farm · Troubleshooting · Automation</p>
+              <strong>Houdini · Nuke · Maya · Tractor · Python · Unreal Engine · Blender</strong>
+              <p>Production Pipeline · Render Farm · Troubleshooting · Automation · Real-time Content</p>
             </div>
           </article>
         </div>
@@ -247,52 +265,83 @@
           <h2>SELECTED PROJECTS</h2>
         </div>
 
-        <div class="section-content project-list">
-          <article class="project-item">
-            <p class="project-type">CLOUD NATIVE / DEVOPS</p>
-            <h3>Kubernetes · CI/CD · GitOps Infrastructure</h3>
-            <p class="project-description">
-              Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
-            </p>
-            <ul>
-              <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
-              <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
-              <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
-            </ul>
-            <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
-          </article>
+        <div class="section-content">
+          <div class="project-list">
+            <article class="project-item">
+              <p class="project-type">CLOUD NATIVE / DEVOPS</p>
+              <h3>Kubernetes · CI/CD · GitOps Infrastructure</h3>
+              <p class="project-description">
+                Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
+              </p>
+              <ul>
+                <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
+                <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
+                <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
+              </ul>
+              <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
+            </article>
 
-          <article class="project-item">
-            <p class="project-type">VFX / PIPELINE</p>
-            <h3>Production Pipeline & Render Operations</h3>
-            <p class="project-description">
-              VFX 제작 환경에서 아티스트 작업과 시스템 사이의 문제를 분석하고 Pipeline과 Render 환경을 안정적으로 운영.
-            </p>
-            <ul>
-              <li>Render Farm 작업 흐름과 장애 대응</li>
-              <li>Houdini · Nuke · Maya Pipeline Troubleshooting</li>
-              <li>반복 작업을 줄이기 위한 Production Workflow 자동화와 개선</li>
-            </ul>
-            <p class="project-tech">Linux · Houdini · Nuke · Maya · Tractor · Python</p>
-          </article>
+            <article class="project-item">
+              <p class="project-type">VFX / PIPELINE</p>
+              <h3>Production Pipeline &amp; Render Operations</h3>
+              <p class="project-description">
+                VFX 제작 환경에서 아티스트 작업과 시스템 사이의 문제를 분석하고 Pipeline과 Render 환경을 안정적으로 운영.
+              </p>
+              <ul>
+                <li>Render Farm 작업 흐름과 장애 대응</li>
+                <li>Houdini · Nuke · Maya Pipeline Troubleshooting</li>
+                <li>반복 작업을 줄이기 위한 Production Workflow 자동화와 개선</li>
+              </ul>
+              <p class="project-tech">Linux · Houdini · Nuke · Maya · Tractor · Python</p>
+            </article>
 
-          <article class="project-item">
-            <p class="project-type">PERSONAL INFRASTRUCTURE</p>
-            <h3>junu.dev Home Infrastructure</h3>
-            <p class="project-description">
-              개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
-            </p>
-            <ul>
-              <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
-              <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
-              <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
-            </ul>
-            <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
-            <div class="project-links">
-              <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
-              <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
+            <article class="project-item">
+              <p class="project-type">PERSONAL INFRASTRUCTURE</p>
+              <h3>junu.dev Home Infrastructure</h3>
+              <p class="project-description">
+                개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
+              </p>
+              <ul>
+                <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
+                <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
+                <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
+              </ul>
+              <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
+              <div class="project-links">
+                <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
+                <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
+              </div>
+            </article>
+          </div>
+
+          <section class="tools-block" aria-labelledby="tools-title">
+            <div class="tools-block-heading">
+              <p class="project-type">PERSONAL TOOLS</p>
+              <h3 id="tools-title">Tools</h3>
+              <p>
+                있으면 편하고, 없으면 불편한 작은 문제들을 직접 해결하기 위해 만든 도구들입니다.
+                반복되는 작업을 줄이고 실제로 제가 쓰고 싶은 기능을 빠르게 제품으로 만들어 운영하고 있습니다.
+              </p>
             </div>
-          </article>
+
+            <div class="tool-list">
+              <a class="tool-item" href="https://maskly.junu.dev" target="_blank" rel="noreferrer">
+                <div>
+                  <h4>Maskly</h4>
+                  <p>이미지의 개인정보와 노출하고 싶지 않은 영역을 빠르게 가리고, 필요한 부분을 편집하기 위해 만든 이미지 도구.</p>
+                </div>
+                <span>maskly.junu.dev ↗</span>
+              </a>
+
+              <a class="tool-item" href="https://transformer.junu.dev" target="_blank" rel="noreferrer">
+                <div>
+                  <h4>Transformer</h4>
+                  <p>브라우저 기반 파일 변환에서 시작해 API와 비동기 Worker 구조로 확장하고 있는 파일 변환 도구.</p>
+                </div>
+                <span>transformer.junu.dev ↗</span>
+              </a>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -305,5 +354,7 @@
         </div>
       </footer>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>

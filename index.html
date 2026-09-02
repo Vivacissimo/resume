@@ -5,422 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Joon Woo Kim — Social Welfare background to VFX, Pipeline / IT Infrastructure, and DevOps / Cloud Engineering"
+      content="Joon Woo Kim — Social Welfare to VFX, Pipeline Infrastructure and DevOps / Cloud Engineering"
     />
-    <meta name="theme-color" content="#070b12" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Joon Woo Kim — Resume</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <div class="grid" aria-hidden="true"></div>
-      <div class="ambient ambient-a" aria-hidden="true"></div>
-      <div class="ambient ambient-b" aria-hidden="true"></div>
+    <main class="resume">
+      <header class="profile" id="introduce">
+        <div class="profile-title">
+          <p class="role">DEVOPS / CLOUD ENGINEER</p>
+          <h1>김준우 <span>Joon Woo Kim</span></h1>
+          <p class="headline">
+            사람과 환경에 대한 관심에서 시작해,<br />
+            제작 시스템을 거쳐 인프라와 자동화를 만들고 있습니다.
+          </p>
+        </div>
 
-      <header class="site-header">
-        <a class="brand" href="https://junu.dev" aria-label="JUNU.DEV로 이동">
-          <span class="brand-mark">J</span>
-          <span>JUNU.DEV</span>
-          <span class="brand-sub">/ RESUME</span>
-        </a>
-
-        <nav class="nav" aria-label="Resume sections">
-          <a href="#introduce" data-section="introduce"><span>01</span>Introduce</a>
-          <a href="#journey" data-section="journey"><span>02</span>Journey</a>
-          <a href="#experience" data-section="experience"><span>03</span>Experience</a>
-          <a href="#skills" data-section="skills"><span>04</span>Skills</a>
-          <a href="#projects" data-section="projects"><span>05</span>Projects</a>
-        </nav>
-
-        <a class="header-action" href="mailto:joon@junu.dev">Contact ↗</a>
+        <div class="profile-links" aria-label="Contact links">
+          <a href="mailto:joon@junu.dev">joon@junu.dev</a>
+          <a href="https://junu.dev" target="_blank" rel="noreferrer">junu.dev</a>
+          <a href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Tech Wiki</a>
+        </div>
       </header>
 
-      <aside class="page-pager" aria-label="페이지 이동">
-        <a href="#introduce" class="pager-link is-active" data-section="introduce"><span>01</span><i></i></a>
-        <a href="#journey" class="pager-link" data-section="journey"><span>02</span><i></i></a>
-        <a href="#experience" class="pager-link" data-section="experience"><span>03</span><i></i></a>
-        <a href="#skills" class="pager-link" data-section="skills"><span>04</span><i></i></a>
-        <a href="#projects" class="pager-link" data-section="projects"><span>05</span><i></i></a>
-      </aside>
+      <section class="resume-section intro-section">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <h2>INTRODUCE</h2>
+        </div>
 
-      <main>
-        <section class="page-section introduce" id="introduce" data-page="01">
-          <div class="section-inner introduce-layout">
-            <div class="introduce-copy reveal">
-              <p class="section-kicker">01 / INTRODUCE</p>
-              <p class="role">DEVOPS / CLOUD ENGINEER</p>
-              <h1>
-                <span>From people,</span>
-                <span>to production,</span>
-                <span class="accent-line">to infrastructure.</span>
-              </h1>
+        <div class="section-content intro-copy">
+          <p class="lead">
+            현재는 <strong>Cloud Native Infrastructure와 DevOps</strong>에 관심을 두고,
+            Kubernetes 기반 서비스 운영과 CI/CD, GitOps, IaC, Observability를 중심으로 경험을 넓히고 있습니다.
+          </p>
 
-              <div class="intro-story">
-                <p>
-                  처음에는 사회복지 분야에 관심을 두었습니다. 사람과 환경, 그리고 더 나은 경험을 만드는 일에 관심이 있었고,
-                  이후 VFX 분야로 이동해 콘텐츠가 만들어지는 제작 환경을 경험했습니다.
-                </p>
-                <p>
-                  VFX 현장에서는 결과물을 만드는 일뿐 아니라 작업자가 사용하는 Pipeline, Render Farm, Linux 기반 제작 환경과
-                  반복되는 작업을 개선하는 일에 더 큰 흥미를 느꼈습니다. 문제를 분석하고 자동화하며 제작 환경을 안정화하는 경험이
-                  자연스럽게 Infrastructure에 대한 관심으로 이어졌습니다.
-                </p>
-                <p>
-                  현재는 그 경험을 Cloud Native 환경으로 확장하고 있습니다. AWS, Kubernetes, CI/CD, GitOps, IaC를 중심으로
-                  반복 가능하고 관찰 가능하며 안정적으로 운영할 수 있는 시스템을 만드는 데 관심을 두고 있습니다.
-                </p>
-              </div>
+          <p>
+            시작은 지금과 꽤 다른 사회복지 분야였습니다. 사람과 환경, 그리고 서비스가 실제 사용자의 삶에 어떤 영향을 주는지에 관심을 가졌고,
+            이후 관심의 방향이 콘텐츠 제작으로 옮겨가며 VFX 분야에 들어오게 되었습니다.
+          </p>
 
-              <div class="hero-actions">
-                <a class="button primary" href="mailto:joon@junu.dev">joon@junu.dev ↗</a>
-                <a class="button" href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer">GitHub ↗</a>
-                <a class="button" href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Tech Wiki ↗</a>
-                <a class="button" href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
-              </div>
-            </div>
+          <p>
+            VFX 현장에서는 결과물을 만드는 일만큼이나 그 결과물이 만들어지는 <strong>환경과 시스템</strong>에 더 큰 흥미를 느꼈습니다.
+            Houdini, Nuke, Maya 같은 제작 도구와 Render Farm, Linux 환경을 다루면서 작업자의 반복 작업을 줄이고,
+            Pipeline 문제를 해결하고, 제작 환경을 안정적으로 유지하는 일을 경험했습니다.
+          </p>
 
-            <aside class="current-panel reveal delay-1" aria-label="현재 관심 영역">
-              <div class="panel-head">
-                <span>PROFILE / CURRENT</span>
-                <span class="status"><i></i> CURRENT</span>
-              </div>
+          <p>
+            그렇게 관심은 자연스럽게 <strong>Pipeline Automation → IT Infrastructure → Cloud / DevOps</strong>로 확장되었습니다.
+            분야는 바뀌었지만, 사용자가 더 안정적으로 일할 수 있는 환경을 만들고 반복 가능한 시스템으로 개선한다는 방향은 계속 이어지고 있습니다.
+          </p>
 
-              <div class="profile-block">
-                <span class="profile-label">CURRENT INTEREST</span>
-                <strong>Cloud Native Infrastructure</strong>
-                <p>배포 자동화, Kubernetes 운영, GitOps, IaC, Observability</p>
-              </div>
+          <blockquote>
+            반복 가능하고, 관찰 가능하며, 운영할 수 있는 시스템을 만드는 엔지니어를 지향합니다.
+          </blockquote>
+        </div>
+      </section>
 
-              <div class="profile-block">
-                <span class="profile-label">DIRECTION</span>
-                <strong>Reliable Operations</strong>
-                <p>반복 가능한 구성과 운영 가시성을 갖춘 시스템</p>
-              </div>
+      <section class="resume-section" id="journey">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <h2>CAREER JOURNEY</h2>
+        </div>
 
-              <div class="career-mini-flow" aria-label="커리어 흐름 요약">
-                <div><span>01</span><strong>Social Welfare</strong></div>
-                <i></i>
-                <div><span>02</span><strong>VFX</strong></div>
-                <i></i>
-                <div><span>03</span><strong>Pipeline / Infra</strong></div>
-                <i></i>
-                <div class="is-current"><span>04</span><strong>DevOps</strong></div>
-              </div>
-            </aside>
-          </div>
+        <div class="section-content">
+          <p class="section-intro">
+            서로 다른 분야를 지나왔지만, 관심의 중심은 사람과 작업 환경에서 시스템과 자동화로 점점 구체화되었습니다.
+          </p>
 
-          <a class="next-page" href="#journey"><span>02 / CAREER JOURNEY</span><i></i></a>
-        </section>
-
-        <section class="page-section journey" id="journey" data-page="02">
-          <div class="section-inner">
-            <div class="section-heading reveal">
+          <ol class="journey-list">
+            <li>
+              <span class="journey-index">01</span>
               <div>
-                <p class="section-kicker">02 / CAREER JOURNEY</p>
-                <h2>Different fields.<br />One direction.</h2>
-              </div>
-              <p class="section-description">
-                분야는 달라졌지만 관심은 점점 명확해졌습니다. 사람이 사용하는 환경을 이해하고,
-                문제를 줄이고, 더 나은 시스템을 만드는 방향으로 이어졌습니다.
-              </p>
-            </div>
-
-            <div class="career-pipeline reveal delay-1">
-              <article class="career-node is-origin">
-                <div class="node-index">01</div>
-                <div class="node-status"><i></i> ORIGIN</div>
                 <h3>Social Welfare</h3>
-                <p>People · Environment · Service</p>
-                <div class="node-copy">사람과 환경, 서비스가 사용자에게 미치는 영향에 관심을 두었던 출발점.</div>
-              </article>
-
-              <div class="pipeline-arrow"><span>interest</span><i></i></div>
-
-              <article class="career-node is-vfx">
-                <div class="node-index">02</div>
-                <div class="node-status"><i></i> PRODUCTION</div>
+                <p class="journey-subtitle">People & Environment</p>
+                <p>사람과 환경, 서비스가 사용자에게 미치는 영향에 관심을 두었던 출발점.</p>
+              </div>
+            </li>
+            <li>
+              <span class="journey-index">02</span>
+              <div>
                 <h3>VFX Production</h3>
-                <p>Houdini · Nuke · Maya</p>
-                <div class="node-copy">콘텐츠 제작 Workflow와 실제 Production 환경을 경험.</div>
-              </article>
-
-              <div class="pipeline-arrow"><span>workflow</span><i></i></div>
-
-              <article class="career-node is-infra">
-                <div class="node-index">03</div>
-                <div class="node-status"><i></i> AUTOMATION</div>
-                <h3>Pipeline / IT Infra</h3>
-                <p>Linux · Render Farm · Python</p>
-                <div class="node-copy">제작 환경 운영과 문제 해결, 반복 작업 자동화로 관심이 확장.</div>
-              </article>
-
-              <div class="pipeline-arrow"><span>platform</span><i></i></div>
-
-              <article class="career-node is-current">
-                <div class="node-index">04</div>
-                <div class="node-status"><i></i> CURRENT</div>
+                <p class="journey-subtitle">Houdini · Nuke · Maya · Production Workflow</p>
+                <p>콘텐츠 제작 과정과 아티스트의 작업 흐름을 이해하고 실제 Production 환경을 경험.</p>
+              </div>
+            </li>
+            <li>
+              <span class="journey-index">03</span>
+              <div>
+                <h3>Pipeline / IT Infrastructure</h3>
+                <p class="journey-subtitle">Linux · Render Farm · Pipeline · Automation</p>
+                <p>제작 환경을 운영하고 반복 작업과 장애를 줄이기 위한 자동화와 시스템 개선에 집중.</p>
+              </div>
+            </li>
+            <li class="is-current">
+              <span class="journey-index">04</span>
+              <div>
                 <h3>Cloud / DevOps</h3>
-                <p>AWS · Kubernetes · CI/CD</p>
-                <div class="node-copy">Infrastructure와 Automation 경험을 Cloud Native 운영으로 확장.</div>
-              </article>
+                <p class="journey-subtitle">AWS · Kubernetes · CI/CD · GitOps · IaC</p>
+                <p>기존 운영·자동화 경험을 Cloud Native 환경으로 확장하며 배포와 운영 전반을 다루는 방향으로 이동.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="resume-section" id="experience">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+          <h2>EXPERIENCE</h2>
+        </div>
+
+        <div class="section-content experience-list">
+          <article class="experience-item">
+            <div class="experience-meta">
+              <strong>Cloud / DevOps</strong>
+              <span>Current Focus</span>
             </div>
-          </div>
-
-          <a class="next-page" href="#experience"><span>03 / EXPERIENCE</span><i></i></a>
-        </section>
-
-        <section class="page-section experience" id="experience" data-page="03">
-          <div class="section-inner experience-layout">
-            <div class="experience-intro reveal">
-              <p class="section-kicker">03 / EXPERIENCE</p>
-              <h2>Journey,<br />in detail.</h2>
+            <div class="experience-body">
+              <h3>DevOps & Cloud Engineering</h3>
               <p>
-                2페이지의 Career Journey를 실제 경험 기준으로 풀어낸 영역입니다.
-                현재와 가까운 경험일수록 더 구체적으로 정리했습니다.
+                VFX 제작 인프라에서 쌓은 운영과 자동화 경험을 Cloud Native 환경으로 확장하고 있습니다.
               </p>
-
-              <div class="origin-note">
-                <span>ORIGIN / SOCIAL WELFARE</span>
-                <p>
-                  사회복지는 현재의 기술 직무 경력으로 표현하기보다, 사람과 환경에 관심을 갖게 된 배경으로 남겨둡니다.
-                  이후 분야는 달라졌지만 사용자가 더 나은 환경에서 일할 수 있도록 개선한다는 관심은 계속 이어졌습니다.
-                </p>
-              </div>
+              <ul>
+                <li>AWS / Kubernetes 기반 애플리케이션 인프라 구성 및 운영</li>
+                <li>Docker 기반 Containerization과 Kubernetes Workload 구성</li>
+                <li>Jenkins / GitHub Actions 기반 Build · Test · Image Push 자동화</li>
+                <li>ArgoCD를 이용한 GitOps 기반 배포 흐름 구성</li>
+                <li>Terraform 기반 Infrastructure as Code 적용</li>
+                <li>Prometheus · Grafana · Kiali를 통한 서비스 및 인프라 관찰</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="experience-list reveal delay-1">
-              <article class="experience-card current">
-                <div class="experience-meta"><span>03</span><small>CURRENT</small></div>
-                <div class="experience-body">
-                  <div class="experience-title">
-                    <div>
-                      <p>CLOUD / DEVOPS</p>
-                      <h3>DevOps & Cloud Engineering</h3>
-                    </div>
-                    <span class="badge">CURRENT FOCUS</span>
-                  </div>
-                  <p class="experience-summary-text">
-                    VFX 인프라와 Pipeline에서 쌓은 운영·자동화 경험을 AWS와 Kubernetes 기반 Cloud Native 환경으로 확장.
-                  </p>
-                  <ul>
-                    <li>AWS / Kubernetes 기반 Cloud Native 인프라 설계 및 구성</li>
-                    <li>Jenkins / GitHub Actions 기반 Build · Test · Image Push 자동화</li>
-                    <li>ArgoCD를 활용한 GitOps 배포 흐름 구성</li>
-                    <li>Terraform 기반 Infrastructure as Code 적용</li>
-                    <li>Prometheus · Grafana · Kiali 기반 Observability 구성</li>
-                  </ul>
-                  <div class="tag-row">
-                    <span>AWS</span><span>Kubernetes</span><span>Docker</span><span>Jenkins</span><span>GitHub Actions</span><span>ArgoCD</span><span>Terraform</span><span>Prometheus</span><span>Grafana</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="experience-card">
-                <div class="experience-meta"><span>02</span><small>FOUNDATION</small></div>
-                <div class="experience-body">
-                  <div class="experience-title">
-                    <div>
-                      <p>PIPELINE / IT INFRASTRUCTURE</p>
-                      <h3>Pipeline TD / IT Infrastructure</h3>
-                    </div>
-                    <span class="badge muted">AUTOMATION</span>
-                  </div>
-                  <p class="experience-summary-text">
-                    아티스트와 Production 시스템 사이에서 제작 환경이 안정적으로 동작하도록 운영하고 반복되는 문제를 줄이는 역할.
-                  </p>
-                  <ul>
-                    <li>Linux 기반 VFX 제작 환경과 Render Farm 운영 및 트러블슈팅</li>
-                    <li>Houdini / Nuke / Maya 기반 제작 Pipeline 문제 분석 및 지원</li>
-                    <li>Render Workflow와 작업 환경에서 발생하는 반복 작업 자동화</li>
-                    <li>제작자와 시스템 사이의 문제를 분석하고 운영 관점에서 해결</li>
-                    <li>Pipeline 안정성과 작업 효율을 높이기 위한 도구 및 프로세스 개선</li>
-                  </ul>
-                  <div class="tag-row">
-                    <span>Linux</span><span>Python</span><span>Tractor</span><span>Render Farm</span><span>Pipeline</span><span>Troubleshooting</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="experience-card">
-                <div class="experience-meta"><span>01</span><small>PRODUCTION</small></div>
-                <div class="experience-body">
-                  <div class="experience-title">
-                    <div>
-                      <p>VFX PRODUCTION</p>
-                      <h3>VFX Production Workflow</h3>
-                    </div>
-                    <span class="badge muted">START</span>
-                  </div>
-                  <p class="experience-summary-text">
-                    VFX 제작 환경에서 DCC 도구와 Production Workflow를 경험하며 시스템과 Pipeline에 관심을 갖기 시작한 단계.
-                  </p>
-                  <ul>
-                    <li>Houdini / Nuke / Maya 기반 VFX 제작 Workflow 경험</li>
-                    <li>Production 환경에서 발생하는 작업 문제와 기술적 제약 이해</li>
-                    <li>작업 자체보다 제작 환경과 Workflow 개선에 관심을 확장</li>
-                  </ul>
-                  <div class="tag-row"><span>Houdini</span><span>Nuke</span><span>Maya</span><span>VFX</span><span>Production</span></div>
-                </div>
-              </article>
+          <article class="experience-item">
+            <div class="experience-meta">
+              <strong>Pipeline / IT Infra</strong>
+              <span>Foundation</span>
             </div>
-          </div>
-
-          <a class="next-page" href="#skills"><span>04 / STACK & SKILLS</span><i></i></a>
-        </section>
-
-        <section class="page-section skills" id="skills" data-page="04">
-          <div class="section-inner">
-            <div class="section-heading reveal">
-              <div>
-                <p class="section-kicker">04 / STACK & SKILLS</p>
-                <h2>What I can<br />work with.</h2>
-              </div>
-              <p class="section-description">
-                숙련도를 퍼센트로 표현하기보다, 어떤 영역에서 어떤 기술을 사용하고 무엇을 구성할 수 있는지 중심으로 정리했습니다.
+            <div class="experience-body">
+              <h3>Pipeline TD / IT Infrastructure</h3>
+              <p>
+                아티스트와 제작 도구가 안정적으로 동작할 수 있도록 VFX Production 환경의 시스템과 Pipeline을 운영했습니다.
               </p>
+              <ul>
+                <li>Linux 기반 VFX 제작 환경과 Render Farm 운영 및 Troubleshooting</li>
+                <li>Houdini · Nuke · Maya 기반 Pipeline 문제 분석과 사용자 지원</li>
+                <li>Render Workflow와 제작 과정에서 발생하는 반복 작업 자동화</li>
+                <li>작업자와 시스템 사이의 병목을 분석하고 운영 관점에서 개선</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="skill-matrix reveal delay-1">
-              <article class="skill-group">
-                <div class="skill-head"><span>01</span><div><p>CLOUD</p><h3>AWS</h3></div></div>
-                <div class="skill-items"><span>EC2</span><span>VPC</span><span>EKS</span><span>ECR</span><span>IAM</span><span>S3</span></div>
-                <p class="skill-description">네트워크와 컴퓨팅부터 Kubernetes 기반 배포 환경까지 Cloud Infrastructure 구성.</p>
-              </article>
-
-              <article class="skill-group">
-                <div class="skill-head"><span>02</span><div><p>CONTAINER / ORCHESTRATION</p><h3>Docker · Kubernetes · Helm</h3></div></div>
-                <div class="skill-items"><span>Image</span><span>Volume</span><span>Pod</span><span>Deployment</span><span>Service</span><span>Ingress</span><span>Helm</span></div>
-                <p class="skill-description">애플리케이션 컨테이너화와 Kubernetes Workload / Service 운영 구조 구성.</p>
-              </article>
-
-              <article class="skill-group">
-                <div class="skill-head"><span>03</span><div><p>CI/CD / GITOPS</p><h3>Jenkins · GitHub Actions · ArgoCD</h3></div></div>
-                <div class="skill-items"><span>Pipeline</span><span>Agent</span><span>Webhook</span><span>Workflow</span><span>Build</span><span>GitOps</span><span>Sync</span></div>
-                <p class="skill-description">소스 변경부터 Build / Image Push / GitOps 배포까지 자동화 흐름 구성.</p>
-              </article>
-
-              <article class="skill-group">
-                <div class="skill-head"><span>04</span><div><p>INFRASTRUCTURE AS CODE</p><h3>Terraform</h3></div></div>
-                <div class="skill-items"><span>Provider</span><span>Module</span><span>State</span><span>Resource</span></div>
-                <p class="skill-description">반복 가능한 Infrastructure 구성을 코드로 관리하는 IaC 방식 적용.</p>
-              </article>
-
-              <article class="skill-group">
-                <div class="skill-head"><span>05</span><div><p>OBSERVABILITY / NETWORK</p><h3>Prometheus · Grafana · Kiali</h3></div></div>
-                <div class="skill-items"><span>Metrics</span><span>Dashboard</span><span>Istio</span><span>Envoy</span><span>Nginx</span><span>Cloudflare</span></div>
-                <p class="skill-description">서비스 상태와 트래픽 흐름을 확인하고 운영 가시성을 확보하는 모니터링 환경 구성.</p>
-              </article>
-
-              <article class="skill-group">
-                <div class="skill-head"><span>06</span><div><p>VFX / PIPELINE</p><h3>Houdini · Nuke · Maya · Tractor</h3></div></div>
-                <div class="skill-items"><span>Python</span><span>Render Farm</span><span>Pipeline</span><span>Troubleshooting</span></div>
-                <p class="skill-description">VFX Production 환경과 Render / Pipeline Workflow 운영 및 문제 해결.</p>
-              </article>
-
-              <article class="skill-group wide">
-                <div class="skill-head"><span>07</span><div><p>SYSTEMS / TOOLS</p><h3>Linux · Git · Raspberry Pi</h3></div></div>
-                <div class="skill-items"><span>Linux</span><span>Git</span><span>Nginx</span><span>Cloudflare</span><span>Raspberry Pi</span></div>
-                <p class="skill-description">개인 서비스와 개발 환경을 직접 운영하며 시스템 레벨의 기본 운영 경험을 확장.</p>
-              </article>
+          <article class="experience-item compact">
+            <div class="experience-meta">
+              <strong>VFX Production</strong>
+              <span>Previous</span>
             </div>
-          </div>
-
-          <a class="next-page" href="#projects"><span>05 / SELECTED PROJECTS</span><i></i></a>
-        </section>
-
-        <section class="page-section projects" id="projects" data-page="05">
-          <div class="section-inner">
-            <div class="section-heading reveal">
-              <div>
-                <p class="section-kicker">05 / SELECTED PROJECTS</p>
-                <h2>Where the stack<br />becomes real.</h2>
-              </div>
-              <p class="section-description">
-                기술을 기능 단위로 배우는 데서 끝내지 않고, 실제 배포와 운영 흐름으로 연결한 대표 경험을 정리했습니다.
-              </p>
+            <div class="experience-body">
+              <h3>Production Workflow</h3>
+              <p>Houdini, Nuke, Maya 등을 사용하는 VFX 제작 환경과 Render Workflow 경험.</p>
             </div>
+          </article>
 
-            <div class="project-list">
-              <article class="project-card reveal">
-                <div class="project-number">01</div>
-                <div class="project-main">
-                  <p class="project-type">CLOUD NATIVE / DEVOPS</p>
-                  <h3>Kubernetes · CI/CD · GitOps Infrastructure</h3>
-                  <p>
-                    AWS EKS와 Kubernetes를 기반으로 애플리케이션 배포 환경을 구성하고,
-                    CI부터 GitOps CD와 Observability까지 하나의 운영 흐름으로 연결.
-                  </p>
-                  <ul>
-                    <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름</li>
-                    <li>Kubernetes Workload · Service · Ingress · Helm 구성</li>
-                    <li>Prometheus · Grafana · Kiali 기반 운영 지표 및 트래픽 확인</li>
-                  </ul>
-                </div>
-                <div class="project-stack"><span>AWS</span><span>EKS</span><span>Kubernetes</span><span>Jenkins</span><span>ArgoCD</span><span>Terraform</span></div>
-              </article>
-
-              <article class="project-card reveal">
-                <div class="project-number">02</div>
-                <div class="project-main">
-                  <p class="project-type">VFX / PIPELINE</p>
-                  <h3>Production Pipeline & Render Operations</h3>
-                  <p>
-                    VFX 제작 환경에서 아티스트 작업과 시스템 운영 사이의 문제를 분석하고,
-                    Pipeline과 Render 환경이 안정적으로 동작하도록 운영 및 개선.
-                  </p>
-                  <ul>
-                    <li>Render Farm 작업 흐름과 장애 대응</li>
-                    <li>DCC 환경 및 Pipeline 이슈 분석 / Troubleshooting</li>
-                    <li>반복되는 작업을 줄이기 위한 자동화와 운영 개선</li>
-                  </ul>
-                </div>
-                <div class="project-stack"><span>Houdini</span><span>Nuke</span><span>Maya</span><span>Tractor</span><span>Linux</span><span>Python</span></div>
-              </article>
-
-              <article class="project-card reveal">
-                <div class="project-number">03</div>
-                <div class="project-main">
-                  <p class="project-type">PERSONAL INFRASTRUCTURE</p>
-                  <h3>junu.dev Home Infrastructure</h3>
-                  <p>
-                    포트폴리오, 기술 위키와 개인 도구를 직접 배포하고 운영하며 작은 규모의 실제 서비스 운영 환경을 구성.
-                  </p>
-                  <ul>
-                    <li>Raspberry Pi / Docker 기반 self-hosted services 운영</li>
-                    <li>Cloudflare를 통한 외부 서비스 노출과 도메인 구성</li>
-                    <li>GitHub 기반 코드 관리와 개인 서비스 배포 흐름 운영</li>
-                  </ul>
-                  <div class="project-links">
-                    <a href="https://junu.dev" target="_blank" rel="noreferrer">junu.dev ↗</a>
-                    <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">wiki.junu.dev ↗</a>
-                  </div>
-                </div>
-                <div class="project-stack"><span>Linux</span><span>Docker</span><span>Cloudflare</span><span>Nginx</span><span>GitHub</span><span>Raspberry Pi</span></div>
-              </article>
+          <article class="experience-item compact muted-item">
+            <div class="experience-meta">
+              <strong>Social Welfare</strong>
+              <span>Background</span>
             </div>
-
-            <div class="closing reveal">
-              <div>
-                <p class="section-kicker">CURRENT DIRECTION</p>
-                <h2>Build systems that are<br />repeatable, observable<br />and operable.</h2>
-              </div>
-              <div class="closing-links">
-                <a href="mailto:joon@junu.dev"><span>Email</span><strong>joon@junu.dev ↗</strong></a>
-                <a href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer"><span>Code</span><strong>GitHub ↗</strong></a>
-                <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer"><span>Knowledge</span><strong>Tech Wiki ↗</strong></a>
-                <a href="https://junu.dev" target="_blank" rel="noreferrer"><span>Portfolio</span><strong>junu.dev ↗</strong></a>
-              </div>
+            <div class="experience-body">
+              <h3>People & Service</h3>
+              <p>사람과 환경, 서비스에 대한 관심이 지금의 사용자 중심 문제 해결 방식으로 이어진 배경.</p>
             </div>
-          </div>
-        </section>
-      </main>
+          </article>
+        </div>
+      </section>
 
-      <footer>
-        <span>JOON WOO KIM / RESUME</span>
-        <span>SOCIAL WELFARE → VFX → PIPELINE / INFRA → CLOUD / DEVOPS</span>
+      <section class="resume-section" id="skills">
+        <div class="section-heading">
+          <span class="section-number">04</span>
+          <h2>STACK & SKILLS</h2>
+        </div>
+
+        <div class="section-content skill-list">
+          <article class="skill-item">
+            <h3>Cloud</h3>
+            <div>
+              <strong>AWS</strong>
+              <p>EC2 · VPC · EKS · ECR · IAM · S3</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>Container</h3>
+            <div>
+              <strong>Docker · Kubernetes · Helm</strong>
+              <p>Image · Volume · Network · Pod · Deployment · Service · Ingress · Chart</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>CI/CD & GitOps</h3>
+            <div>
+              <strong>Jenkins · GitHub Actions · ArgoCD</strong>
+              <p>Pipeline · Agent · Webhook · Workflow · Build · GitOps · Sync</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>Infrastructure as Code</h3>
+            <div>
+              <strong>Terraform</strong>
+              <p>Provider · Resource · Module · State</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>Observability</h3>
+            <div>
+              <strong>Prometheus · Grafana · Kiali</strong>
+              <p>Metric · Dashboard · Service Topology · Resource Monitoring</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>Systems</h3>
+            <div>
+              <strong>Linux · Nginx · Cloudflare · Git</strong>
+              <p>Service Operation · Networking · DNS · Reverse Proxy · Version Control</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>VFX / Pipeline</h3>
+            <div>
+              <strong>Houdini · Nuke · Maya · Tractor · Python</strong>
+              <p>Production Pipeline · Render Farm · Troubleshooting · Automation</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" id="projects">
+        <div class="section-heading">
+          <span class="section-number">05</span>
+          <h2>SELECTED PROJECTS</h2>
+        </div>
+
+        <div class="section-content project-list">
+          <article class="project-item">
+            <p class="project-type">CLOUD NATIVE / DEVOPS</p>
+            <h3>Kubernetes · CI/CD · GitOps Infrastructure</h3>
+            <p class="project-description">
+              Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
+            </p>
+            <ul>
+              <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
+              <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
+              <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
+            </ul>
+            <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
+          </article>
+
+          <article class="project-item">
+            <p class="project-type">VFX / PIPELINE</p>
+            <h3>Production Pipeline & Render Operations</h3>
+            <p class="project-description">
+              VFX 제작 환경에서 아티스트 작업과 시스템 사이의 문제를 분석하고 Pipeline과 Render 환경을 안정적으로 운영.
+            </p>
+            <ul>
+              <li>Render Farm 작업 흐름과 장애 대응</li>
+              <li>Houdini · Nuke · Maya Pipeline Troubleshooting</li>
+              <li>반복 작업을 줄이기 위한 Production Workflow 자동화와 개선</li>
+            </ul>
+            <p class="project-tech">Linux · Houdini · Nuke · Maya · Tractor · Python</p>
+          </article>
+
+          <article class="project-item">
+            <p class="project-type">PERSONAL INFRASTRUCTURE</p>
+            <h3>junu.dev Home Infrastructure</h3>
+            <p class="project-description">
+              개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
+            </p>
+            <ul>
+              <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
+              <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
+              <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
+            </ul>
+            <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
+            <div class="project-links">
+              <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
+              <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Joon Woo Kim</p>
+        <div>
+          <a href="mailto:joon@junu.dev">Email</a>
+          <a href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
       </footer>
-    </div>
-
-    <script src="./script.js"></script>
+    </main>
   </body>
 </html>

@@ -46,31 +46,46 @@ a:hover {
 .section-indicator {
   position: fixed;
   top: 50%;
-  right: max(24px, calc((100vw - var(--max-width)) / 2 - 78px));
+  right: clamp(18px, 2.4vw, 44px);
   z-index: 20;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  align-items: flex-end;
+  gap: 12px;
   transform: translateY(-50%);
 }
 
 .indicator-link {
   display: grid;
-  grid-template-columns: 26px 34px;
+  grid-template-columns: 24px minmax(96px, auto) 34px;
   align-items: center;
+  justify-content: end;
   gap: 9px;
-  min-height: 22px;
+  min-height: 24px;
   color: #c1c7d0;
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
   transition: color 0.2s ease;
+}
+
+.indicator-number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.indicator-label {
+  min-width: 0;
+  text-align: right;
+  letter-spacing: 0.035em;
 }
 
 .indicator-link i {
   display: block;
   width: 18px;
   height: 1px;
+  justify-self: end;
   background: #d7dce2;
   transition: width 0.2s ease, background 0.2s ease;
 }
@@ -474,7 +489,7 @@ blockquote {
   gap: 18px;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .section-indicator {
     display: none;
   }

@@ -265,69 +265,117 @@
           <h2>SELECTED PROJECTS</h2>
         </div>
 
-        <div class="section-content">
-          <div class="project-list">
-            <article class="project-item">
-              <p class="project-type">CLOUD NATIVE / DEVOPS</p>
-              <h3>Kubernetes · CI/CD · GitOps Infrastructure</h3>
-              <p class="project-description">
-                Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
-              </p>
-              <ul>
-                <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
-                <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
-                <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
-              </ul>
-              <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
-            </article>
-
-            <article class="project-item">
-              <p class="project-type">VFX / PIPELINE</p>
-              <h3>Production Pipeline &amp; Render Operations</h3>
-              <p class="project-description">
-                VFX 제작 환경에서 아티스트 작업과 시스템 사이의 문제를 분석하고 Pipeline과 Render 환경을 안정적으로 운영.
-              </p>
-              <ul>
-                <li>Render Farm 작업 흐름과 장애 대응</li>
-                <li>Houdini · Nuke · Maya Pipeline Troubleshooting</li>
-                <li>반복 작업을 줄이기 위한 Production Workflow 자동화와 개선</li>
-              </ul>
-              <p class="project-tech">Linux · Houdini · Nuke · Maya · Tractor · Python</p>
-            </article>
-
-            <article class="project-item">
-              <p class="project-type">PERSONAL INFRASTRUCTURE</p>
-              <h3>junu.dev Home Infrastructure</h3>
-              <p class="project-description">
-                개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
-              </p>
-              <ul>
-                <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
-                <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
-                <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
-              </ul>
-              <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
-              <div class="project-links">
-                <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
-                <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
+        <div class="section-content project-groups">
+          <details class="project-group">
+            <summary>
+              <div class="project-group-title">
+                <p class="project-type">CLOUD / DEVOPS</p>
+                <h3>KT Cloud</h3>
+                <p>Cloud Native · Kubernetes · CI/CD · GitOps</p>
               </div>
-            </article>
+              <span class="project-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="project-group-content">
+              <article class="project-item">
+                <p class="project-type">CLOUD NATIVE / DEVOPS</p>
+                <h4>Kubernetes · CI/CD · GitOps Infrastructure</h4>
+                <p class="project-description">
+                  Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
+                </p>
+                <ul>
+                  <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
+                  <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
+                  <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
+                </ul>
+                <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
+              </article>
+            </div>
+          </details>
 
-            <article class="project-item">
-              <p class="project-type">PERSONAL DEV TOOLS</p>
-              <h3>Personal Dev Tools</h3>
-              <p class="project-description">Image Edit &amp; File Extension Transform Page</p>
-              <ul>
-                <li>AI Agent를 활용해 개인 작업에서 필요했던 기능을 빠르게 구현하고 개선</li>
-                <li>이미지 편집과 파일 확장자 변환 기능을 각각 독립적인 웹 도구로 제작 및 운영</li>
-              </ul>
-              <p class="project-tech">AI Agent · Image Edit · File Convert · Web Tool</p>
-              <div class="project-links">
-                <a href="https://maskly.junu.dev" target="_blank" rel="noreferrer">Maskly ↗</a>
-                <a href="https://transformer.junu.dev" target="_blank" rel="noreferrer">Transformer ↗</a>
+          <details class="project-group">
+            <summary>
+              <div class="project-group-title">
+                <p class="project-type">PRODUCTION / R&amp;D</p>
+                <h3>Cocoavision</h3>
+                <p>NewMedia R&amp;D · VFX Pipeline / Infrastructure</p>
               </div>
-            </article>
-          </div>
+              <span class="project-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="project-group-content">
+              <article class="project-item project-subgroup">
+                <p class="project-type">NEWMEDIA R&amp;D</p>
+                <h4>Real-time Content R&amp;D</h4>
+                <p class="project-description">
+                  Unreal Engine과 Blender를 활용한 웹툰 제작 및 렌더링과 실시간 콘텐츠 제작 방식을 연구했습니다.
+                </p>
+                <ul>
+                  <li>Unreal Engine · Blender 기반 웹툰 제작 및 렌더링 Workflow 구성</li>
+                  <li>Motion Capture 데이터를 콘텐츠 제작 Workflow에 적용하는 R&amp;D</li>
+                  <li>VFX 제작 Workflow와 Unreal Engine을 연결하기 위한 기술 연구</li>
+                </ul>
+                <p class="project-tech">Unreal Engine · Blender · Motion Capture · VFX · Rendering</p>
+              </article>
+
+              <article class="project-item project-subgroup">
+                <p class="project-type">VFX / PIPELINE</p>
+                <h4>Production Pipeline &amp; Render Operations</h4>
+                <p class="project-description">
+                  VFX 제작 환경에서 아티스트 작업과 시스템 사이의 문제를 분석하고 Pipeline과 Render 환경을 안정적으로 운영했습니다.
+                </p>
+                <ul>
+                  <li>Render Farm 작업 흐름과 장애 대응</li>
+                  <li>Houdini · Nuke · Maya Pipeline Troubleshooting</li>
+                  <li>반복 작업을 줄이기 위한 Production Workflow 자동화와 개선</li>
+                </ul>
+                <p class="project-tech">Linux · Houdini · Nuke · Maya · Tractor · Python</p>
+              </article>
+            </div>
+          </details>
+
+          <details class="project-group">
+            <summary>
+              <div class="project-group-title">
+                <p class="project-type">PERSONAL</p>
+                <h3>Personal</h3>
+                <p>Home Infrastructure · Personal Dev Tools</p>
+              </div>
+              <span class="project-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="project-group-content">
+              <article class="project-item project-subgroup">
+                <p class="project-type">PERSONAL INFRASTRUCTURE</p>
+                <h4>junu.dev Home Infrastructure</h4>
+                <p class="project-description">
+                  개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
+                </p>
+                <ul>
+                  <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
+                  <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
+                  <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
+                </ul>
+                <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
+                <div class="project-links">
+                  <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
+                  <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
+                </div>
+              </article>
+
+              <article class="project-item project-subgroup">
+                <p class="project-type">PERSONAL DEV TOOLS</p>
+                <h4>Personal Dev Tools</h4>
+                <p class="project-description">Image Edit &amp; File Extension Transform Page</p>
+                <ul>
+                  <li>AI Agent를 활용해 개인 작업에서 필요했던 기능을 빠르게 구현하고 개선</li>
+                  <li>이미지 편집과 파일 확장자 변환 기능을 각각 독립적인 웹 도구로 제작 및 운영</li>
+                </ul>
+                <p class="project-tech">AI Agent · Image Edit · File Convert · Web Tool</p>
+                <div class="project-links">
+                  <a href="https://maskly.junu.dev" target="_blank" rel="noreferrer">Maskly ↗</a>
+                  <a href="https://transformer.junu.dev" target="_blank" rel="noreferrer">Transformer ↗</a>
+                </div>
+              </article>
+            </div>
+          </details>
         </div>
       </section>
 

@@ -6,21 +6,28 @@ Personal resume site for Joon Woo Kim.
 
 Social Welfare → VFX Production → Pipeline / IT Infrastructure → Cloud / DevOps
 
-## Page structure
+## Information architecture
 
-1. Introduce — background and current interests
-2. Career Journey — visual career transition
-3. Experience — detailed experience behind the journey
-4. Stack & Skills — technologies grouped by problem area
-5. Selected Projects — representative projects and operating experience
+1. INTRODUCE
+2. CAREER JOURNEY
+3. EXPERIENCE
+4. STACK & SKILLS
+5. SELECTED PROJECTS
+
+## Design direction
+
+- Clean, document-first resume layout
+- Light background with blue accent
+- Large readable typography using Pretendard
+- Two-column section structure on desktop
+- Minimal visual decoration
+- Responsive mobile layout
+- Print-friendly styles
 
 ## Stack
 
-- Static HTML / CSS / JavaScript
-- Responsive one-page resume layout
-- Section-aware navigation / pager
-- Scroll reveal interactions
-- Print-friendly resume styles
+- Static HTML
+- CSS
 
 ## Run locally
 
@@ -36,7 +43,6 @@ Then open `http://localhost:8000`.
 .
 ├── index.html
 ├── styles.css
-├── script.js
 └── README.md
 ```
 

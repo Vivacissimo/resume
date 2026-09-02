@@ -429,9 +429,13 @@ blockquote {
 
 .project-toggle {
   position: relative;
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #374151;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .project-toggle::before,
@@ -440,9 +444,10 @@ blockquote {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 18px;
-  height: 1px;
-  background: #9ca3af;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s ease, background 0.2s ease;
 }
@@ -451,9 +456,21 @@ blockquote {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
+.project-group summary:hover .project-toggle {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.project-group summary:hover .project-toggle::before,
+.project-group summary:hover .project-toggle::after,
 .project-group[open] .project-toggle::before,
 .project-group[open] .project-toggle::after {
   background: var(--accent);
+}
+
+.project-group[open] .project-toggle {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .project-group[open] .project-toggle::after {

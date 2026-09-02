@@ -12,7 +12,7 @@ Social Welfare → VFX Production → Pipeline / IT Infrastructure → Cloud / D
 2. CAREER JOURNEY
 3. EXPERIENCE
 4. STACK & SKILLS
-5. SELECTED PROJECTS
+5. PROJECTS
 
 ## Design direction
 

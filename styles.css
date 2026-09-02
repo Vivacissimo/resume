@@ -406,69 +406,6 @@ blockquote {
   font-weight: 600;
 }
 
-.tools-block {
-  margin-top: 66px;
-  padding-top: 42px;
-  border-top: 2px solid #111827;
-}
-
-.tools-block-heading {
-  max-width: 680px;
-  margin-bottom: 28px;
-}
-
-.tools-block-heading h3 {
-  margin: 0 0 12px;
-  font-size: 32px;
-  line-height: 1.3;
-  letter-spacing: -0.03em;
-}
-
-.tools-block-heading > p:last-child {
-  margin: 0;
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.tool-list {
-  border-top: 1px solid var(--line);
-}
-
-.tool-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 32px;
-  align-items: center;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.tool-item h4 {
-  margin: 0 0 7px;
-  color: #111827;
-  font-size: 23px;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-}
-
-.tool-item p {
-  max-width: 650px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.tool-item > span {
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.tool-item:hover h4 {
-  color: var(--accent);
-}
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -539,8 +476,7 @@ blockquote {
   }
 
   .experience-item,
-  .skill-item,
-  .tool-item {
+  .skill-item {
     grid-template-columns: 1fr;
     gap: 14px;
   }
@@ -551,18 +487,6 @@ blockquote {
 
   .project-item h3 {
     font-size: 24px;
-  }
-
-  .tools-block {
-    margin-top: 52px;
-  }
-
-  .tools-block-heading h3 {
-    font-size: 28px;
-  }
-
-  .tool-item > span {
-    white-space: normal;
   }
 
   .footer {
@@ -600,8 +524,7 @@ blockquote {
   }
 
   .profile-links,
-  .project-links,
-  .tool-item > span {
+  .project-links {
     color: #4b5563;
   }
 

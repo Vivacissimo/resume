@@ -102,11 +102,32 @@ a:hover {
 
 .profile {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: end;
+  grid-template-columns: 168px minmax(0, 1fr) auto;
+  gap: 36px;
+  align-items: center;
   padding: 92px 0 72px;
   border-bottom: 1px solid var(--line);
+}
+
+.profile-photo {
+  display: grid;
+  place-items: center;
+  width: 156px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #f8fafc;
+  color: var(--light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .role {
@@ -517,6 +538,26 @@ blockquote {
   }
 }
 
+@media (max-width: 900px) {
+  .profile {
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .profile-photo {
+    width: 124px;
+  }
+
+  .profile-links {
+    grid-column: 2;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 0;
+  }
+}
+
 @media (max-width: 760px) {
   body {
     font-size: 16px;
@@ -528,8 +569,12 @@ blockquote {
 
   .profile {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 26px;
     padding: 64px 0 52px;
+  }
+
+  .profile-photo {
+    width: 116px;
   }
 
   .profile h1 span {
@@ -539,6 +584,7 @@ blockquote {
   }
 
   .profile-links {
+    grid-column: auto;
     align-items: flex-start;
   }
 
@@ -615,7 +661,13 @@ blockquote {
   }
 
   .profile {
+    grid-template-columns: 100px 1fr auto;
+    gap: 22px;
     padding-top: 0;
+  }
+
+  .profile-photo {
+    width: 92px;
   }
 
   .resume-section {

@@ -1,34 +1,47 @@
 const reveals = document.querySelectorAll('.reveal');
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
-
-reveals.forEach((element) => observer.observe(element));
-
-const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
-
-const sectionObserver = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
-      });
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
     });
   },
-  { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+  { threshold: 0.1 }
 );
 
-sections.forEach((section) => sectionObserver.observe(section));
+reveals.forEach((element) => revealObserver.observe(element));
+
+const pageSections = [...document.querySelectorAll('.page-section')];
+const navigationLinks = [
+  ...document.querySelectorAll('.nav a[data-section], .pager-link[data-section]'),
+];
+
+const setActiveSection = (sectionId) => {
+  navigationLinks.forEach((link) => {
+    link.classList.toggle('is-active', link.dataset.section === sectionId);
+  });
+};
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    const visibleEntries = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+    if (visibleEntries.length > 0) {
+      setActiveSection(visibleEntries[0].target.id);
+    }
+  },
+  {
+    rootMargin: '-28% 0px -52% 0px',
+    threshold: [0, 0.15, 0.35, 0.6],
+  }
+);
+
+pageSections.forEach((section) => sectionObserver.observe(section));
+
+navigationLinks.forEach((link) => {
+  link.addEventListener('click', () => setActiveSection(link.dataset.section));
+});

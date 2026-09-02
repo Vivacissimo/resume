@@ -4,12 +4,21 @@ Personal resume site for Joon Woo Kim.
 
 ## Career story
 
-VFX Production → Pipeline / IT Infrastructure → Cloud / DevOps
+Social Welfare → VFX Production → Pipeline / IT Infrastructure → Cloud / DevOps
+
+## Page structure
+
+1. Introduce — background and current interests
+2. Career Journey — visual career transition
+3. Experience — detailed experience behind the journey
+4. Stack & Skills — technologies grouped by problem area
+5. Selected Projects — representative projects and operating experience
 
 ## Stack
 
 - Static HTML / CSS / JavaScript
-- Responsive layout
+- Responsive one-page resume layout
+- Section-aware navigation / pager
 - Scroll reveal interactions
 - Print-friendly resume styles
 

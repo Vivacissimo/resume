@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="junu.dev self-hosted infrastructure and personal dev tools" />
+  <title>junu.dev Home Infrastructure | Project Detail</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../project-detail.css" />
+</head>
+<body>
+  <header class="web-header no-print">
+    <a class="back" href="../index.html#projects">← Projects</a>
+    <div class="actions">
+      <a class="link-button" href="https://resume.junu.dev">Resume</a>
+      <button type="button" onclick="window.print()">PDF로 인쇄</button>
+    </div>
+  </header>
+
+  <main class="project-document">
+    <header class="project-hero" id="home-infra">
+      <div>
+        <p class="kicker">PERSONAL INFRASTRUCTURE · SELF-HOSTED</p>
+        <h1>junu.dev Home Infrastructure</h1>
+        <p class="hero-subtitle">개인 서비스와 기술 위키를 직접 배포·운영하며 DNS, Container, Backup, CI/CD를 반복해서 경험하는 Home Lab</p>
+      </div>
+      <div class="meta-card">
+        <div class="meta-row"><span>PERIOD</span><strong>Ongoing</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>Design · Deploy · Operate</strong></div>
+        <div class="meta-row"><span>BASE</span><strong>Raspberry Pi · Linux · NVMe</strong></div>
+        <div class="meta-row"><span>EDGE</span><strong>Cloudflare Tunnel · DNS</strong></div>
+        <div class="meta-row"><span>SERVICES</span><strong>Wiki · Portfolio · Web Tools</strong></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="section-body">
+        <p class="lead">일회성 실습 VM이 아니라 실제 사용하는 서비스를 계속 운영하면서 변경과 장애를 직접 경험하기 위한 개인 인프라다.</p>
+        <p>Raspberry Pi 기반 Linux 서버에서 Wiki.js와 개인 웹 서비스를 운영한다. Docker Compose로 서비스를 분리하고 Cloudflare Tunnel과 DNS로 외부 접근을 연결했다. 정적 웹 서비스는 GitHub Actions와 Self-hosted Runner를 이용해 배포하고, Wiki 데이터는 PostgreSQL과 SQL Dump 백업으로 관리한다.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>02</span><h2>운영 목표</h2></div>
+      <div class="section-body">
+        <div class="problem-flow">
+          <article class="case-step"><span class="mini-label">GOAL 01</span><strong>직접 운영하는 환경</strong><p>기술을 설치 후 종료하는 실습이 아니라 지속적으로 사용하는 서비스에 적용한다.</p></article>
+          <article class="case-step"><span class="mini-label">GOAL 02</span><strong>외부 공개와 보안</strong><p>공인 포트 노출을 최소화하고 Cloudflare Tunnel을 통해 서비스별 도메인을 연결한다.</p></article>
+          <article class="case-step"><span class="mini-label">GOAL 03</span><strong>반복 배포 자동화</strong><p>정적 파일을 서버에 수동 복사하는 대신 Git Push를 기준으로 배포 흐름을 만든다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>03</span><h2>구성</h2></div>
+      <div class="section-body">
+        <div class="flow">
+          <div class="node">GitHub<small>Source</small></div><div class="arrow-inline">→</div>
+          <div class="node">Actions<small>Build</small></div><div class="arrow-inline">→</div>
+          <div class="node">Self-hosted Runner<small>Deploy</small></div><div class="arrow-inline">→</div>
+          <div class="node">Raspberry Pi<small>Docker · Nginx</small></div><div class="arrow-inline">→</div>
+          <div class="node">Cloudflare Tunnel<small>Private Origin</small></div><div class="arrow-inline">→</div>
+          <div class="node">junu.dev<small>Public Service</small></div>
+        </div>
+        <div class="quick-grid" style="margin-top:18px;">
+          <article class="card"><span class="mini-label">WIKI</span><strong>Wiki.js + PostgreSQL</strong><p>기술 학습 문서와 데이터를 분리해 운영하고 SQL Dump 백업을 유지한다.</p></article>
+          <article class="card"><span class="mini-label">WEB</span><strong>Nginx + Static Files</strong><p>개인 사이트와 웹 도구의 정적 결과물을 서비스한다.</p></article>
+          <article class="card"><span class="mini-label">EDGE</span><strong>Cloudflare Tunnel</strong><p>Origin을 직접 공개하지 않고 도메인별 서비스 경로를 연결한다.</p></article>
+          <article class="card"><span class="mini-label">STORAGE</span><strong>microSD → NVMe</strong><p>지속적인 서비스 운영을 위해 저장장치 구조도 개선했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>04</span><h2>담당 작업</h2></div>
+      <div class="section-body">
+        <div class="role-grid">
+          <article class="card"><span class="mini-label">CONTAINER</span><strong>Docker Compose 서비스 구성</strong><p>Wiki.js/PostgreSQL 등 서비스를 컨테이너 단위로 분리하고 볼륨을 통해 데이터를 유지한다.</p></article>
+          <article class="card"><span class="mini-label">NETWORK</span><strong>DNS · Tunnel · Nginx</strong><p>junu.dev 하위 도메인을 서비스별로 연결하고 외부 접근 경로를 관리한다.</p></article>
+          <article class="card"><span class="mini-label">CI/CD</span><strong>GitHub Actions → Self-hosted Runner</strong><p>Push 이후 빌드 결과를 홈 서버의 정적 서비스 경로에 반영하도록 배포 흐름을 구성했다.</p></article>
+          <article class="card"><span class="mini-label">BACKUP</span><strong>PostgreSQL SQL Dump</strong><p>Wiki 데이터가 컨테이너 재생성에 영향을 받지 않도록 데이터와 백업 절차를 분리했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>05</span><h2>AS-IS → TO-BE</h2></div>
+      <div class="section-body">
+        <div class="asis-tobe">
+          <div class="state-box"><h3>AS-IS</h3><ul><li>서비스마다 수동 실행·배포</li><li>외부 접근을 위해 포트 개방 필요</li><li>정적 파일 변경 때 서버 직접 반영</li><li>백업 절차와 위치가 분산</li></ul></div>
+          <div class="arrow">→</div>
+          <div class="state-box to"><h3>TO-BE</h3><ul><li>Compose 기반 서비스 정의</li><li>Cloudflare Tunnel로 외부 연결</li><li>GitHub Actions 기반 자동 배포</li><li>DB Dump 중심 백업 절차 정리</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dev-tools">
+      <div class="section-label"><span>06</span><h2>Personal Dev Tools</h2></div>
+      <div class="section-body">
+        <p class="lead">개인 작업에서 반복되던 기능을 작은 웹 도구로 분리해 직접 배포하고 운영한다.</p>
+        <div class="role-grid">
+          <article class="card"><span class="mini-label">MASKLY</span><strong>Image Privacy Tool</strong><p>이미지 개인정보와 메타데이터를 정리하고 처리하기 위한 웹 도구를 제작해 maskly.junu.dev로 운영한다.</p></article>
+          <article class="card"><span class="mini-label">TRANSFORMER</span><strong>Browser File Convert Tool</strong><p>브라우저에서 파일 확장자를 변환할 수 있는 도구를 제작해 transformer.junu.dev로 운영한다.</p></article>
+          <article class="card"><span class="mini-label">DELIVERY</span><strong>GitHub 기반 배포 흐름</strong><p>코드 변경 이후 개인 서버의 정적 서비스 경로에 반영되는 배포 흐름을 구성했다.</p></article>
+          <article class="card"><span class="mini-label">OPERATION</span><strong>서비스별 Subdomain 운영</strong><p>Nginx와 Cloudflare 기반 외부 접근 구조 안에서 도구를 독립 서비스로 운영한다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>07</span><h2>배운 점</h2></div>
+      <div class="section-body">
+        <div class="result-panel">
+          <h3>서비스를 직접 운영하면서 배포 이후의 책임까지 경험하고 있다.</h3>
+          <p>코드를 올리는 것뿐 아니라 DNS, 네트워크, 프로세스 재시작, 데이터 복구, 배포 실패처럼 실제 서비스 상태를 유지하기 위해 확인해야 하는 영역을 반복해서 경험하는 환경이다.</p>
+          <div class="metric-list">
+            <div class="metric"><span>SERVICE</span><strong>다수 Endpoint</strong><p>portfolio · resume · wiki · tools</p></div>
+            <div class="metric"><span>DEPLOY</span><strong>Git Push 기반 자동화</strong><p>정적 서비스 배포</p></div>
+            <div class="metric"><span>OPERATE</span><strong>Self-hosted Lab</strong><p>실사용 기반 운영 경험</p></div>
+          </div>
+        </div>
+        <p class="source-note">Tech Stack: Linux · Raspberry Pi · Docker · Docker Compose · Nginx · Cloudflare Tunnel · GitHub Actions · PostgreSQL · Wiki.js</p>
+      </div>
+    </section>
+
+    <footer class="project-footer"><span>Joon Woo Kim · DevOps / Cloud Engineer</span><span>resume.junu.dev</span></footer>
+  </main>
+</body>
+</html>

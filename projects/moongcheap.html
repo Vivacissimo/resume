@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MoongCheap - CI/CD, Kubernetes, GitOps project detail" />
+  <title>MoongCheap | Project Detail</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../project-detail.css" />
+</head>
+<body>
+  <header class="web-header no-print">
+    <a class="back" href="../index.html#projects">← Projects</a>
+    <div class="actions">
+      <a class="link-button" href="https://resume.junu.dev">Resume</a>
+      <button type="button" onclick="window.print()">PDF로 인쇄</button>
+    </div>
+  </header>
+
+  <main class="project-document">
+    <header class="project-hero">
+      <div>
+        <p class="kicker">CLOUD / DEVOPS · INTEGRATED PROJECT</p>
+        <h1>MoongCheap</h1>
+        <p class="hero-subtitle">Frontend · Backend · AI 서비스를 AWS EKS에 일관되게 배포하기 위한 CI/CD 및 GitOps 구조 설계</p>
+        <p class="hero-note">현재 진행 중인 통핣 프로젝트로, 실제 구현이 완료된 부분과 설계/구성 중인 부분을 구분해 기술했다.</p>
+      </div>
+      <div class="meta-card">
+        <div class="meta-row"><span>PERIOD</span><strong>2026 · 진행 중</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>CI/CD · Kubernetes · GitOps</strong></div>
+        <div class="meta-row"><span>SCOPE</span><strong>Frontend · Backend · AI · Platform</strong></div>
+        <div class="meta-row"><span>PLATFORM</span><strong>AWS · EKS · ECR</strong></div>
+        <div class="meta-row"><span>STATUS</span><strong>GitOps 구조 및 Helm/ArgoCD 구성 진행</strong></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="section-body">
+        <p class="lead">애플리케이션 팀이 각자의 코드를 개발하더라도, 빌드 이후 배포 과정은 동일한 규칙으로 흘러가도록 만드는 것이 목표였다.</p>
+        <p>Frontend, Backend, AI가 서로 다른 저장소에서 개발되는 환경에서 CI 결과물인 Container Image를 ECR에 저장하고, GitOps 저장소의 배포 상태를 변경한 뒤 ArgoCD가 EKS에 반영하도록 구조를 설계했다. 서비스 코드와 배포 설정의 책임을 분리하고, dev/prod 환경이 늘어나도 YAML을 반복 복사하지 않는 구조에 초점을 맞췄다.</p>
+        <div class="quick-grid">
+          <article class="card"><span class="mini-label">PROJECT GOAL</span><strong>반복 가능한 배포 구조</strong><p>서비스마다 별도의 배포 방식을 만들지 않고 공통 규칙으로 배포한다.</p></article>
+          <article class="card"><span class="mini-label">MY FOCUS</span><strong>Build 이후부터 Cluster 반영까지</strong><p>CI, Image Registry, Helm, GitOps, ArgoCD 사이의 연결을 담당했다.</p></article>
+          <article class="card"><span class="mini-label">COLLABORATION</span><strong>서비스 팀과 배포 인터페이스 정의</strong><p>애플리케이션 코드와 배포 설정의 소유 영역을 나눴다.</p></article>
+          <article class="card"><span class="mini-label">KEY OUTPUT</span><strong>공통 Chart + 환경별 Values + ApplicationSet</strong><p>서비스/환경이 늘어날 때 변경 범위를 최소화하는 구조를 만들었다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>02</span><h2>문제 정의</h2></div>
+      <div class="section-body">
+        <div class="problem-flow">
+          <article class="case-step"><span class="mini-label">PROBLEM 01</span><strong>서비스별 YAML 중복</strong><p>Deployment와 Service를 서비스마다 복제하면 공통 변경 시 수정 지점이 늘어나고 설정 차이가 생기기 쉽다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 02</span><strong>환경별 설정 혼재</strong><p>dev/prod의 도메인, 리소스, 이미지 태그 차이를 한 파일에서 관리하면 운영 환경 변경 범위가 불명확해진다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 03</span><strong>배포 책임 경계 불명확</strong><p>서비스 저장소가 Kubernetes 설정까지 모두 가지면 개발 코드와 운영 상태 변경이 섞이고 협업 시 소유권이 모호해진다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="design-goals">
+      <div class="section-label"><span>03</span><h2>구축 방향</h2></div>
+      <div class="section-body">
+        <p class="lead">신규 구축 프로젝트이므로 기존 구조를 억지로 비교하기보다, 서비스와 환경이 늘어날 때 유지보수 가능한 배포 구조를 만드는 데 초점을 맞췄다.</p>
+        <div class="decision-grid">
+          <article class="card"><span class="mini-label">STANDARDIZE</span><strong>공통 Workload 구조</strong><p>Deployment와 Service의 공통 부분은 Helm Chart로 묶고 서비스별 차이만 Values로 전달한다.</p></article>
+          <article class="card"><span class="mini-label">SEPARATE ENV</span><strong>dev / prod 설정 분리</strong><p>도메인, 리소스, Image Tag, Secret 참조처럼 환경에 따라 달라지는 값을 명시적으로 분리한다.</p></article>
+          <article class="card"><span class="mini-label">SEPARATE RESPONSIBILITY</span><strong>Application과 배포 상태 분리</strong><p>서비스 코드는 각 팀 Repository에서, Kubernetes 배포 상태는 GitOps Repository에서 관리한다.</p></article>
+          <article class="card"><span class="mini-label">TRACEABILITY</span><strong>Commit과 배포 버전 연결</strong><p>Commit SHA 기반 Image Tag와 GitOps 변경 이력을 통해 어떤 코드가 배포되었는지 추적할 수 있게 한다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>04</span><h2>담당 역할과 기여</h2></div>
+      <div class="section-body">
+        <div class="role-grid">
+          <article class="card"><span class="mini-label">CI</span><strong>Jenkins 기반 Build/Test/Image Push 흐름</strong><p>서비스 변경을 감지해 Container Image를 생성하고 ECR에 Push하는 흐름을 기준으로 설계했다.</p></article>
+          <article class="card"><span class="mini-label">KUBERNETES</span><strong>공통 Deployment/Service 템플릿</strong><p>서비스별 차이를 Values로 주입하도록 Helm Chart 구조를 정리했다.</p></article>
+          <article class="card"><span class="mini-label">GITOPS</span><strong>배포 상태 전용 Repository 구조</strong><p>charts, environments, argocd, platform 영역을 분리해 역할과 변경 범위를 명확히 했다.</p></article>
+          <article class="card"><span class="mini-label">ARGOCD</span><strong>ApplicationSet 기반 배포 생성</strong><p>서비스와 환경이 늘어날 때 Application YAML을 반복 작성하지 않도록 구성했다.</p></article>
+          <article class="card"><span class="mini-label">VERSIONING</span><strong>Commit SHA 기반 Image Tag</strong><p>CI 결과와 GitOps 상태를 같은 버전 기준으로 연결해 배포 추적성을 높였다.</p></article>
+          <article class="card"><span class="mini-label">COLLAB</span><strong>팀 간 전달 항목 정의</strong><p>서비스 팀이 제공해야 할 포트, Health Check, 환경 변수, Image 정보와 Infra/GitOps 측 책임을 구분했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>05</span><h2>배포 구조</h2></div>
+      <div class="section-body">
+        <div class="flow">
+          <div class="node">GitHub<small>Push / PR</small></div><div class="arrow-inline">→</div>
+          <div class="node">Jenkins<small>Build · Test</small></div><div class="arrow-inline">→</div>
+          <div class="node">ECR<small>Commit SHA Image</small></div><div class="arrow-inline">→</div>
+          <div class="node">GitOps<small>Values / Image Update</small></div><div class="arrow-inline">→</div>
+          <div class="node">ArgoCD<small>ApplicationSet · Sync</small></div><div class="arrow-inline">→</div>
+          <div class="node">EKS<small>Deploy / Reconcile</small></div>
+        </div>
+        <div class="codebox">gitops/
+├── charts/
+│   └── moongcheap-service/
+│       ├── Chart.yaml
+│       ├── values.yaml
+│       └── templates/
+├── environments/
+│   ├── dev/
+│   └── prod/
+├── argocd/
+│   └── applicationset.yaml
+└── platform/
+    ├── monitoring/
+    ├── logging/
+    └── ingress/</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>06</span><h2>설계 판단</h2></div>
+      <div class="section-body">
+        <div class="decision-grid">
+          <article class="card"><span class="mini-label">DECISION 01</span><strong>Application Repo와 GitOps Repo 분리</strong><p>애플리케이션 변경과 운영 상태 변경의 리뷰 범위를 분리하고, ArgoCD가 GitOps 저장소를 단일 배포 소스로 보게 했다.</p></article>
+          <article class="card"><span class="mini-label">DECISION 02</span><strong>서비스별 Chart 대신 공통 Chart</strong><p>현재 서비스의 Workload 구조가 유사하므로 중복 Chart보다 하나의 공통 Chart와 Values 차이가 관리 비용이 낮다고 판단했다.</p></article>
+          <article class="card"><span class="mini-label">DECISION 03</span><strong>Application 대신 ApplicationSet</strong><p>서비스 × 환경 조합이 증가할 것을 고려해 개별 Application 생성보다 선언 규칙을 반복 사용하는 방식을 선택했다.</p></article>
+          <article class="card"><span class="mini-label">DECISION 04</span><strong>dev / prod Values 분리</strong><p>운영 리소스, 도메인, Secret 참조와 같은 환경 차이를 명시적으로 분리해 배포 사고 가능성을 줄이는 방향으로 구성했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>07</span><h2>산출물과 검증</h2></div>
+      <div class="section-body">
+        <table class="evidence-table">
+          <tr><th>GitOps 구조</th><td><strong>charts / environments / argocd / platform 분리</strong><br />배포 구성과 플랫폼 애드온의 변경 범위를 나눴다.</td></tr>
+          <tr><th>Helm</th><td><strong>공통 Chart + 서비스별 Values</strong><br />Deployment/Service의 공통 구조와 서비스별 설정을 분리했다.</td></tr>
+          <tr><th>ArgoCD</th><td><strong>ApplicationSet 패턴</strong><br />서비스와 환경이 추가되어도 동일한 생성 규칙을 재사용할 수 있게 했다.</td></tr>
+          <tr><th>CI/CD Contract</th><td><strong>Image Tag와 GitOps Update 기준</strong><br />CI 산출물과 실제 배포 상태를 연결할 수 있도록 버전 전달 방식을 정리했다.</td></tr>
+          <tr><th>운영 확장</th><td><strong>platform 영역 분리</strong><br />Monitoring, Logging, Ingress 등 애플리케이션과 다른 생명주기의 구성을 별도 관리하도록 했다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>08</span><h2>결과와 배운 점</h2></div>
+      <div class="section-body">
+        <div class="result-panel">
+          <h3>성과를 과장하지 않고, 현재 프로젝트에서 실제로 확보한 구조와 판단을 중심으로 정리했다.</h3>
+          <p>아직 진행 중인 프로젝트라 운영 지표 대신, 서비스가 늘어날 때 반복 작업을 줄일 수 있는 배포 구조를 코드로 명확히 한 점을 핵심 결과로 본다.</p>
+          <div class="metric-list">
+            <div class="metric"><span>SCOPE</span><strong>3개 애플리케이션 영역</strong><p>Frontend · Backend · AI</p></div>
+            <div class="metric"><span>ENVIRONMENT</span><strong>dev / prod 분리</strong><p>환경별 Values 기준</p></div>
+            <div class="metric"><span class="DEPLOYMENT MODE"></span><strong>공통 Chart + ApplicationSet</strong><p>중복 Manifest 최소화</p></div>
+          </div>
+        </div>
+        <p class="source-note">Tech Stack: AWS · EKS · ECR · Kubernetes · Helm · Jenkins · ArgoCD · GitOps · Terraform</p>
+      </div>
+    </section>
+
+    <footer class="project-footer"><span>Joon Woo Kim · DevOps / Cloud Engineer</span><span>resume.junu.dev</span></footer>
+  </main>
+</body>
+</html>

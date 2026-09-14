@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CI/CD, Service Mesh, Observability project detail" />
+  <title>Cloud Native Delivery | Project Detail</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../project-detail.css" />
+</head>
+<body>
+  <header class="web-header no-print">
+    <a class="back" href="../index.html#projects">← Projects</a>
+    <div class="actions">
+      <a class="link-button" href="https://resume.junu.dev">Resume</a>
+      <button type="button" onclick="window.print()">PDF로 인쇄</button>
+    </div>
+  </header>
+
+  <main class="project-document">
+    <header class="project-hero">
+      <div>
+        <p class="kicker">KUBERNETES · CI/CD · SERVICE MESH · OBSERVABILITY</p>
+        <h1>Cloud Native Delivery</h1>
+        <p class="hero-subtitle">4개 서비스의 배포 자동화부터 Istio 트래픽 제어, 배포 후 상태 확인까지 하나의 운영 흐름으로 연결</p>
+      </div>
+      <div class="meta-card">
+        <div class="meta-row"><span>PERIOD</span><strong>2026 · KT Cloud BootCamp</strong></div>
+        <div class="meta-row"><span>TEAM</span><strong>4인</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>Team Lead · Observability</strong></div>
+        <div class="meta-row"><span>SERVICES</span><strong>Patient · Prescription · Appointment · Notification</strong></div>
+        <div class="meta-row"><span>PLATFORM</span><strong>Kubernetes · AWS EKS</strong></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="section-body">
+        <p class="lead">CI/CD 파이프라인이 성공했다고 해서 배포가 끝난 것은 아니라고 보고, 새 버전의 실제 트래픽과 상태까지 확인하는 운영 흐름을 만들었다.</p>
+        <p>환자, 처방, 예약, 알림 4개 서비스를 대상으로 CI/CD를 구성하고, 심화 단계에서 Istio Service Mesh를 적용해 Canary와 Blue/Green 배포를 검증했다. 팀장과 Observability 담당으로서 트래픽, 오류율, 응답시간, Envoy 리소스 상태를 Prometheus/Grafana/Kiali로 확인할 수 있도록 관찰 기준을 정리했다.</p>
+        <div class="quick-grid">
+          <article class="card"><span class="mini-label">PROJECT GOAL</span><strong>배포 이후까지 확인하는 Delivery Flow</strong><p>Build → Deploy → Traffic Shift → Observe를 하나의 절차로 연결했다.</p></article>
+          <article class="card"><span class="mini-label">MY ROLE</span><strong>팀장 · Observability</strong><p>전체 단계의 연결과 배포 후 검증 지표를 담당했다.</p></article>
+          <article class="card"><span class="mini-label">DEPLOY STRATEGY</span><strong>Canary · Blue/Green</strong><p>서비스 특성에 따라 두 가지 전환 방식을 나눠 적용했다.</p></article>
+          <article class="card"><span class="mini-label">KEY SIGNALS</span><strong>Traffic · Error · Latency · Resource</strong><p>트래픽 전환 웜 서비스 상태가 악화되는지 확인할 기준을 잡았다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>02</span><h2>문제 정의</h2></div>
+      <div class="section-body">
+        <div class="problem-flow">
+          <article class="case-step"><span class="mini-label">PROBLEM 01</span><strong>배포 성공과 서비스 정상은 다름</strong><p>ArgoCD Sync가 성공해도 실제 요청이 새 버전에 정상적으로 도달하는지 별도 확인이 필요했다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 02</span><strong>한 번에 전환하면 장애 영향이 큼</strong><p>새 버전 전체 전환은 오류가 있을 때 사용자 영향 범위가 커질 수 있다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 03</span><strong>운영 판단 기준이 부족</strong><p>다음 Canary 단계로 진행할지 결정하려면 트래픽, 에러, 응답시간을 함께 볼 수 있어야 했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>03</span><h2>AS-IS → TO-BE</h2></div>
+      <div class="section-body">
+        <div class="asis-tobe">
+          <div class="state-box">
+            <h3>AS-IS</h3>
+            <ul>
+              <li>배포 파이프라인 성공 여부 중심 확인</li>
+              <li>새 버전 전체 전환 시 장애 영향 범위가 큼</li>
+              <li>서비스 간 호출 흐름을 개별 로그로 확인</li>
+              <li>배포 전후 지표 비교 기준이 분산됨</li>
+            </ul>
+          </div>
+          <div class="arrow">→</div>
+          <div class="state-box to">
+            <h3>TO-BE</h3>
+            <ul>
+              <li>GitOps 배포 후 Istio로 단계적 Traffic Shift</li>
+              <li>Canary 단계별 상태 확인 후 다음 비율로 전환</li>
+              <li>Kiali에서 Service Topology와 버전별 흐름 확인</li>
+              <li>Prometheus/Grafana 지표를 공통 판단 기준으로 사용</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>04</span><h2>담당 역할과 기여</h2></div>
+      <div class="section-body">
+        <div class="role-grid">
+          <article class="card"><span class="mini-label">TEAM LEAD</span><strong>기본 → 심화 단계의 전체 흐름 정리</strong><p>CI/CD, Service Mesh, Observability가 따로 보이지 않도록 실습 순서와 검증 포인트를 연결했다.</p></article>
+          <article class="card"><span class="mini-label">OBSERVABILITY</span><strong>모니터링 Stack 구성</strong><p>Prometheus, Grafana, Kiali 중심으로 서비스 상태를 확인할 환경을 구성했다.</p></article>
+          <article class="card"><span class="mini-label">METRIC</span><strong>운영 지표 선정</strong><p>트래픽, 오류율, 응답시간과 Envoy CPU/Memory를 중심으로 배포 전후를 비교했다.</p></article>
+          <article class="card"><span class="mini-label">SERVICE MESH</span><strong>Traffic Shift 검증</strong><p>예약 서비스 Canary와 알림 서비스 Blue/Green 시나리오를 팀 구성과 연결했다.</p></article>
+          <article class="card"><span class="mini-label">GITOPS</span><strong>ArgoCD 기반 CD</strong><p>Git에 선언된 상태를 기준으로 Kubernetes 배포를 동기화하는 흐름을 사용했다.</p></article>
+          <article class="card"><span class="mini-label">COLLAB</span><strong>SRE · Platform · Traffic 역할 협업</strong><p>Observability 결과가 트래픽 전환과 장애 대응 판단에 사용될 수 있도록 역할 간 확인 기준을 맞췄다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>05</span><h2>운영 흐름</h2></div>
+      <div class="section-body">
+        <div class="flow">
+          <div class="node">GitHub Actions<small>Build · Test · Push</small></div><div class="arrow-inline">→</div>
+          <div class="node">Registry<small>Versioned Image</small></div><div class="arrow-inline">→</div>
+          <div class="node">ArgoCD<small>GitOps Sync</small></div><div class="arrow-inline">→</div>
+          <div class="node">Istio<small>Traffic Policy</small></div><div class="arrow-inline">→</div>
+          <div class="node">Service<small>v1 / v2</small></div><div class="arrow-inline">→</div>
+          <div class="node">Observe<small>Prom · Grafana · Kiali</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>06</span><h2>배포 전략</h2></div>
+      <div class="section-body">
+        <table class="evidence-table">
+          <tr><th>Appointment</th><td><strong>Canary 20% → 50% → 70% → 100%</strong><br />새 버전의 트래픽을 단계적으로 늘리고 각 단계에서 오류율, 응답시간과 Kiali 트래픽 흐름을 확인하는 시나리오를 구성했다.</td></tr>
+          <tr><th>Notification</th><td><strong>Blue / Green</strong><br />두 버전을 동시에 유지한 뒤 라우팅 대상을 전환하는 방식으로 버전 교체 시나리오를 구성했다.</td></tr>
+          <tr><th>Security</th><td><strong>mTLS STRICT 검토</strong><br />Service Mesh 내 서비스 간 통신을 Istio 정책으로 보호하는 방식을 실습했다.</td></tr>
+          <tr><th>Visibility</th><td><strong>Kiali Topology</strong><br />서비스와 버전별 요청 흐름을 시각적으로 확인해 Traffic Rule 적용 상태를 검증했다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>07</span><h2>관찰 기준</h2></div>
+      <div class="section-body">
+        <div class="signal-grid">
+          <article class="card"><span class="mini-label">TRAFFIC</span><strong>Request / Routing 비율</strong><p>Canary 비율이 의도한 대로 적용되고 있는지 확인한다.</p></article>
+          <article class="card"><span class="mini-label">ERROR</span><strong>HTTP Error Rate</strong><p>새 버전 전환 후 오류 비율이 증가하는지 확인한다.</p></article>
+          <article class="card"><span class="mini-label">LATENCY</span><strong>Response Time</strong><p>버전 변경으로 응답시간이 악화되는지 비교한다.</p></article>
+          <article class="card"><span class="mini-label">RESOURCE</span><strong>Envoy CPU / Memory</strong><p>Sidecar 적용 후 Proxy 리소스 사용량을 함께 관찰한다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>08</span><h2>결과와 배운 점</h2></div>
+      <div class="section-body">
+        <div class="result-panel">
+          <h3>4개 서비스의 배포 자동화, 트래픽 전환, 상태 확인을 하나의 운영 시나리오로 연결했다.</h3>
+          <p>성과 수치를 임의로 만들기보다, 실제로 검증한 서비스 수와 Canary 단계, 관찰 기준을 중심으로 결과를 제시했다. 이 과정에서 "배포 완료"가 아니라 "새 버전이 정상적으로 트래픽을 처리하는지"까지 확인해야 운영이 끝난다는 관점을 정리했다.</p>
+          <div class="metric-list">
+            <div class="metric"><span class="SERVICE"></span><strong>4개 서비스</strong><p>Patient · Prescription · Appointment · Notification</p></div>
+            <div class="metric"><span>CANARY</span><strong>4단계 전환</strong><p>20 → 50 → 70 → 100%</p></div>
+            <div class="metric"><span>OBSERVE</span><strong>4개 핵심 관찰 영역</strong><p>Traffic · Error · Latency · Resource</p></div>
+          </div>
+        </div>
+        <p class="source-note">Tech Stack: Kubernetes · AWS EKS · GitHub Actions · ArgoCD · Istio · Envoy · Prometheus · Grafana · Kiali · Jaeger</p>
+      </div>
+    </section>
+
+    <footer class="project-footer"><span>Joon Woo Kim · DevOps / Cloud Engineer</span><span>resume.junu.dev</span></footer>
+  </main>
+</body>
+</html>

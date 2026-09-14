@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cocoavision VFX Pipeline and Infrastructure project detail" />
+  <title>Cocoavision Infrastructure | Project Detail</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../project-detail.css" />
+</head>
+<body>
+  <header class="web-header no-print">
+    <a class="back" href="../index.html#projects">← Projects</a>
+    <div class="actions">
+      <a class="link-button" href="https://resume.junu.dev">Resume</a>
+      <button type="button" onclick="window.print()">PDF로 인쇄</button>
+    </div>
+  </header>
+
+  <main class="project-document">
+    <header class="project-hero">
+      <div>
+        <p class="kicker">PROFESSIONAL EXPERIENCE · VFX PIPELINE / INFRASTRUCTURE</p>
+        <h1>Cocoavision</h1>
+        <p class="hero-subtitle">작업자가 사용하는 DCC 환경과 Render Farm을 운영하며 반복 작업을 자동화하고 제작 중단 원인을 해결</p>
+      </div>
+      <div class="meta-card">
+        <div class="meta-row"><span>PERIOD</span><strong>2022.09 - 2026.03</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>Pipeline / IT Infrastructure</strong></div>
+        <div class="meta-row"><span>USERS</span><strong>Artist · Production · External Vendor</strong></div>
+        <div class="meta-row"><span>ENV</span><strong>Linux · DCC · Render Farm</strong></div>
+        <div class="meta-row"><span>FOCUS</span><strong>Troubleshooting · Automation · Standardization</strong></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-label"><span>01</span><h2>업무 개요</h2></div>
+      <div class="section-body">
+        <p class="lead">사용자 문의를 한 번 해결하는 데서 끝내지 않고, 같은 문제가 반복될 때는 Pipeline이나 Infrastructure 차원에서 줄이는 방식으로 접근했다.</p>
+        <p>Houdini, Nuke, Maya 등 제작 도구와 Linux 기반 Render Farm 사이에서 작업이 안정적으로 이어지도록 환경을 운영했다. Render 실패, 경로/마운트 문제, 플러그인/버전 차이 등 제작 중 발생하는 이슈를 분석했고, 반복되는 설치와 설정 업무는 PXE와 Ansible로 자동화했다. 외주사와의 작업에서는 파일, 환경, 전달 방식의 차이에서 발생하는 문제를 기술적으로 설명하고 대응했다.</p>
+        <div class="quick-grid">
+          <article class="card"><span class="mini-label">OPERATE</span><strong>Linux 제작 환경과 Render Farm</strong><p>작업 중단을 만드는 환경 문제를 확인하고 복구했다.</p></article>
+          <article class="card"><span class="mini-label">AUTOMATE</span><strong>PXE · Ansible · Python</strong><p>반복 설치, 노드 설정, 제출 과정을 자동화 가능한 형태로 바꿨다.</p></article>
+          <article class="card"><span class="mini-label">TROUBLESHOOT</span><strong>DCC · Plugin · Path · Mount</strong><p>로그와 실행 환경 차이를 기준으로 문제 범위를 좁혔다.</p></article>
+          <article class="card"><span class="mini-label">COMMUNICATE</span><strong>Artist / Production / Vendor</strong><p>기술적 원인과 필요한 조치를 비개발 사용자도 이해할 수 있게 전달했다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>02</span><h2>핵심 문제</h2></div>
+      <div class="section-body">
+        <div class="problem-flow">
+          <article class="case-step"><span class="mini-label">PROBLEM 01</span><strong>작업자마다 다른 제출 방식</strong><p>Render Farm 제출 과정이 수동 절차에 의존하면 누락과 설정 차이가 발생하기 쉽다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 02</span><strong>노드별 반복 설정</strong><p>수십 대 규모의 Render Node를 개별로 관리하면 동일 작업이 반복되고 설정 편차가 생긴다.</p></article>
+          <article class="case-step"><span class="mini-label">PROBLEM 03</span><strong>PC 초기 설치 반복</strong><p>USB 기반 설치는 장비가 늘어날수록 사람이 직접 해야 하는 단계가 증가한다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="realtime">
+      <div class="section-label"><span>03</span><h2>Case 01 · Real-time R&amp;D</h2></div>
+      <div class="section-body">
+        <p class="lead">NewMedia R&amp;D팀에서 Unreal Engine과 Blender를 활용해 실시간 콘텐츠 제작과 Previs Workflow를 검토하고 구성했다.</p>
+        <div class="role-grid">
+          <article class="card"><span class="mini-label">CONTENT</span><strong>Unreal Engine · Blender Workflow</strong><p>웹툰 제작과 렌더링 과정에서 실시간 엔진을 활용할 수 있는 제작 방식을 검토했다.</p></article>
+          <article class="card"><span class="mini-label">MOCAP</span><strong>Motion Capture 적용 검토</strong><p>Motion Capture 데이터를 콘퀐츠 제작 Workflow에 연결하는 기술을 테스트했다.</p></article>
+          <article class="card"><span class="mini-label">PREVIS</span><strong>촬영 전 장면 검토 환경</strong><p>Unreal Engine Scene을 구성해 감독이 촬영 구도와 장면 구성을 사전에 확인할 수 있게 했다.</p></article>
+          <article class="card"><span class="mini-label">LEARNING</span><strong>제작 Workflow 전체를 보는 관점</strong><p>도구 하나보다 여러 제작 단계가 어떻게 연결되는지 이해하는 경험이 이후 Pipeline 업무로 이어졌다.</p></article>
+        </div>
+        <table class="evidence-table">
+          <tr><th>내 역할</th><td><strong>Real-time Content R&amp;D 및 Workflow 구성</strong><br />실시간 엔진과 기존 제작 방식을 연결할 수 있는 기술적 가능성을 검토했다.</td></tr>
+          <tr><th>산출물</th><td><strong>Previs Scene · 실시간 제작 Workflow 테스트</strong><br />아이디어와 장면 구성을 촬영/제작 전에 빠르게 검토할 수 있는 환경을 구성했다.</td></tr>
+          <tr><th>연결점</th><td><strong>R&amp;D → Pipeline / Infrastructure</strong><br />제작 툴 자체보다 작업 흐름과 환경을 개선하는 데 관심이 커지며 이후 Pipeline 업무로 역할을 확장했다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="tractor">
+      <div class="section-label"><span>04</span><h2>Case 02 · Tractor Submit</h2></div>
+      <div class="section-body">
+        <div class="asis-tobe">
+          <div class="state-box"><h3>AS-IS</h3><ul><li>작업자가 제출 정보를 직접 구성</li><li>DCC마다 제출 절차가 달라 실수 가능</li><li>Job 규칙을 사용자에게 의존</li></ul></div>
+          <div class="arrow">→</div>
+          <div class="state-box to"><h3>TO-BE</h3><ul><li>Houdini / Nuke 안에서 Submit</li><li>작업 정보를 Tractor Job 형식으로 변환</li><li>공통 제출 규칙을 Pipeline Tool에 반영</li></ul></div>
+        </div>
+        <table class="evidence-table">
+          <tr><th>내 역할</th><td><strong>Custom Render / Submit Node 구성</strong><br />DCC에서 필요한 Job 정보를 수집하고 Render Farm으로 전달하는 흐름을 만들었다.</td></tr>
+          <tr><th>판단</th><td><strong>사용자 교육보다 도구에 규칙을 넣는 방식</strong><br />작업자마다 절차를 기억하게 하기보다 제출 도구가 동일한 입력과 Job 형식을 만들도록 했다.</td></tr>
+          <tr><th>결과</th><td><strong>Submission Workflow 표준화</strong><br />수동 Job 생성 단계를 줄이고 DCC 안에서 일관된 제출 경로를 제공했다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="pxe">
+      <div class="section-label"><span>05</span><h2>Case 03 · PXE</h2></div>
+      <div class="section-body">
+        <div class="asis-tobe">
+          <div class="state-box"><h3>AS-IS</h3><ul><li>USB로 장비별 OS 설치</li><li>작업자가 직접 초기 세팅 반복</li><li>설치 절차 차이 발생 가능</li></ul></div>
+          <div class="arrow">→</div>
+          <div class="state-box to"><h3>TO-BE</h3><ul><li>Network Boot 기반 설치</li><li>PXE + DHCP/HTTP + Kickstart</li><li>초기 설치 절차 표준화</li></ul></div>
+        </div>
+        <table class="evidence-table">
+          <tr><th>내 역할</th><td><strong>PXE 부팅과 자동 설치 환경 구성</strong><br />네트워크 부팅부터 설치 파일 제공, Kickstart 기반 자동 설치까지 연결했다.</td></tr>
+          <tr><th>판단</th><td><strong>장비 수가 늘어날수록 반복 작업이 커지는 문제를 Infrastructure로 해결</strong><br />개별 작업 속도를 높이는 대신 사람이 개입해야 하는 단계를 줄였다.</td></tr>
+          <tr><th>결과</th><td><strong>USB 중심 설치 → 네트워크 기반 설치</strong><br />PC 초기 세팅을 동일한 절차로 반복할 수 있는 기반을 만들었다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="ansible">
+      <div class="section-label"><span>06</span><h2>Case 04 · Ansible</h2></div>
+      <div class="section-body">
+        <div class="asis-tobe">
+          <div class="state-box"><h3>AS-IS</h3><ul><li>Render Node마다 SSH 접속 후 설정</li><li>패키지/마운트/도구 배포 반복</li><li>노드별 설정 편차 가능</li></ul></div>
+          <div class="arrow">→</div>
+          <div class="state-box to"><h3>TO-BE</h3><ul><li>Inventory로 대상 노드 그룹화</li><li>Playbook으로 공통 작업 선언</li><li>동일한 설정을 여러 노드에 반복 적용</li></ul></div>
+        </div>
+        <table class="evidence-table">
+          <tr><th>대상</th><td><strong>수십 대 규모 Linux Render Farm</strong></td></tr>
+          <tr><th>자동화</th><td><strong>패키지 설치 · Mount · 팀별 Tool 배포 등</strong><br />반복 운영 작업을 Playbook 단위로 정리했다.</td></tr>
+          <tr><th>결과</th><td><strong>서버별 수동 작업을 재사용 가능한 운영 코드로 전환</strong><br />동일 작업을 여러 노드에 일관되게 적용할 수 있게 했다.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>07</span><h2>장애 대응 사례</h2></div>
+      <div class="section-body">
+        <div class="problem-flow">
+          <article class="case-step"><span class="mini-label">ISSUE</span><strong>로컬에서는 정상인데 Farm에서 반복 실패</strong><p>아티스트 작업이 로컬에서는 열리지만 Render Farm 제출 후 실패해 제작이 중단되는 상황.</p></article>
+          <article class="case-step"><span class="mini-label">ANALYSIS</span><strong>실행 환경 차이를 기준으로 범위 축소</strong><p>Tractor Log, DCC/Plugin 버전, 환경 변수, 파일 경로, Mount 상태를 순서대로 비교했다.</p></article>
+          <article class="case-step"><span class="mini-label">ACTION</span><strong>설정 수정 + 반복 방지</strong><p>문제 설정을 수정한 뒤 같은 유형이 다른 노드에 반복되지 않도록 운영 절차와 자동화 대상을 보완했다.</p></article>
+        </div>
+        <p class="lead" style="margin-top:18px;">장애 대응에서 가장 중요하게 본 것은 "어디에서만 실패하는가"였다. 로컬과 Farm의 차이를 비교해 원인을 좁히고, 해결 후에는 같은 문제를 운영 코드나 절차로 줄이는 방식으로 접근했다.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label"><span>08</span><h2>성과와 연결점</h2></div>
+      <div class="section-body">
+        <div class="result-panel">
+          <h3>VFX에서 경험한 운영 문제를 DevOps에서 사용하는 방식과 자연스럽게 연결할 수 있었다.</h3>
+          <p>Render Farm 운영은 다수 노드의 일관된 설정, 장애 로그 분석, 반복 작업 자동화, 사용자와의 협업이 필요한 환경이었다. 이 경험은 이후 Kubernetes, CI/CD, IaC를 학습할 때 단순 도구 사용보다 운영 문제를 어떤 구조로 줄일지 생각하는 기반이 됐다.</p>
+          <div class="metric-list">
+            <div class="metric"><span>FARM</span><strong>수십 대 규모 노드</strong><p>Linux Render Node 운영</p></div>
+            <div class="metric"><span>AUTOMATION</span><strong>3개 핵심 자동화 영역</strong><p>Submit · Provisioning · Configuration</p></div>
+            <div class="metric"><span>WORK STYLE</span><strong>Fix → Standardize → Automate</strong><p>반복 이슈를 구조적으로 줄이는 방식</p></div>
+          </div>
+        </div>
+        <p class="source-note">Tech Stack: Linux · Houdini · Nuke · Maya · Tractor · Python · Ansible · PXE · Unreal Engine · Blender</p>
+      </div>
+    </section>
+
+    <footer class="project-footer"><span>Joon Woo Kim · DevOps / Cloud Engineer</span><span>resume.junu.dev</span></footer>
+  </main>
+</body>
+</html>

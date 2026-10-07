@@ -21,24 +21,25 @@
       <a class="indicator-link is-active" href="#introduce" data-section="introduce" aria-label="01 Introduce">
         <span class="indicator-number">01</span><span class="indicator-label">INTRODUCE</span><i></i>
       </a>
-      <a class="indicator-link" href="#journey" data-section="journey" aria-label="02 Career Journey">
-        <span class="indicator-number">02</span><span class="indicator-label">CAREER JOURNEY</span><i></i>
+      <a class="indicator-link" href="#experience" data-section="experience" aria-label="02 Experience and Projects">
+        <span class="indicator-number">02</span><span class="indicator-label">EXPERIENCE &amp; PROJECTS</span><i></i>
       </a>
-      <a class="indicator-link" href="#experience" data-section="experience" aria-label="03 Experience">
-        <span class="indicator-number">03</span><span class="indicator-label">EXPERIENCE</span><i></i>
+      <a class="indicator-link" href="#skills" data-section="skills" aria-label="03 Skills">
+        <span class="indicator-number">03</span><span class="indicator-label">SKILLS</span><i></i>
       </a>
-      <a class="indicator-link" href="#skills" data-section="skills" aria-label="04 Stack and Skills">
-        <span class="indicator-number">04</span><span class="indicator-label">STACK &amp; SKILLS</span><i></i>
-      </a>
-      <a class="indicator-link" href="#projects" data-section="projects" aria-label="05 Projects">
-        <span class="indicator-number">05</span><span class="indicator-label">PROJECTS</span><i></i>
+      <a class="indicator-link" href="#personal" data-section="personal" aria-label="04 Personal">
+        <span class="indicator-number">04</span><span class="indicator-label">PERSONAL</span><i></i>
       </a>
     </aside>
 
     <main class="resume">
+      <nav class="doc-actions" aria-label="PDF 다운로드">
+        <a class="doc-button" href="/pdf/resume.pdf" download>이력서 PDF</a>
+        <a class="doc-button" href="/pdf/portfolio.pdf" download>포트폴리오 PDF</a>
+      </nav>
+
       <header class="profile">
         <div class="profile-photo">
-          <!-- <img src="./assets/profile.webp" alt="Joon Woo Kim" /> -->
           <img src="./assets/profile.JPG" alt="Joon Woo Kim" />
         </div>
 
@@ -93,107 +94,158 @@
         </div>
       </section>
 
-      <section class="resume-section" id="journey">
+      <section class="resume-section experience-section" id="experience">
         <div class="section-heading">
           <span class="section-number">02</span>
-          <h2>CAREER JOURNEY</h2>
+          <h2>EXPERIENCE &amp; PROJECTS</h2>
         </div>
 
-        <div class="section-content">
-          <p class="section-intro">
-            사회복지에서 VFX 제작 환경으로, 다시 Pipeline과 Infrastructure를 거쳐 Cloud / DevOps로 관심과 경험의 범위를 넓혀왔습니다.
-          </p>
-
-          <ol class="journey-list">
-            <li>
-              <span class="journey-index">01</span>
-              <div>
-                <h3>순천향대학교 사회복지학과</h3>
-                <p class="journey-subtitle">2016.03 ~ 2022.09</p>
-                <p>Social Welfare · People &amp; Environment — 사람과 환경, 서비스가 사용자에게 미치는 영향에 관심을 두었던 출발점.</p>
-              </div>
-            </li>
-            <li>
-              <span class="journey-index">02</span>
-              <div>
-                <h3>Cocoavision</h3>
-                <p class="journey-subtitle">2022.09 ~ 2026.03</p>
-                <p>NewMedia R&amp;D → VFX Pipeline / IT Infrastructure — 실시간 콘텐츠 R&amp;D에서 시작해 제작 시스템과 인프라 운영으로 역할을 확장.</p>
-              </div>
-            </li>
-            <li class="is-current">
-              <span class="journey-index">03</span>
-              <div>
-                <h3>KT Cloud BootCamp</h3>
-                <p class="journey-subtitle">2026.03 ~ 2026.10</p>
-                <p>Cloud / DevOps — AWS, Kubernetes, CI/CD, GitOps, IaC를 중심으로 기존 운영·자동화 경험을 Cloud Native 환경으로 확장.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="resume-section" id="experience">
-        <div class="section-heading">
-          <span class="section-number">03</span>
-          <h2>EXPERIENCE</h2>
-        </div>
-
-        <div class="section-content experience-list">
-          <article class="experience-item">
-            <div class="experience-meta">
-              <strong>KT Cloud BootCamp</strong>
+        <div class="section-content org-list">
+          <article class="org">
+            <div class="org-meta">
+              <h3>KT Cloud BootCamp</h3>
+              <p class="org-period">2026.03 — 2026.10 (수료 예정)</p>
+              <span class="org-badge">교육 과정 · 팀 프로젝트</span>
             </div>
-            <div class="experience-body">
-              <h3>DevOps / Cloud Engineering</h3>
-              <p>
-                VFX 제작 환경에서 쌓은 시스템 운영과 자동화 경험을 Cloud Native 환경으로 확장하고 있습니다.
+
+            <div class="org-body">
+              <p class="org-summary">
+                VFX 현장의 시스템 운영·자동화 경험을 AWS와 Kubernetes 기반 Cloud Native 환경으로 확장한 과정.
               </p>
-              <ul>
-                <li>AWS / Kubernetes 기반 애플리케이션 인프라 구성 및 운영</li>
-                <li>Docker 기반 Containerization과 Kubernetes Workload 구성</li>
-                <li>Jenkins / GitHub Actions 기반 Build · Test · Image Push 자동화</li>
-                <li>ArgoCD를 이용한 GitOps 기반 배포 흐름 구성</li>
-                <li>Terraform 기반 Infrastructure as Code 적용</li>
-                <li>Prometheus · Grafana · Kiali를 통한 서비스 및 인프라 관찰</li>
-              </ul>
+
+              <article class="project-card">
+                <p class="project-type">KUBERNETES · CI/CD · SERVICE MESH · OBSERVABILITY</p>
+                <h4><a class="card-link" href="./projects/cloud-native.html">Cloud Native Delivery</a></h4>
+                <p class="card-meta">4인 팀 · Team Lead · Observability · 2026</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>배포 성공과 서비스 정상은 다르고, 한 번에 전환하면 장애 영향이 크며, 다음 단계로 진행할지 판단할 기준이 부족했다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>ArgoCD 기반 CD, Istio로 Canary 20 → 50 → 70 → 100% 및 Blue/Green 전환, Prometheus · Grafana · Kiali로 Traffic · Error · Latency · Resource 관찰 기준 정의.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>4개 서비스의 배포 자동화, 트래픽 전환, 상태 확인을 하나의 운영 시나리오로 연결.</dd>
+                  </div>
+                </dl>
+                <p class="project-tech">AWS EKS · ArgoCD · Istio · Prometheus · Grafana · Kiali</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
+
+              <article class="project-card">
+                <p class="project-type">CLOUD / DEVOPS · INTEGRATED PROJECT</p>
+                <h4><a class="card-link" href="./projects/moongcheap.html">MoongCheap · Cloud Native Platform</a></h4>
+                <p class="card-meta">CI/CD · Kubernetes · GitOps 담당 · 2026 진행 중</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>서비스별 YAML 중복, dev/prod 설정 혼재, 애플리케이션 코드와 배포 설정의 책임 경계가 불명확했다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>Jenkins → ECR → GitOps → ArgoCD → EKS 흐름 설계, 공통 Helm Chart + 환경별 Values, ApplicationSet, Commit SHA 기반 Image Tag.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>Frontend · Backend · AI 3개 영역과 dev/prod 환경을 공통 Chart와 ApplicationSet 규칙 하나로 배포하는 구조를 코드로 정리 (진행 중).</dd>
+                  </div>
+                </dl>
+                <p class="project-tech">AWS · EKS · ECR · Helm · ArgoCD · Jenkins · Terraform</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
             </div>
           </article>
 
-          <article class="experience-item">
-            <div class="experience-meta">
-              <strong>Cocoavision · VFX본부</strong>
-            </div>
-            <div class="experience-body">
-              <h3>Pipeline / IT Infrastructure</h3>
-              <p>
-                NewMedia R&amp;D 경험 이후 VFX본부로 이동해 아티스트와 제작 도구가 안정적으로 동작할 수 있도록 Pipeline과 제작 인프라를 담당했습니다.
-              </p>
-              <ul>
-                <li>Linux 기반 VFX 제작 환경과 Render Farm 운영 및 Troubleshooting</li>
-                <li>Houdini · Nuke · Maya 기반 Pipeline 문제 분석과 사용자 지원</li>
-                <li>Render Workflow와 제작 과정에서 발생하는 반복 작업 자동화</li>
-                <li>Pipeline 안정성과 작업 효율을 높이기 위한 도구 및 프로세스 개선</li>
-                <li>작업자와 시스템 사이의 병목을 분석하고 운영 관점에서 개선</li>
+          <article class="org">
+            <div class="org-meta">
+              <h3>Cocoavision</h3>
+              <p class="org-period">2022.09 — 2026.03</p>
+              <ul class="org-roles">
+                <li>
+                  <strong>VFX본부 · Pipeline / IT Infrastructure</strong>
+                  <span class="todo">[TODO: 직함]</span>
+                  <span><span class="todo">[TODO: YYYY.MM]</span> — 2026.03</span>
+                </li>
+                <li>
+                  <strong>NewMedia본부 R&amp;D팀</strong>
+                  <span>2022.09 — <span class="todo">[TODO: YYYY.MM]</span></span>
+                </li>
               </ul>
             </div>
-          </article>
 
-          <article class="experience-item">
-            <div class="experience-meta">
-              <strong>Cocoavision · NewMedia본부 R&amp;D팀</strong>
-            </div>
-            <div class="experience-body">
-              <h3>Real-time Content R&amp;D</h3>
-              <p>
-                Cocoavision 입사 후 NewMedia본부 R&amp;D팀에서 Unreal Engine과 Blender를 활용한 실시간 콘텐츠 제작과 기술 연구를 진행했습니다.
+            <div class="org-body">
+              <p class="org-summary">
+                실시간 콘텐츠 R&amp;D팀에서 시작해 VFX본부로 이동한 뒤, Linux 제작 환경과 Render Farm, Pipeline 운영을 담당했다.
               </p>
-              <ul>
-                <li>Unreal Engine · Blender 기반 웹툰 제작 및 렌더링 Workflow 구성</li>
-                <li>실시간 엔진을 활용한 콘텐츠 제작 방식과 렌더링 파이프라인 연구</li>
-                <li>Motion Capture 데이터를 콘텐츠 제작 Workflow에 적용하는 기술 검토 및 R&amp;D</li>
-                <li>VFX 제작 Workflow와 Unreal Engine을 연결할 수 있는 기술적 가능성 연구</li>
-              </ul>
+
+              <article class="project-card">
+                <p class="project-type">VFX / AUTOMATION</p>
+                <h4><a class="card-link" href="./projects/cocoavision.html#ansible">Render Farm Automation with Ansible</a></h4>
+                <p class="card-meta">Pipeline / IT Infrastructure · VFX본부</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>수십 대 규모 Linux Render Farm을 노드별로 수동 설정하며 반복 작업과 설정 편차가 발생했다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>패키지 설치 · Mount · 팀별 Tool 배포 등을 Ansible Playbook으로 작성하고 Inventory로 노드를 묶어 일괄 적용.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>서버별 수동 작업을 재사용 가능한 운영 코드로 전환. <span class="todo">[TODO: 노드 수 · 세팅 시간 변화 등 수치]</span></dd>
+                  </div>
+                </dl>
+                <p class="project-tech">Ansible · Linux · Render Farm</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
+
+              <article class="project-card">
+                <p class="project-type">VFX / INFRASTRUCTURE</p>
+                <h4><a class="card-link" href="./projects/cocoavision.html#pxe">PXE 기반 네트워크 설치 환경</a></h4>
+                <p class="card-meta">Pipeline / IT Infrastructure · VFX본부</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>장비가 늘어날수록 USB 중심의 PC 초기 설치를 사람이 직접 반복해야 했다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>PXE 부팅부터 DHCP/HTTP 설치 파일 제공, Kickstart 기반 자동 설치까지 연결한 환경 구성.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>USB 중심 설치를 네트워크 기반 설치로 전환. <span class="todo">[TODO: 대수 · 시간 변화]</span></dd>
+                  </div>
+                </dl>
+                <p class="project-tech">Linux · PXE · Kickstart · Network Boot</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
+
+              <article class="project-card">
+                <p class="project-type">VFX / PIPELINE</p>
+                <h4><a class="card-link" href="./projects/cocoavision.html#tractor">Tractor Job Submission 자동화</a></h4>
+                <p class="card-meta">Pipeline / IT Infrastructure · VFX본부</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>작업자가 제출 정보를 직접 구성하고 DCC마다 절차가 달라 누락과 설정 차이가 발생하기 쉬웠다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>Houdini · Nuke용 Custom Render / Submit Node를 Python으로 만들어, 사용자 교육 대신 도구에 제출 규칙을 넣음.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow 표준화. <span class="todo">[TODO: 사용 인원 · 오류 감소 등]</span></dd>
+                  </div>
+                </dl>
+                <p class="project-tech">Houdini · Nuke · Tractor · Python</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
             </div>
           </article>
         </div>
@@ -201,8 +253,8 @@
 
       <section class="resume-section" id="skills">
         <div class="section-heading">
-          <span class="section-number">04</span>
-          <h2>STACK &amp; SKILLS</h2>
+          <span class="section-number">03</span>
+          <h2>SKILLS</h2>
         </div>
 
         <div class="section-content skill-list">
@@ -215,10 +267,10 @@
           </article>
 
           <article class="skill-item">
-            <h3>Container</h3>
+            <h3>Container &amp; Orchestration</h3>
             <div>
               <strong>Docker · Kubernetes · Helm</strong>
-              <p>Image · Volume · Network · Pod · Deployment · Service · Ingress · Chart</p>
+              <p>Image · Docker Compose · Pod · Deployment · Service · Ingress · Chart</p>
             </div>
           </article>
 
@@ -226,191 +278,97 @@
             <h3>CI/CD &amp; GitOps</h3>
             <div>
               <strong>Jenkins · GitHub Actions · ArgoCD</strong>
-              <p>Pipeline · Agent · Webhook · Workflow · Build · GitOps · Sync</p>
+              <p>Pipeline · Webhook · Self-hosted Runner · ApplicationSet · Sync</p>
             </div>
           </article>
 
           <article class="skill-item">
-            <h3>Infrastructure as Code</h3>
+            <h3>Service Mesh &amp; Observability</h3>
             <div>
-              <strong>Terraform</strong>
-              <p>Provider · Resource · Module · State</p>
+              <strong>Istio · Prometheus · Grafana · Kiali</strong>
+              <p>Canary · Blue/Green · mTLS · Metric · Dashboard · Service Topology</p>
             </div>
           </article>
 
           <article class="skill-item">
-            <h3>Observability</h3>
+            <h3>IaC &amp; Configuration</h3>
             <div>
-              <strong>Prometheus · Grafana · Kiali</strong>
-              <p>Metric · Dashboard · Service Topology · Resource Monitoring</p>
+              <strong>Terraform · Ansible</strong>
+              <p>Provider · Resource · Module · State · Inventory · Playbook</p>
             </div>
           </article>
 
           <article class="skill-item">
-            <h3>Systems</h3>
+            <h3>Systems &amp; Network</h3>
             <div>
-              <strong>Linux · Nginx · Cloudflare · Git</strong>
-              <p>Service Operation · Networking · DNS · Reverse Proxy · Version Control</p>
+              <strong>Linux · Nginx · Cloudflare · PXE · Git</strong>
+              <p>Reverse Proxy · DNS · Cloudflare Tunnel · Network Boot · Kickstart · Version Control</p>
             </div>
           </article>
 
           <article class="skill-item">
-            <h3>VFX / Pipeline</h3>
+            <h3>Scripting</h3>
             <div>
-              <strong>Houdini · Nuke · Maya · Tractor · Python · Unreal Engine · Blender</strong>
-              <p>Production Pipeline · Render Farm · Troubleshooting · Automation · Real-time Content</p>
+              <strong>Python</strong>
+              <p>DCC Tool · Render Submission · Pipeline Automation</p>
+            </div>
+          </article>
+
+          <article class="skill-item">
+            <h3>VFX Pipeline</h3>
+            <div>
+              <strong>Houdini · Nuke · Maya · Tractor</strong>
+              <p>Production Pipeline · Render Farm · Troubleshooting</p>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="resume-section" id="projects">
+      <section class="resume-section" id="personal">
         <div class="section-heading">
-          <span class="section-number">05</span>
-          <h2>PROJECTS</h2>
+          <span class="section-number">04</span>
+          <h2>PERSONAL</h2>
         </div>
 
-        <div class="section-content project-groups">
-          <details class="project-group">
-            <summary>
-              <div class="project-group-title">
-                <p class="project-type">CLOUD / DEVOPS</p>
-                <h3>KT Cloud</h3>
-                <p>Cloud Native · Kubernetes · CI/CD · GitOps</p>
-              </div>
-              <span class="project-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="project-group-content">
-              <article class="project-item">
-                <p class="project-type">CLOUD NATIVE / DEVOPS</p>
-                <h4>Kubernetes · CI/CD · GitOps Infrastructure</h4>
-                <p class="project-description">
-                  Kubernetes 기반 애플리케이션 환경에서 CI부터 GitOps CD, Observability까지 하나의 운영 흐름으로 연결한 프로젝트.
-                </p>
-                <ul>
-                  <li>Jenkins / GitHub Actions → Container Registry → ArgoCD 배포 흐름 구성</li>
-                  <li>Kubernetes Deployment · Service · Ingress · Helm 기반 배포 환경 구성</li>
-                  <li>Prometheus · Grafana를 이용한 운영 지표 수집과 시각화</li>
-                </ul>
-                <p class="project-tech">AWS · EKS · Kubernetes · Docker · Jenkins · ArgoCD · Terraform · Prometheus · Grafana</p>
-              </article>
+        <div class="section-content personal-grid">
+          <article class="project-card personal-card">
+            <p class="project-type">PERSONAL INFRASTRUCTURE</p>
+            <h4><a class="card-link" href="./projects/personal-infra.html#home-infra">junu.dev Home Infrastructure</a></h4>
+            <p class="card-desc">
+              Raspberry Pi · Docker Compose 기반으로 Wiki와 개인 서비스를 직접 운영하고,
+              Cloudflare Tunnel과 GitHub Actions Self-hosted Runner로 외부 연결과 배포를 자동화.
+            </p>
+            <p class="project-tech">Linux · Docker · Nginx · Cloudflare Tunnel · GitHub Actions · PostgreSQL</p>
+            <div class="project-links">
+              <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
+              <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
             </div>
-          </details>
+            <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+          </article>
 
-          <details class="project-group">
-            <summary>
-              <div class="project-group-title">
-                <p class="project-type">PRODUCTION / R&amp;D</p>
-                <h3>Cocoavision</h3>
-                <p>NewMedia R&amp;D · VFX Pipeline / Infrastructure</p>
-              </div>
-              <span class="project-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="project-group-content">
-              <article class="project-item project-subgroup">
-                <p class="project-type">NEWMEDIA R&amp;D</p>
-                <h4>Real-time Content &amp; Previs R&amp;D</h4>
-                <p class="project-description">
-                  Unreal Engine과 Blender를 활용한 실시간 콘텐츠 제작과 Previs 환경을 구성해 제작 전 단계에서 아이디어를 빠르게 검토할 수 있도록 지원했습니다.
-                </p>
-                <ul>
-                  <li>Unreal Engine · Blender 기반 웹툰 제작 및 렌더링 Workflow 구성</li>
-                  <li>Motion Capture 데이터를 콘텐츠 제작 Workflow에 적용하는 R&amp;D</li>
-                  <li>VFX 제작 Workflow와 Unreal Engine을 연결하기 위한 기술 연구</li>
-                  <li>Unreal Engine 기반 Previs Scene Setup으로 감독이 현장에서 촬영 구도와 장면 구성을 미리 검토할 수 있는 환경 구성</li>
-                </ul>
-                <p class="project-tech">Unreal Engine · Blender · Motion Capture · Previs · VFX · Rendering</p>
-              </article>
-
-              <article class="project-item project-subgroup">
-                <p class="project-type">VFX / PIPELINE</p>
-                <h4>Tractor Job Submission</h4>
-                <p class="project-description">
-                  아티스트가 DCC에서 바로 사내 Render Farm으로 렌더 작업을 제출할 수 있도록 Houdini와 Nuke용 커스텀 렌더 노드 및 제출 흐름을 구성했습니다.
-                </p>
-                <ul>
-                  <li>Houdini · Nuke용 Custom Render / Submit Node 제작</li>
-                  <li>작업 정보를 Tractor Job 형태로 변환해 내부 Render Farm으로 제출</li>
-                  <li>아티스트의 수동 Job 생성 과정을 줄이고 일관된 Render Submission Workflow 구성</li>
-                </ul>
-                <p class="project-tech">Houdini · Nuke · Tractor · Python · Render Farm</p>
-              </article>
-
-              <article class="project-item project-subgroup">
-                <p class="project-type">VFX / INFRASTRUCTURE</p>
-                <h4>PXE Infrastructure Setting</h4>
-                <p class="project-description">
-                  작업자 PC를 USB로 반복 설치하던 방식을 줄이기 위해 PXE 기반 네트워크 설치 환경을 구축했습니다.
-                </p>
-                <ul>
-                  <li>네트워크 부팅 기반 OS 설치를 위한 PXE 환경 구성</li>
-                  <li>USB를 이용해 PC마다 반복하던 초기 설치 작업을 네트워크 설치 방식으로 전환</li>
-                  <li>작업자 PC 세팅 과정을 표준화하고 반복 작업을 줄일 수 있는 기반 구성</li>
-                </ul>
-                <p class="project-tech">Linux · PXE · Network Boot · Infrastructure</p>
-              </article>
-
-              <article class="project-item project-subgroup">
-                <p class="project-type">VFX / AUTOMATION</p>
-                <h4>Render Farm Automation with Ansible</h4>
-                <p class="project-description">
-                  수십 대 규모의 Linux Render Farm을 서버마다 반복적으로 관리해야 하는 문제를 줄이기 위해 Ansible 기반 관리 자동화를 적용했습니다.
-                </p>
-                <ul>
-                  <li>여러 Linux Render Node에 반복되는 설정과 운영 작업을 Ansible Playbook으로 자동화</li>
-                  <li>서버별 수동 작업을 줄이고 동일한 설정을 여러 노드에 일관되게 적용</li>
-                  <li>Render Farm 운영과 유지보수 과정의 반복 작업을 자동화 가능한 형태로 전환</li>
-                </ul>
-                <p class="project-tech">Ansible · Linux · Render Farm · Infrastructure Automation</p>
-              </article>
+          <article class="project-card personal-card">
+            <p class="project-type">PERSONAL DEV TOOLS</p>
+            <h4><a class="card-link" href="./projects/personal-infra.html#dev-tools">Personal Dev Tools</a></h4>
+            <p class="card-desc">
+              개인 작업에서 반복되던 이미지 편집과 파일 확장자 변환을 독립 웹 도구로 만들어 서비스별 Subdomain으로 운영.
+            </p>
+            <p class="project-tech">AI Agent · Web Tool · Nginx · Cloudflare</p>
+            <div class="project-links">
+              <a href="https://maskly.junu.dev" target="_blank" rel="noreferrer">Maskly ↗</a>
+              <a href="https://transformer.junu.dev" target="_blank" rel="noreferrer">Transformer ↗</a>
             </div>
-          </details>
-
-          <details class="project-group">
-            <summary>
-              <div class="project-group-title">
-                <p class="project-type">PERSONAL</p>
-                <h3>Personal</h3>
-                <p>Home Infrastructure · Personal Dev Tools</p>
-              </div>
-              <span class="project-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="project-group-content">
-              <article class="project-item project-subgroup">
-                <p class="project-type">PERSONAL INFRASTRUCTURE</p>
-                <h4>junu.dev Home Infrastructure</h4>
-                <p class="project-description">
-                  개인 포트폴리오, 기술 위키와 웹 도구를 직접 배포하고 운영하는 소규모 개인 인프라.
-                </p>
-                <ul>
-                  <li>Raspberry Pi / Docker 기반 Self-hosted Service 운영</li>
-                  <li>Cloudflare를 이용한 DNS와 외부 서비스 연결</li>
-                  <li>GitHub 기반 코드 관리와 서비스 배포 흐름 운영</li>
-                </ul>
-                <p class="project-tech">Linux · Docker · Cloudflare · Nginx · GitHub · Raspberry Pi</p>
-                <div class="project-links">
-                  <a href="https://junu.dev" target="_blank" rel="noreferrer">Portfolio ↗</a>
-                  <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Wiki ↗</a>
-                </div>
-              </article>
-
-              <article class="project-item project-subgroup">
-                <p class="project-type">PERSONAL DEV TOOLS</p>
-                <h4>Personal Dev Tools</h4>
-                <p class="project-description">Image Edit &amp; File Extension Transform Page</p>
-                <ul>
-                  <li>AI Agent를 활용해 개인 작업에서 필요했던 기능을 빠르게 구현하고 개선</li>
-                  <li>이미지 편집과 파일 확장자 변환 기능을 각각 독립적인 웹 도구로 제작 및 운영</li>
-                </ul>
-                <p class="project-tech">AI Agent · Image Edit · File Convert · Web Tool</p>
-                <div class="project-links">
-                  <a href="https://maskly.junu.dev" target="_blank" rel="noreferrer">Maskly ↗</a>
-                  <a href="https://transformer.junu.dev" target="_blank" rel="noreferrer">Transformer ↗</a>
-                </div>
-              </article>
-            </div>
-          </details>
+            <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+          </article>
         </div>
+      </section>
+
+      <section class="education" id="education" aria-label="Education">
+        <h2>EDUCATION</h2>
+        <p>
+          <strong>순천향대학교 사회복지학과</strong>
+          <span>2016.03 — 2022.09</span>
+          <span class="todo">[TODO: 졸업 여부]</span>
+        </p>
       </section>
 
       <footer class="footer">

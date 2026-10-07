@@ -593,13 +593,13 @@ blockquote {
   gap: 18px;
 }
 
-@media (max-width: 1320px) {
+@media screen and (max-width: 1320px) {
   .section-indicator {
     display: none;
   }
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .profile {
     grid-template-columns: 132px minmax(0, 1fr);
     gap: 28px;
@@ -628,7 +628,7 @@ blockquote {
   }
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   body {
     font-size: 16px;
   }
@@ -725,8 +725,8 @@ blockquote {
   }
 
   body {
-    font-size: 9.2pt;
-    line-height: 1.55;
+    font-size: 9pt;
+    line-height: 1.5;
   }
 
   .resume {
@@ -735,7 +735,9 @@ blockquote {
 
   .section-indicator,
   .doc-actions,
-  .card-more {
+  .card-more,
+  .footer,
+  .print-hide {
     display: none !important;
   }
 
@@ -772,12 +774,16 @@ blockquote {
   .resume-section,
   .org,
   .education {
-    grid-template-columns: 120px 1fr;
-    gap: 20px;
+    grid-template-columns: 132px 1fr;
+    gap: 18px;
+  }
+
+  .org-meta {
+    overflow-wrap: anywhere;
   }
 
   .resume-section {
-    padding: 14px 0;
+    padding: 11px 0;
   }
 
   .experience-section {
@@ -795,14 +801,14 @@ blockquote {
   }
 
   .intro-copy p {
-    margin-bottom: 6px;
-    font-size: 9.2pt;
+    margin-bottom: 4px;
+    font-size: 8.8pt;
   }
 
   .intro-copy .lead {
     margin-bottom: 8px;
-    font-size: 10.5pt;
-    line-height: 1.6;
+    font-size: 10pt;
+    line-height: 1.5;
   }
 
   blockquote {
@@ -813,7 +819,12 @@ blockquote {
   }
 
   .org {
-    padding: 10px 0;
+    padding: 8px 0;
+  }
+
+  /* Start each later org on a fresh page so its side column is not split. */
+  .org + .org {
+    break-before: page;
   }
 
   .org-meta h3 {
@@ -846,13 +857,13 @@ blockquote {
   }
 
   .project-card {
-    padding: 9px 12px;
+    padding: 7px 12px;
     border-radius: 8px;
     break-inside: avoid;
   }
 
   .project-card + .project-card {
-    margin-top: 7px;
+    margin-top: 6px;
   }
 
   .project-type {
@@ -871,8 +882,8 @@ blockquote {
 
   .par {
     gap: 12px;
-    margin-top: 6px;
-    padding-top: 6px;
+    margin-top: 5px;
+    padding-top: 5px;
   }
 
   .par dt {
@@ -882,13 +893,14 @@ blockquote {
 
   .par dd,
   .card-desc {
-    font-size: 8.3pt;
-    line-height: 1.5;
+    font-size: 8.1pt;
+    line-height: 1.45;
   }
 
   .project-tech {
-    margin-top: 5px !important;
-    font-size: 7.5pt;
+    margin-top: 3px !important;
+    font-size: 7.3pt;
+    line-height: 1.4;
   }
 
   .project-links {
@@ -897,11 +909,23 @@ blockquote {
     font-size: 7.5pt;
   }
 
+  .skill-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+
   .skill-item {
-    grid-template-columns: 150px 1fr;
-    gap: 12px;
-    padding: 5px 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 3px 0;
     break-inside: avoid;
+  }
+
+  .skill-item h3 {
+    color: var(--muted);
+    font-size: 7.5pt !important;
+    letter-spacing: 0.02em;
   }
 
   .skill-item h3,
@@ -911,7 +935,8 @@ blockquote {
 
   .skill-item p {
     margin-top: 0;
-    font-size: 8pt;
+    font-size: 7.8pt;
+    line-height: 1.4;
   }
 
   .personal-grid {

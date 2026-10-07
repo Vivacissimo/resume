@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joon Woo Kim portfolio cover and contents" />
+  <title>Joon Woo Kim | Portfolio</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./project-detail.css" />
+</head>
+<body>
+  <header class="web-header no-print">
+    <a class="back" href="./index.html#experience">← Resume</a>
+    <div class="actions">
+      <button type="button" onclick="window.print()">PDF로 인쇄</button>
+    </div>
+  </header>
+
+  <main class="project-document cover">
+    <header class="cover-hero">
+      <p class="kicker">PORTFOLIO</p>
+      <h1>김준우 <span>Joon Woo Kim</span></h1>
+      <p class="cover-role">DevOps / Cloud Engineer</p>
+      <p class="hero-subtitle">VFX 제작 환경의 운영·자동화 경험을 Kubernetes, CI/CD, GitOps 기반 Cloud Native 환경으로 확장하고 있습니다.</p>
+      <ul class="cover-contact">
+        <li><span>EMAIL</span><a href="mailto:joon@junu.dev">joon@junu.dev</a></li>
+        <li><span>WEB</span><a href="https://junu.dev">junu.dev</a></li>
+        <li><span>GITHUB</span><a href="https://github.com/Vivacissimo">github.com/Vivacissimo</a></li>
+        <li><span>WIKI</span><a href="https://wiki.junu.dev">wiki.junu.dev</a></li>
+      </ul>
+    </header>
+
+    <section class="cover-toc" aria-label="Contents">
+      <h2>CONTENTS</h2>
+      <ol>
+        <li>
+          <span class="toc-index">01</span>
+          <div>
+            <a href="./projects/cloud-native.html"><strong>Cloud Native Delivery</strong></a>
+            <p>4개 서비스의 배포 자동화부터 Istio 트래픽 제어, 배포 후 상태 확인까지 하나의 운영 흐름으로 연결</p>
+          </div>
+          <span class="toc-tag">KT Cloud BootCamp</span>
+        </li>
+        <li>
+          <span class="toc-index">02</span>
+          <div>
+            <a href="./projects/moongcheap.html"><strong>MoongCheap · Cloud Native Platform</strong></a>
+            <p>Frontend · Backend · AI 서비스를 AWS EKS에 일관되게 배포하기 위한 CI/CD 및 GitOps 구조 설계</p>
+          </div>
+          <span class="toc-tag">KT Cloud BootCamp</span>
+        </li>
+        <li>
+          <span class="toc-index">03</span>
+          <div>
+            <a href="./projects/cocoavision.html"><strong>Cocoavision · VFX Pipeline / Infrastructure</strong></a>
+            <p>DCC 환경과 Render Farm을 운영하며 Tractor 제출, PXE 설치, Ansible 노드 관리를 자동화</p>
+          </div>
+          <span class="toc-tag">Professional</span>
+        </li>
+        <li>
+          <span class="toc-index">04</span>
+          <div>
+            <a href="./projects/personal-infra.html"><strong>junu.dev Home Infrastructure</strong></a>
+            <p>개인 서비스와 기술 위키를 직접 배포·운영하며 DNS, Container, Backup, CI/CD를 반복해서 경험하는 Home Lab</p>
+          </div>
+          <span class="toc-tag">Personal</span>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="project-footer"><span>Joon Woo Kim · DevOps / Cloud Engineer</span><span>resume.junu.dev</span></footer>
+  </main>
+</body>
+</html>

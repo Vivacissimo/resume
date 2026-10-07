@@ -1,0 +1,14 @@
+{
+  "name": "resume-junu-dev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "resume.junu.dev — static resume site with PDF build",
+  "scripts": {
+    "pdf": "node scripts/build-pdf.mjs"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.63.0"
+  }
+}

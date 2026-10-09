@@ -243,6 +243,68 @@ a:hover { color: var(--accent); }
 .metric strong { display: block; margin-top: 4px; color: var(--strong); font-size: 15px; }
 .metric p { margin-top: 4px; font-size: 12px; color: var(--muted); }
 
+.architecture {
+  margin: 0;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+.architecture figcaption { margin-bottom: 14px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.arch-scroll { overflow-x: auto; }
+.architecture svg { display: block; width: 100%; min-width: 720px; height: auto; font-family: inherit; }
+.architecture .box { fill: #fff; stroke: #d0d5dd; stroke-width: 1.2; }
+.architecture .box.accent { fill: var(--accent-soft); stroke: #a9c7f5; }
+.architecture .cluster { fill: var(--soft); stroke: #98a2b3; stroke-width: 1.2; stroke-dasharray: 6 5; }
+.architecture .platform { fill: #fff; stroke: #d0d5dd; stroke-dasharray: 4 4; }
+.architecture .pill { fill: var(--soft); stroke: #d0d5dd; }
+.architecture text { fill: var(--muted); font-size: 12px; text-anchor: middle; }
+.architecture .title { fill: var(--strong); font-size: 15px; font-weight: 700; }
+.architecture .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+.architecture .pill-text { fill: var(--strong); font-size: 13px; font-weight: 700; }
+.architecture .env { fill: var(--strong); font-size: 13px; font-weight: 700; text-anchor: start; }
+.architecture .lane { fill: var(--light); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-anchor: start; }
+.architecture .label { fill: var(--accent); font-size: 11px; font-weight: 600; }
+.architecture .label.start { text-anchor: start; }
+.architecture .flow-line { stroke: var(--accent); stroke-width: 1.6; }
+.architecture .flow-line.dashed { stroke-dasharray: 5 4; }
+.architecture .arrow-head { fill: var(--accent); }
+
+.architecture.scope { padding: 0 0 18px; border-bottom: 0; }
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tag-list li { padding: 4px 12px; border: 1px solid #cfe0ff; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; }
+
+.system-arch { margin: 0; padding: 32px 0; border-bottom: 1px solid var(--line); }
+.system-arch figcaption { margin-bottom: 14px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.system-arch-image { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.system-arch-image img { display: block; width: 100%; height: auto; }
+
+.issue + .issue { margin-top: 22px; }
+.issue h3 { margin: 0 0 6px; color: var(--strong); font-size: 17px; }
+
+.retro-list { display: grid; gap: 12px; }
+.retro { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; }
+.retro .mini-label { display: block; color: var(--light); font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+.retro .mini-label.next { margin-top: 10px; color: var(--accent); }
+.retro strong { display: block; margin-top: 2px; color: var(--strong); font-size: 16px; }
+.retro p { margin: 2px 0 0; color: #475467; font-size: 14px; }
+
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--soft);
+  color: var(--strong);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .9em;
+}
+
+.todo {
+  padding: 0 4px;
+  border-radius: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 600;
+}
+
 .stack-line { color: #475467; font-size: 14px; font-weight: 700; }
 .source-note { margin-top: 18px; color: var(--light); font-size: 12px; }
 
@@ -314,6 +376,20 @@ a:hover { color: var(--accent); }
   .metric { padding: 9px; }
   .metric strong { font-size: 8.8pt; }
   .metric p { font-size: 7.3pt; }
+  .architecture { padding: 14px 0; break-inside: avoid; }
+  .architecture figcaption { margin-bottom: 8px; font-size: 7.5pt; }
+  .architecture svg { min-width: 0; }
+  .architecture.scope { padding: 0 0 10px; }
+  .tag-list { gap: 5px; }
+  .tag-list li { padding: 1px 8px; font-size: 7.8pt; }
+  .system-arch { padding: 14px 0; break-inside: avoid; }
+  .system-arch figcaption { margin-bottom: 8px; font-size: 7.5pt; }
+  .issue { break-inside: avoid; }
+  .issue h3 { font-size: 10.5pt; }
+  .retro { padding: 10px 12px; break-inside: avoid; }
+  .retro .mini-label { font-size: 7pt; }
+  .retro strong { font-size: 9.6pt; }
+  .retro p { font-size: 8.4pt; }
   .project-footer { padding-top: 12px; font-size: 7.5pt; }
   a { color: inherit; }
 }

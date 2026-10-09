@@ -10,10 +10,9 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 
 ```text
 01 INTRODUCE
-02 EXPERIENCE & PROJECTS   KT Cloud BootCamp → Cocoavision
+02 EXPERIENCE              KT Cloud BootCamp → Cocoavision
 03 SKILLS
 04 PERSONAL
-EDUCATION                  one line above the footer
 ```
 
 ## Files
@@ -60,9 +59,11 @@ npm run pdf
 ```
 
 - `pdf/resume.pdf`: `index.html` printed to A4 (target: two pages or fewer)
-- `pdf/portfolio.pdf`: `portfolio-cover.html` → `cloud-native` → `moongcheap` → `cocoavision` → `personal-infra`, rendered one by one and merged
+- `pdf/portfolio.pdf`: `portfolio-cover.html` → `moongcheap` → `cloud-native` → `cocoavision` → `personal-infra`, rendered one by one and merged
 
 The script serves the repo with Node's `http` module, waits for `document.fonts.ready`, and prints with the `print` media styles.
+Same-site links are rewritten to `https://resume.junu.dev/...` before printing, so links in the PDFs open the live site.
+If a page still has `.todo` placeholders, the build prints a warning listing them.
 Sections marked `data-portfolio="exclude"` (for example the Cocoavision Real-time R&D case) stay on the web page but are left out of the portfolio PDF.
 
 ## Automatic PDF build

@@ -21,8 +21,8 @@
       <a class="indicator-link is-active" href="#introduce" data-section="introduce" aria-label="01 Introduce">
         <span class="indicator-number">01</span><span class="indicator-label">INTRODUCE</span><i></i>
       </a>
-      <a class="indicator-link" href="#experience" data-section="experience" aria-label="02 Experience and Projects">
-        <span class="indicator-number">02</span><span class="indicator-label">EXPERIENCE &amp; PROJECTS</span><i></i>
+      <a class="indicator-link" href="#experience" data-section="experience" aria-label="02 Experience">
+        <span class="indicator-number">02</span><span class="indicator-label">EXPERIENCE</span><i></i>
       </a>
       <a class="indicator-link" href="#skills" data-section="skills" aria-label="03 Skills">
         <span class="indicator-number">03</span><span class="indicator-label">SKILLS</span><i></i>
@@ -34,8 +34,8 @@
 
     <main class="resume">
       <nav class="doc-actions" aria-label="PDF 다운로드">
-        <a class="doc-button" href="/pdf/resume.pdf" download>이력서 PDF</a>
-        <a class="doc-button" href="/pdf/portfolio.pdf" download>포트폴리오 PDF</a>
+        <a class="doc-button" href="/pdf/resume.pdf" download="김준우_이력서.pdf">이력서 PDF</a>
+        <a class="doc-button" href="/pdf/portfolio.pdf" download="김준우_포트폴리오.pdf">포트폴리오 PDF</a>
       </nav>
 
       <header class="profile">
@@ -55,8 +55,9 @@
         <div class="profile-links" aria-label="Contact links">
           <a href="mailto:joon@junu.dev">joon@junu.dev</a>
           <a href="https://junu.dev" target="_blank" rel="noreferrer">junu.dev</a>
-          <a href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">Tech Wiki</a>
+          <a href="https://github.com/Vivacissimo" target="_blank" rel="noreferrer">github.com/Vivacissimo</a>
+          <a href="https://wiki.junu.dev" target="_blank" rel="noreferrer">wiki.junu.dev</a>
+          <a class="print-only" href="https://resume.junu.dev">Portfolio · resume.junu.dev</a>
         </div>
       </header>
 
@@ -73,19 +74,9 @@
           </p>
 
           <p>
-            시작은 지금과 꽤 다른 사회복지 분야였습니다. 사람과 환경, 그리고 서비스가 실제 사용자의 삶에 어떤 영향을 주는지에 관심을 가졌고,
-            이후 원래 관심있던 미디어 제작으로 옮겨가며 VFX 분야에 들어오게 되었습니다.
-          </p>
-
-          <p>
-            VFX 현장에서는 결과물을 만드는 일만큼이나 그 결과물이 만들어지는 <strong>환경과 시스템</strong>에 더 큰 흥미를 느꼈습니다.
-            Houdini, Nuke, Maya 같은 제작 도구와 Render Farm, Linux 환경을 다루면서 작업자의 반복 작업을 줄이고,
-            Pipeline 문제를 해결하고, 제작 환경을 안정적으로 유지하는 일을 경험했습니다.
-          </p>
-
-          <p>
-            그렇게 관심사는 <strong>Pipeline Automation → IT Infrastructure → Cloud / DevOps</strong>로 확장되었습니다.
-            분야는 바뀌었지만, 사용자가 더 안정적으로 일할 수 있는 환경을 만들고 반복적인 일은 자동화로 개선한다는 방향은 계속 이어지고 있습니다.
+            사회복지에서 출발해 VFX 분야로 옮긴 뒤, 결과물보다 그것이 만들어지는 <strong>환경과 시스템</strong>에 더 큰 흥미를 느꼈습니다.
+            Render Farm과 Linux 제작 환경을 운영하며 반복 작업을 자동화했고, 관심사는
+            <strong>Pipeline Automation → IT Infrastructure → Cloud / DevOps</strong>로 이어졌습니다.
           </p>
 
           <blockquote>
@@ -97,14 +88,14 @@
       <section class="resume-section experience-section" id="experience">
         <div class="section-heading">
           <span class="section-number">02</span>
-          <h2>EXPERIENCE &amp; PROJECTS</h2>
+          <h2>EXPERIENCE</h2>
         </div>
 
         <div class="section-content org-list">
           <article class="org">
             <div class="org-meta">
               <h3>KT Cloud BootCamp</h3>
-              <p class="org-period">2026.03 — 2026.10 (수료 예정)</p>
+              <p class="org-period">2026.03 — 2026.10 (수료)</p>
               <span class="org-badge">교육 과정 · 팀 프로젝트</span>
             </div>
 
@@ -112,28 +103,6 @@
               <p class="org-summary">
                 VFX 현장의 시스템 운영·자동화 경험을 AWS와 Kubernetes 기반 Cloud Native 환경으로 확장한 과정.
               </p>
-
-              <article class="project-card">
-                <p class="project-type">KUBERNETES · CI/CD · SERVICE MESH · OBSERVABILITY</p>
-                <h4><a class="card-link" href="./projects/cloud-native.html">Cloud Native Delivery</a></h4>
-                <p class="card-meta">4인 팀 · Team Lead · Observability · 2026</p>
-                <dl class="par">
-                  <div>
-                    <dt>Problem</dt>
-                    <dd>배포 성공과 서비스 정상은 다르고, 한 번에 전환하면 장애 영향이 크며, 다음 단계로 진행할지 판단할 기준이 부족했다.</dd>
-                  </div>
-                  <div>
-                    <dt>Action</dt>
-                    <dd>ArgoCD 기반 CD, Istio로 Canary 20 → 50 → 70 → 100% 및 Blue/Green 전환, Prometheus · Grafana · Kiali로 Traffic · Error · Latency · Resource 관찰 기준 정의.</dd>
-                  </div>
-                  <div>
-                    <dt>Result</dt>
-                    <dd>4개 서비스의 배포 자동화, 트래픽 전환, 상태 확인을 하나의 운영 시나리오로 연결.</dd>
-                  </div>
-                </dl>
-                <p class="project-tech">AWS EKS · ArgoCD · Istio · Prometheus · Grafana · Kiali</p>
-                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
-              </article>
 
               <article class="project-card">
                 <p class="project-type">CLOUD / DEVOPS · INTEGRATED PROJECT</p>
@@ -156,6 +125,28 @@
                 <p class="project-tech">AWS · EKS · ECR · Helm · ArgoCD · Jenkins · Terraform</p>
                 <span class="card-more" aria-hidden="true">자세히 보기 →</span>
               </article>
+
+              <article class="project-card">
+                <p class="project-type">KUBERNETES · CI/CD · SERVICE MESH · OBSERVABILITY</p>
+                <h4><a class="card-link" href="./projects/cloud-native.html">Cloud Native Delivery</a></h4>
+                <p class="card-meta">4인 팀 · Team Lead · Observability · 2026</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>배포 성공과 서비스 정상은 다르고, 한 번에 전환하면 장애 영향이 크며, 다음 단계로 진행할지 판단할 기준이 부족했다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>ArgoCD 기반 CD, Istio로 Canary 20 → 50 → 70 → 100% 및 Blue/Green 전환, Prometheus · Grafana · Kiali로 Traffic · Error · Latency · Resource 관찰 기준 정의.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>4개 서비스의 배포 자동화, 트래픽 전환, 상태 확인을 하나의 운영 시나리오로 연결.</dd>
+                  </div>
+                </dl>
+                <p class="project-tech">AWS EKS · ArgoCD · Istio · Prometheus · Grafana · Kiali</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
             </div>
           </article>
 
@@ -166,12 +157,11 @@
               <ul class="org-roles">
                 <li>
                   <strong>VFX본부 · Pipeline / IT Infrastructure</strong>
-                  <span class="todo">[TODO: 직함]</span>
-                  <span><span class="todo">[TODO: YYYY.MM]</span> — 2026.03</span>
+                  <span><span>2024.01</span> — 2026.03</span>
                 </li>
                 <li>
                   <strong>NewMedia본부 R&amp;D팀</strong>
-                  <span>2022.09 — <span class="todo">[TODO: YYYY.MM]</span></span>
+                  <span>2022.09 — <span>2024.01</span></span>
                 </li>
               </ul>
             </div>
@@ -196,7 +186,7 @@
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>서버별 수동 작업을 재사용 가능한 운영 코드로 전환. <span class="todo">[TODO: 노드 수 · 세팅 시간 변화 등 수치]</span></dd>
+                    <dd>서버별 수동 작업을 재사용 가능한 운영 코드로 전환.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Ansible · Linux · Render Farm</p>
@@ -218,7 +208,7 @@
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>USB 중심 설치를 네트워크 기반 설치로 전환. <span class="todo">[TODO: 대수 · 시간 변화]</span></dd>
+                    <dd>USB 중심 설치를 네트워크 기반 설치로 전환.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Linux · PXE · Kickstart · Network Boot</p>
@@ -240,7 +230,7 @@
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow 표준화. <span class="todo">[TODO: 사용 인원 · 오류 감소 등]</span></dd>
+                    <dd>DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow 표준화.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Houdini · Nuke · Tractor · Python</p>
@@ -360,15 +350,6 @@
             <span class="card-more" aria-hidden="true">자세히 보기 →</span>
           </article>
         </div>
-      </section>
-
-      <section class="education" id="education" aria-label="Education">
-        <h2>EDUCATION</h2>
-        <p>
-          <strong>순천향대학교 사회복지학과</strong>
-          <span>2016.03 — 2022.09</span>
-          <span class="todo">[TODO: 졸업 여부]</span>
-        </p>
       </section>
 
       <footer class="footer">

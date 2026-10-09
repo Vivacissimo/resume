@@ -11,11 +11,14 @@ import { PDFDocument } from 'pdf-lib';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'pdf');
 
+// Links inside the PDFs point to the live site, not the local build server.
+const SITE_URL = 'https://resume.junu.dev/';
+
 const RESUME_PAGE = 'index.html';
 const PORTFOLIO_PAGES = [
   'portfolio-cover.html',
-  'projects/cloud-native.html',
   'projects/moongcheap.html',
+  'projects/cloud-native.html',
   'projects/cocoavision.html',
   'projects/personal-infra.html',
 ];
@@ -68,6 +71,18 @@ async function renderPdf(browser, url, extraCss) {
   await page.goto(url, { waitUntil: 'networkidle' });
   if (extraCss) await page.addStyleTag({ content: extraCss });
   await page.evaluate(() => document.fonts.ready);
+
+  const todos = await page.evaluate((siteUrl) => {
+    for (const a of document.querySelectorAll('a[href]')) {
+      if (a.origin === location.origin) {
+        a.href = siteUrl + a.pathname.slice(1) + a.search + a.hash;
+      }
+    }
+    return [...document.querySelectorAll('.todo')].map((el) => el.textContent.trim());
+  }, SITE_URL);
+  if (todos.length) {
+    console.warn(`  ! ${new URL(url).pathname} still has ${todos.length} TODO(s): ${todos.join(', ')}`);
+  }
 
   const pdf = await page.pdf({
     format: 'A4',

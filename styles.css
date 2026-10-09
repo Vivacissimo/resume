@@ -46,6 +46,10 @@ a:hover {
   margin: 0 auto;
 }
 
+.print-only {
+  display: none;
+}
+
 .todo {
   padding: 0 4px;
   border-radius: 4px;
@@ -540,37 +544,6 @@ blockquote {
   line-height: 1.7;
 }
 
-/* Education */
-
-.education {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 56px;
-  align-items: baseline;
-  padding: 40px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.education h2 {
-  margin: 0;
-  color: var(--accent);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.education p {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
-  margin: 0;
-  font-size: 16px;
-}
-
-.education p span:not(.todo) {
-  color: var(--muted);
-}
-
 /* Footer */
 
 .footer {
@@ -707,11 +680,6 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .education {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
   .footer {
     align-items: flex-start;
     flex-direction: column;
@@ -731,6 +699,10 @@ blockquote {
 
   .resume {
     width: 100%;
+  }
+
+  .print-only {
+    display: block;
   }
 
   .section-indicator,
@@ -772,8 +744,7 @@ blockquote {
   }
 
   .resume-section,
-  .org,
-  .education {
+  .org {
     grid-template-columns: 132px 1fr;
     gap: 18px;
   }
@@ -945,19 +916,6 @@ blockquote {
 
   .card-desc {
     margin-top: 3px !important;
-  }
-
-  .education {
-    padding: 10px 0;
-    break-inside: avoid;
-  }
-
-  .education h2 {
-    font-size: 9pt;
-  }
-
-  .education p {
-    font-size: 9pt;
   }
 
   .footer {

@@ -1,0 +1,9 @@
+// Cloudflare Workers Builds deploys this repo as a static site.
+// Without this file, package.json (used only for the PDF build) stops wrangler from auto-detecting the static assets.
+{
+  "name": "resume",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./"
+  }
+}

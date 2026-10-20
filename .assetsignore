@@ -1,0 +1,12 @@
+# Files that exist for the build, not for the site
+.git
+.github
+node_modules
+scripts
+package.json
+package-lock.json
+wrangler.jsonc
+README.md
+.gitignore
+.gitattributes
+.wrangler

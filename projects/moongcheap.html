@@ -26,7 +26,7 @@
         <p class="hero-subtitle">소비자가 수요를 먼저 모으면 판매자가 가격으로 응찰하는 <strong>수요 집결형 AI 역경매 공동구매 플랫폼</strong></p>
       </div>
       <div class="meta-card">
-        <div class="meta-row"><span>PERIOD</span><strong>2026 · 진행 중</strong></div>
+        <div class="meta-row"><span>PERIOD</span><strong>2026.07 ~ 2026.10 </strong></div>
         <div class="meta-row"><span>ROLE</span><strong>CI/CD · Kubernetes · GitOps 담당</strong></div>
         <div class="meta-row"><span>STACK</span><strong>AWS EKS · Helm · ArgoCD · Jenkins · Prometheus · Loki · Grafana</strong></div>
         <div class="meta-row"><span>REPO</span><strong><a href="https://github.com/V-MoongCheap/MoongCheap-Cloud" target="_blank" rel="noreferrer">github.com/V-MoongCheap/MoongCheap-Cloud ↗</a></strong></div>
@@ -59,7 +59,7 @@
     <section class="section">
       <div class="section-label"><span>02</span><h2>내 역할</h2></div>
       <div class="section-body">
-        <p class="lead"><span class="todo">[TODO: 전체 중 내가 맡은 범위 한 줄]</span></p>
+        <p class="lead">Cloud 파트 5인 중 <strong>CI/CD 전체</strong>(서비스 컨테이너화 · Jenkins CI · ECR · GitOps · ArgoCD 배포)와 <strong>AI · LLM 서비스 배포</strong>를 맡았다.</p>
         <figure class="architecture scope">
           <figcaption>MY SCOPE · CI/CD · GITOPS</figcaption>
           <div class="arch-scroll">
@@ -128,7 +128,7 @@
           <article class="card"><span class="mini-label">ARGOCD</span><strong>ApplicationSet으로 배포 자동 생성</strong><p>develop / prod / platform ApplicationSet이 서비스별 Application을 생성하고, AppProject로 Service와 Platform의 배포 권한을 나눴다.</p></article>
           <article class="card"><span class="mini-label">CI/CD</span><strong>Commit SHA 기반 Image Tag</strong><p>Jenkins가 SHA 태그로 ECR에 Push하고 GitOps Repo의 Tag를 갱신해, 운영 중인 Pod가 어떤 Commit인지 바로 추적할 수 있다.</p></article>
           <article class="card"><span class="mini-label">GITOPS</span><strong>App Repo / GitOps Repo 분리</strong><p>코드 변경과 배포 상태 변경의 리뷰를 분리하고, 서비스 팀이 넘겨줄 항목(Port, Health Check, 환경 변수)을 정의해 협업 경계를 정했다.</p></article>
-          <article class="card"><span class="mini-label"><span class="todo">[TODO: 키워드]</span></span><strong><span class="todo">[TODO: CI/CD 외 담당 작업]</span></strong><p><span class="todo">[TODO: 무엇을 어떻게 했는지 한두 줄]</span></p></article>
+          <article class="card"><span class="mini-label">AI · LLM</span><strong>AI 서비스 배포 요구사항 정리</strong><p>AI 팀에게 CPU · GPU · Memory 요구량, 추론 API, 이미지 크기, 모델 저장 위치를 받아 다른 서비스와 같은 공통 Chart · GitOps 흐름으로 EKS에 배포했다.</p></article>
         </div>
       </div>
     </section>
@@ -136,20 +136,32 @@
     <section class="section">
       <div class="section-label"><span>03</span><h2>트러블슈팅</h2></div>
       <div class="section-body">
+        <p class="lead">CI/CD를 운영하며 생긴 문제를 노드를 늘리거나 장비를 바꾸지 않고, 로그와 실측 데이터로 원인을 찾아 추가 비용 없이 해결했다.</p>
         <article class="issue">
-          <h3><span class="todo">[TODO: 트러블슈팅 01 제목]</span></h3>
+          <h3>Jenkins 기동 지연 — 96분 이상 → 2.6분</h3>
           <table class="evidence-table">
-            <tr><th>증상</th><td><span class="todo">[TODO: 어떤 문제가 있었는지]</span></td></tr>
-            <tr><th>원인</th><td><span class="todo">[TODO: 무엇 때문이었는지]</span></td></tr>
-            <tr><th>해결</th><td><span class="todo">[TODO: 어떻게 고쳤고, 재발을 어떻게 막았는지]</span></td></tr>
+            <tr><th>증상</th><td>평일 Open 스케줄로 인프라를 켠 뒤 CI 서버가 1시간 반 넘게 열리지 않아, 그동안 빌드를 할 수 없었다.</td></tr>
+            <tr><th>원인</th><td><code>initializeOnce</code>가 꺼져 있어 Jenkins가 기동할 때마다 플러그인 약 100개를 다시 설치했다.</td></tr>
+            <tr><th>해결</th><td><code>initializeOnce: true</code> 설정 한 줄로 최초 1회만 설치하도록 변경.</td></tr>
+            <tr><th>결과</th><td><strong>기동 시간 96분 이상 → 2.6분 (97%↓)</strong></td></tr>
           </table>
         </article>
         <article class="issue">
-          <h3><span class="todo">[TODO: 트러블슈팅 02 제목]</span></h3>
+          <h3>백엔드 빌드 시간 — 45분 → 16분</h3>
           <table class="evidence-table">
-            <tr><th>증상</th><td><span class="todo">[TODO: 어떤 문제가 있었는지]</span></td></tr>
-            <tr><th>원인</th><td><span class="todo">[TODO: 무엇 때문이었는지]</span></td></tr>
-            <tr><th>해결</th><td><span class="todo">[TODO: 어떻게 고쳤고, 재발을 어떻게 막았는지]</span></td></tr>
+            <tr><th>증상</th><td>백엔드 빌드 1회에 45분이 걸렸다.</td></tr>
+            <tr><th>원인</th><td>빌드 Pod의 메모리 요청값이 실제 사용량보다 커서, 빌드할 때마다 노드가 4번 추가되며 그만큼 스케줄링을 기다렸다.</td></tr>
+            <tr><th>해결</th><td>빌드 Pod 46개의 실제 리소스 사용량을 측정해 요청값을 다시 산정.</td></tr>
+            <tr><th>결과</th><td><strong>빌드 시간 45분 → 16분 (64%↓)</strong>, 빌드당 노드 추가 4회 → 1회</td></tr>
+          </table>
+        </article>
+        <article class="issue">
+          <h3>노드당 Pod 한도 — 17개 → 110개</h3>
+          <table class="evidence-table">
+            <tr><th>증상</th><td>노드 자원에 여유가 있는데도 ArgoCD · Jenkins Pod가 <code>Pending</code> 상태로 남았다.</td></tr>
+            <tr><th>원인</th><td>노드당 Pod 한도가 17개라 <code>Too many pods</code>로 스케줄링이 거부됐다.</td></tr>
+            <tr><th>해결</th><td>VPC CNI Prefix Delegation을 켜고 <code>maxPods: 110</code>으로 설정. 서비스 영향이 없도록 Close 시간에 적용했다.</td></tr>
+            <tr><th>결과</th><td><strong>노드당 최대 Pod 수 17개 → 110개 (6.5배)</strong>, 노드 추가 없이 해결</td></tr>
           </table>
         </article>
       </div>
@@ -159,8 +171,8 @@
       <div class="section-label"><span>04</span><h2>회고</h2></div>
       <div class="section-body">
         <div class="retro-list">
-          <article class="retro"><span class="mini-label">아쉬운 점</span><strong><span class="todo">[TODO: 아쉬웠던 점 01]</span></strong><span class="mini-label next">다시 한다면</span><p><span class="todo">[TODO: 어떻게 개선할지]</span></p></article>
-          <article class="retro"><span class="mini-label">아쉬운 점</span><strong><span class="todo">[TODO: 아쉬웠던 점 02]</span></strong><span class="mini-label next">다시 한다면</span><p><span class="todo">[TODO: 어떻게 개선할지]</span></p></article>
+          <article class="retro"><span class="mini-label">아쉬운 점</span><strong>빌드 시간 단축을 리소스 조정에서 멈춤</strong><p>요청값 조정으로 백엔드 빌드를 45분에서 16분으로 줄였지만, 캐시나 병렬화처럼 파이프라인 자체를 개선하는 단계까지는 가지 못했다.</p><span class="mini-label next">다시 한다면</span><p>의존성과 이미지 레이어 캐시를 도입하고, 변경된 서비스만 빌드하도록 파이프라인을 나누겠다. 빌드 시간을 지표로 수집해 개선 효과를 계속 추적하겠다.</p></article>
+          <article class="retro"><span class="mini-label">아쉬운 점</span><strong>팀별 CI 파이프라인의 통일성 부족</strong><p>CD는 공통 Helm Chart와 ApplicationSet 규칙으로 맞췄지만, CI는 Frontend · Backend · AI 팀마다 파이프라인 구성이 달라 단계와 규칙이 일관되지 않았다.</p><span class="mini-label next">다시 한다면</span><p>Build · Scan(Trivy · gitleaks) · Push · Tag 갱신 단계를 공통 Jenkins 템플릿(Shared Library)으로 만들고, 각 팀은 언어별 빌드 설정만 넘기도록 해 CI도 CD와 같은 수준으로 표준화하겠다.</p></article>
         </div>
       </div>
     </section>

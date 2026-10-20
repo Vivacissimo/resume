@@ -18,6 +18,7 @@ const RESUME_PAGE = 'index.html';
 const PORTFOLIO_PAGES = [
   'portfolio-cover.html',
   'projects/moongcheap.html',
+  'projects/hotel-booking.html',
   'projects/cloud-native.html',
   'projects/cocoavision.html',
   'projects/personal-infra.html',

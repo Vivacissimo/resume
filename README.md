@@ -22,10 +22,11 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 ├── index.html                  # resume
 ├── styles.css                  # resume styles (screen + print)
 ├── script.js                   # section indicator
-├── assets/profile.JPG
+├── assets/                     # profile photo, architecture diagrams
 ├── projects/                   # portfolio detail pages
 │   ├── cloud-native.html
 │   ├── moongcheap.html
+│   ├── hotel-booking.html
 │   ├── cocoavision.html
 │   └── personal-infra.html
 ├── project-detail.css          # detail page + portfolio cover styles
@@ -59,7 +60,7 @@ npm run pdf
 ```
 
 - `pdf/resume.pdf`: `index.html` printed to A4 (target: two pages or fewer)
-- `pdf/portfolio.pdf`: `portfolio-cover.html` → `moongcheap` → `cloud-native` → `cocoavision` → `personal-infra`, rendered one by one and merged
+- `pdf/portfolio.pdf`: `portfolio-cover.html` → `moongcheap` → `hotel-booking` → `cloud-native` → `cocoavision` → `personal-infra`, rendered one by one and merged
 
 The script serves the repo with Node's `http` module, waits for `document.fonts.ready`, and prints with the `print` media styles.
 Same-site links are rewritten to `https://resume.junu.dev/...` before printing, so links in the PDFs open the live site.

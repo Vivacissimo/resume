@@ -101,13 +101,13 @@
 
             <div class="org-body">
               <p class="org-summary">
-                VFX 현장의 시스템 운영·자동화 경험을 AWS와 Kubernetes 기반 Cloud Native 환경으로 확장한 과정.
+                KT Bootcamp의 Cloud-Native 과정을 수료하며 진행했던 프로젝트입니다.
               </p>
 
               <article class="project-card">
                 <p class="project-type">CLOUD / DEVOPS · INTEGRATED PROJECT</p>
                 <h4><a class="card-link" href="./projects/moongcheap.html">MoongCheap · Cloud Native Platform</a></h4>
-                <p class="card-meta">CI/CD · Kubernetes · GitOps 담당 · 2026 진행 중</p>
+                <p class="card-meta">CI/CD · Kubernetes · GitOps 담당 | 팀 프로젝트 대상 및 우수 수료자 선정</p>
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
@@ -119,7 +119,7 @@
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>Frontend · Backend · AI 3개 영역과 dev/prod 환경을 공통 Chart와 ApplicationSet 규칙 하나로 배포하는 구조를 코드로 정리 (진행 중).</dd>
+                    <dd>Frontend · Backend · AI 3개 영역과 dev/prod 환경을 공통 Chart와 ApplicationSet 규칙 하나로 배포하는 구조를 코드로 정리 함.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">AWS · EKS · ECR · Helm · ArgoCD · Jenkins · Terraform</p>
@@ -127,24 +127,46 @@
               </article>
 
               <article class="project-card">
-                <p class="project-type">KUBERNETES · CI/CD · SERVICE MESH · OBSERVABILITY</p>
-                <h4><a class="card-link" href="./projects/cloud-native.html">Cloud Native Delivery</a></h4>
-                <p class="card-meta">4인 팀 · Team Lead · Observability · 2026</p>
+                <p class="project-type">KUBERNETES · CI/CD · GITOPS · OBSERVABILITY</p>
+                <h4><a class="card-link" href="./projects/hotel-booking.html">Hotel Booking · GitOps &amp; Observability</a></h4>
+                <p class="card-meta">3인 팀 · Team Lead · Infra &amp; CI/CD · 2026.07</p>
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>배포 성공과 서비스 정상은 다르고, 한 번에 전환하면 장애 영향이 크며, 다음 단계로 진행할지 판단할 기준이 부족했다.</dd>
+                    <dd>특가 오픈 순간 트래픽이 몰리는 5개 서비스 MSA를, 수동 배포 없이 dev/prod에 일관되게 올리고 장애를 빠르게 감지해야 했다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>ArgoCD 기반 CD, Istio로 Canary 20 → 50 → 70 → 100% 및 Blue/Green 전환, Prometheus · Grafana · Kiali로 Traffic · Error · Latency · Resource 관찰 기준 정의.</dd>
+                    <dd>Terraform으로 EKS · ArgoCD 구성, GitHub Actions 변경 감지 Matrix 빌드 + Trivy 스캔 + ECR Push, SHA Tag로 Helm values 갱신 → ArgoCD 자동 Sync, prod 매니페스트 검증.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>4개 서비스의 배포 자동화, 트래픽 전환, 상태 확인을 하나의 운영 시나리오로 연결.</dd>
+                    <dd>push 한 번으로 5개 서비스를 dev/prod에 배포. 그 위에서 K6 1,000명 버스트 오버셀 0건 · 시스템 오류 0%, 장애 주입 → Slack 알림 · 복구 확인.</dd>
                   </div>
                 </dl>
-                <p class="project-tech">AWS EKS · ArgoCD · Istio · Prometheus · Grafana · Kiali</p>
+                <p class="project-tech">AWS EKS · Terraform · GitHub Actions · Trivy · Helm · ArgoCD · Prometheus · Loki · Tempo</p>
+                <span class="card-more" aria-hidden="true">자세히 보기 →</span>
+              </article>
+
+              <article class="project-card">
+                <p class="project-type">CI/CD · GITOPS · SERVICE MESH · OBSERVABILITY</p>
+                <h4><a class="card-link" href="./projects/cloud-native.html">Medical MSA · CI/CD &amp; Service Mesh</a></h4>
+                <p class="card-meta">4인 팀 · 기본 CI/CD · GitOps · K8s 운영 → 심화 Team Lead · Observability · 2026.05 – 06</p>
+                <dl class="par">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>수동 배포로 휴먼 에러와 서비스 중단 위험이 컸고, 배포가 성공해도 새 버전이 트래픽과 장애 상황에서 정상인지 판단할 기준이 없었다.</dd>
+                  </div>
+                  <div>
+                    <dt>Action</dt>
+                    <dd>GitHub Actions 변경 감지 Matrix 빌드 · 멀티스테이지 이미지 · Trivy 차단 · git-sha Tag로 Helm values 갱신 → ArgoCD dev/prod 배포, HPA · Probe · Rolling Update 구성과 장애 유도 검증. 심화에서 Istio Canary · Blue/Green · Retry · mTLS 실험과 Prometheus · Grafana · Kiali 장애 추적 Runbook 정리.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>4개 서비스를 push 한 번으로 자동 배포. Pod 강제 종료 중 클라이언트 성공률 100%, 비인가 Pod 접근 차단(RBAC denied)을 검증.</dd>
+                  </div>
+                </dl>
+                <p class="project-tech">GitHub Actions · Trivy · Helm · ArgoCD · AWS EKS · Istio · Prometheus · Grafana · Kiali</p>
                 <span class="card-more" aria-hidden="true">자세히 보기 →</span>
               </article>
             </div>

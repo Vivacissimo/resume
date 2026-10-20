@@ -120,6 +120,7 @@ a:hover { color: var(--accent); }
 .section-body { min-width: 0; }
 .section-body > p:first-child { margin-top: 0; }
 .lead { color: var(--strong); font-size: 19px; font-weight: 600; line-height: 1.7; }
+.role-grid + .lead { margin-top: 26px; }
 
 .quick-grid,
 .role-grid,
@@ -258,7 +259,7 @@ a:hover { color: var(--accent); }
 .architecture .pill { fill: var(--soft); stroke: #d0d5dd; }
 .architecture text { fill: var(--muted); font-size: 12px; text-anchor: middle; }
 .architecture .title { fill: var(--strong); font-size: 15px; font-weight: 700; }
-.architecture .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+.architecture .mono { font-size: 11px; }
 .architecture .pill-text { fill: var(--strong); font-size: 13px; font-weight: 700; }
 .architecture .env { fill: var(--strong); font-size: 13px; font-weight: 700; text-anchor: start; }
 .architecture .lane { fill: var(--light); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-anchor: start; }
@@ -293,8 +294,9 @@ code {
   border-radius: 4px;
   background: var(--soft);
   color: var(--strong);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: .9em;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
 }
 
 .todo {
@@ -424,12 +426,13 @@ code {
 
 @media print {
   .cover { display: flex; flex-direction: column; min-height: 268mm; }
-  .cover-hero { padding: 40mm 0 14mm; }
+  .cover-hero { padding: 28mm 0 12mm; }
   .cover-hero h1 { font-size: 36pt; }
   .cover-role { font-size: 13pt; }
   .cover-contact { font-size: 9.5pt; margin-top: 16px; }
   .cover-contact span { font-size: 7.5pt; }
-  .cover-toc { padding-top: 14mm; }
+  .cover-toc { padding-top: 12mm; }
+  .cover-toc li { padding: 12px 0; }
   .cover-toc strong { font-size: 12pt; }
   .cover-toc p { font-size: 9pt; }
   .toc-index { font-size: 9pt; }

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>김준우 포트폴리오</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./portfolio.css" />
+  <!--
+    Project pages of the submission portfolio (common to every application).
+    The PDF build puts the resume (index.html) in front of these pages: pdf/submission.pdf
+  -->
+</head>
+<body>
+
+
+  <!-- ============ MoongCheap ============ -->
+  <section class="project" id="moongcheap">
+    <p class="proj-kicker">KT CLOUD TECH UP · 통합 프로젝트 · 팀 프로젝트 대상</p>
+    <div class="proj-title"><h1>MoongCheap · AI 역경매 공동구매 플랫폼</h1><span class="no"></span></div>
+    <p class="proj-sub">AWS EKS Multi-AZ 위의 FE · BE · AI 서비스를 공통 Chart와 GitOps 규칙 하나로 배포하는 구조를 만들고, 운영 중 생긴 병목을 실측으로 해결했다.</p>
+    <p class="more">상세: <a href="https://resume.junu.dev/projects/moongcheap">resume.junu.dev/projects/moongcheap</a></p>
+    <div class="meta">
+      <div><span>PERIOD</span><strong>2026.08 – 10</strong></div>
+      <div><span>TEAM</span><strong>Cloud 파트 5인</strong></div>
+      <div><span>ROLE</span><strong>CI/CD · GitOps · AI 배포</strong></div>
+      <div><span>STACK</span><strong>EKS · Jenkins · ECR · Helm · ArgoCD</strong></div>
+    </div>
+    <div class="jd"><span>Kubernetes 운영</span><span>CI/CD · GitOps</span><span>장애 원인 분석</span><span>AWS EKS</span></div>
+    <figure class="arch"><img src="../assets/architecture.png" alt="MoongCheap 인프라 아키텍처" /></figure>
+    <div class="cols">
+      <div>
+        <h2>내가 한 일</h2>
+        <ul class="pts">
+          <li>Jenkins → ECR → GitOps Repo → ArgoCD ApplicationSet 흐름 설계, develop / prod / platform 별 Application 자동 생성</li>
+          <li>FE · BE · AI가 <code>moongcheap-service</code> Chart 하나를 쓰고, 차이는 base → env → services → overrides 4단계 Values로만 관리</li>
+          <li>Commit SHA 이미지 태그로 운영 중인 Pod가 어떤 커밋인지 바로 추적</li>
+          <li>App Repo와 GitOps Repo를 분리하고, 서비스 팀이 넘길 항목(Port · Health Check · 환경 변수)을 정의해 배포 책임 경계를 정리</li>
+          <li>AI 팀의 CPU · GPU · Memory · 추론 API 요구사항을 받아 같은 GitOps 흐름으로 AI · LLM 서비스 배포</li>
+        </ul>
+      </div>
+      <div>
+        <h2>트러블슈팅</h2>
+        <div class="case"><strong>노드에 여유가 있는데 ArgoCD · Jenkins가 Pending</strong><p>노드당 Pod 한도 17개로 <code>Too many pods</code> → VPC CNI Prefix Delegation · <code>maxPods: 110</code>을 Close 시간에 무중단 적용 <span class="res">17 → 110개</span></p></div>
+        <div class="case"><strong>인프라를 켠 뒤 CI 서버가 1시간 반 넘게 안 열림</strong><p>기동마다 플러그인 100개 재설치 → <code>initializeOnce: true</code> 한 줄 <span class="res">96분 → 2.6분</span></p></div>
+        <div class="case"><strong>백엔드 빌드 1회 45분</strong><p>빌드 Pod 메모리 과다 요청으로 빌드마다 노드 4번 추가 → Pod 46개 실측으로 요청값 재산정 <span class="res">45분 → 16분</span></p></div>
+      </div>
+    </div>
+    <div class="metrics">
+      <div><span>CI 기동</span><strong>97% 단축</strong><p>96분 이상 → 2.6분</p></div>
+      <div><span>BUILD</span><strong>64% 단축</strong><p>노드 추가 4회 → 1회</p></div>
+      <div><span>POD LIMIT</span><strong>6.5배</strong><p>노드 추가 비용 없이</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Hotel Booking ============ -->
+  <section class="project" id="hotel">
+    <p class="proj-kicker">KT CLOUD TECH UP · 실무 프로젝트</p>
+    <div class="proj-title"><h1>Hotel Booking · GitOps &amp; Observability</h1><span class="no"></span></div>
+    <p class="proj-sub">특가 오픈 순간 트래픽이 몰리는 호텔 예약 MSA를 Terraform으로 만든 EKS에 올리고, push 한 번으로 dev/prod까지 이어지는 배포 흐름을 만들었다.</p>
+    <p class="more">상세: <a href="https://resume.junu.dev/projects/hotel-booking">resume.junu.dev/projects/hotel-booking</a></p>
+    <div class="meta">
+      <div><span>PERIOD</span><strong>2026.07</strong></div>
+      <div><span>TEAM</span><strong>3인</strong></div>
+      <div><span>ROLE</span><strong>팀장 · 인프라 &amp; CI/CD</strong></div>
+      <div><span>STACK</span><strong>EKS · Terraform · GitHub Actions · ArgoCD</strong></div>
+    </div>
+    <div class="jd"><span>IaC (Terraform)</span><span>CI/CD · GitOps</span><span>모니터링 · 알림</span><span>AWS EKS</span></div>
+    <figure class="arch"><img src="../assets/hotel-architecture.jpg" alt="Hotel Booking 구성도" /></figure>
+    <div class="cols">
+      <div>
+        <h2>내가 한 일</h2>
+        <ul class="pts">
+          <li><code>terraform-aws-modules/eks</code>로 노드 그룹 · IRSA · Access Entry를 구성하고 ArgoCD도 Terraform Helm Release로 설치</li>
+          <li>GitHub Actions에서 변경된 서비스만 Matrix 빌드 → Gradle 테스트 → Trivy HIGH/CRITICAL 차단 → ECR Push</li>
+          <li>CI가 Helm values의 이미지 태그를 커밋하면 ArgoCD(App of Apps · prune · selfHeal)가 dev/prod에 자동 배포</li>
+          <li>prod 파이프라인에 <code>helm lint</code>와 렌더링 검사를 넣어 dev 네임스페이스 · 브랜치 설정 유입을 차단</li>
+          <li>공통 Chart에 HPA(2–5) · 무중단 Rolling Update · ALB Ingress 경로 라우팅 적용</li>
+        </ul>
+      </div>
+      <div>
+        <h2>트러블슈팅</h2>
+        <div class="case"><strong>ALB에서 로그인 후 401 반복</strong><p>HTTP ALB에서 Secure 쿠키가 저장되지 않음 → 쿠키 속성을 환경 변수로 분리해 환경별 values로 주입</p></div>
+        <div class="case"><strong>배포 직후 Pod 반복 재시작</strong><p>초기화 전에 Liveness Probe가 실패 판정 → 공통값 <code>initialDelaySeconds</code> 45초 · <code>failureThreshold</code> 6</p></div>
+        <div class="case"><strong>클러스터에서만 API 호출 실패</strong><p>CORS 분산 · 로컬 주소 직접 호출 → CORS 공통화, 상대경로 호출, Ingress <code>/api/v1/*</code> 경로 라우팅</p></div>
+      </div>
+    </div>
+    <div class="metrics">
+      <div><span>LOAD TEST</span><strong>오버셀 0건</strong><p>K6 1,000명 · 재고 30</p></div>
+      <div><span>ERROR</span><strong>시스템 오류 0%</strong><p>매진(409)은 정상 응답으로 분리</p></div>
+      <div><span>DEPLOY</span><strong>5개 서비스 · 2개 환경</strong><p>push 한 번으로 자동 배포</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Medical MSA ============ -->
+  <section class="project" id="medical">
+    <p class="proj-kicker">KT CLOUD TECH UP · 기본 + 심화 프로젝트</p>
+    <div class="proj-title"><h1>Medical MSA · CI/CD &amp; Service Mesh</h1><span class="no"></span></div>
+    <p class="proj-sub">의료 MSA의 CI/CD · GitOps 배포를 자동화하고, 심화 단계에서 Istio를 올려 트래픽 전환 · 장애 복구 · 내부 접근 차단을 직접 실험했다.</p>
+    <p class="more">상세: <a href="https://resume.junu.dev/projects/cloud-native">resume.junu.dev/projects/cloud-native</a></p>
+    <div class="meta">
+      <div><span>PERIOD</span><strong>2026.05 – 06</strong></div>
+      <div><span>TEAM</span><strong>4인</strong></div>
+      <div><span>ROLE</span><strong>CI/CD · K8s 운영 → 심화 팀장</strong></div>
+      <div><span>STACK</span><strong>GitHub Actions · ArgoCD · EKS · Istio</strong></div>
+    </div>
+    <div class="jd"><span>Kubernetes 운영</span><span>Service Mesh (Istio)</span><span>CI/CD</span><span>모니터링</span></div>
+    <figure class="arch"><img src="../assets/medical-mesh.jpg" alt="Medical MSA Service Mesh 구성도" /></figure>
+    <div class="cols">
+      <div>
+        <h2>내가 한 일</h2>
+        <ul class="pts">
+          <li>Path Filter로 변경된 서비스만 Matrix 빌드, 테스트 실패 시 중단</li>
+          <li>jdk → jre 멀티스테이지 · 비루트 실행 이미지, Trivy <code>exit-code 1</code>로 취약 이미지 레지스트리 유입 차단</li>
+          <li>git-sha 태그 Push → Helm values 갱신 → ArgoCD <code>medical-dev</code> / <code>medical-prod</code> 분리 배포, 결과는 Slack으로 공유</li>
+          <li>HPA(CPU 70%, 2–10) · Readiness/Liveness Probe · Rolling Update 구성, DB 장애 · Memory Leak 유도로 Probe 동작 검증</li>
+          <li>심화 팀장: Prometheus로 K8s · Envoy 메트릭 수집, Grafana → Kiali → ArgoCD 장애 추적 Runbook 정리</li>
+        </ul>
+      </div>
+      <div>
+        <h2>검증 · 트러블슈팅</h2>
+        <div class="case"><strong>Canary · Blue/Green</strong><p>VirtualService 가중치로 20 → 50 → 70 → 100% 단계 전환, 50:50 → 0:100 즉시 전환</p></div>
+        <div class="case"><strong>Pod 강제 종료 중 재시도</strong><p><code>retries.attempts: 3</code> 적용 후 <code>kubectl delete pod</code> → Envoy가 살아 있는 Pod로 재시도 <span class="res">성공률 100%</span></p></div>
+        <div class="case"><strong>Zero-Trust 접근 차단</strong><p>mTLS STRICT · AuthorizationPolicy 상태에서 Mesh 밖 Pod의 직접 호출 → <code>RBAC: access denied</code></p></div>
+        <div class="case"><strong>빌드 아키텍처 차이로 배포 실패</strong><p>QEMU · Docker Buildx 멀티 플랫폼 빌드로 해결</p></div>
+      </div>
+    </div>
+    <div class="metrics">
+      <div><span>CI/CD</span><strong>4개 서비스 자동 배포</strong><p>Trivy 통과 이미지만 반영</p></div>
+      <div><span>RETRY</span><strong>성공률 100%</strong><p>Pod 강제 종료 중</p></div>
+      <div><span>CANARY</span><strong>4단계 전환</strong><p>20 → 50 → 70 → 100%</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Cocoavision ============ -->
+  <section class="project" id="cocoavision">
+    <p class="proj-kicker">PROFESSIONAL EXPERIENCE · 2022.09 – 2026.03</p>
+    <div class="proj-title"><h1>Cocoavision · VFX Pipeline / Infrastructure</h1><span class="no"></span></div>
+    <p class="proj-sub">아티스트가 쓰는 DCC 환경과 Linux Render Farm을 운영하며, 반복되는 설치 · 설정 · 제출 작업을 자동화하고 제작이 멈추는 원인을 해결했다.</p>
+    <p class="more">상세: <a href="https://resume.junu.dev/projects/cocoavision">resume.junu.dev/projects/cocoavision</a></p>
+    <div class="meta">
+      <div><span>PERIOD</span><strong>2022.09 – 2026.03</strong></div>
+      <div><span>TEAM</span><strong>VFX본부 · NewMedia R&amp;D팀</strong></div>
+      <div><span>ROLE</span><strong>Pipeline / IT Infrastructure</strong></div>
+      <div><span>STACK</span><strong>Linux · Ansible · PXE · Python · Tractor</strong></div>
+    </div>
+    <div class="jd"><span>IaC (Ansible)</span><span>Linux 서버 운영</span><span>Python 자동화 도구</span><span>장애 원인 분석</span></div>
+    <div class="cols">
+      <div>
+        <h2>Case 1 · Ansible Render Farm</h2>
+        <ul class="pts">
+          <li><b>문제</b> 수십 대 Render Node에 SSH로 접속해 패키지 · Mount · 팀별 Tool을 노드마다 수동 설정, 설정 편차 발생</li>
+          <li><b>해결</b> Inventory로 노드를 그룹화하고 반복 작업을 Playbook으로 선언해 일괄 적용</li>
+          <li><b>결과</b> 서버별 수동 작업을 재사용 가능한 운영 코드로 전환</li>
+        </ul>
+        <h2>Case 2 · PXE 네트워크 설치</h2>
+        <ul class="pts">
+          <li><b>문제</b> USB로 장비마다 OS를 설치해, 장비가 늘수록 사람이 하는 단계가 증가</li>
+          <li><b>해결</b> PXE 부팅 · DHCP/HTTP 설치 파일 제공 · Kickstart 자동 설치를 연결</li>
+          <li><b>결과</b> 초기 세팅을 같은 절차로 반복할 수 있는 네트워크 설치로 전환</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Case 3 · Tractor 제출 도구</h2>
+        <ul class="pts">
+          <li><b>문제</b> 작업자가 렌더 제출 정보를 직접 구성하고 DCC마다 절차가 달라 누락 · 설정 차이 발생</li>
+          <li><b>해결</b> Houdini · Nuke용 Custom Submit Node를 Python으로 개발. 사용자 교육 대신 제출 규칙을 도구에 넣음</li>
+          <li><b>결과</b> DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow 표준화</li>
+        </ul>
+        <h2>장애 대응 · Farm에서만 실패하는 렌더</h2>
+        <ul class="pts">
+          <li>로컬에선 열리지만 Farm 제출 후 반복 실패해 제작이 중단</li>
+          <li>Tractor Log → DCC/Plugin 버전 → 환경 변수 → 파일 경로 → Mount 순으로 실행 환경 차이를 비교해 원인 특정</li>
+          <li>설정 수정 후 같은 유형이 다른 노드에서 반복되지 않도록 운영 절차와 자동화 대상에 반영</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metrics">
+      <div><span>FARM</span><strong>수십 대 노드</strong><p>Linux Render Node 운영</p></div>
+      <div><span>AUTOMATION</span><strong>3개 영역 자동화</strong><p>Submit · Provisioning · Configuration</p></div>
+      <div><span>WORK STYLE</span><strong>Fix → Standardize → Automate</strong><p>반복 이슈를 구조로 줄임</p></div>
+    </div>
+  </section>
+
+  <script>
+    // Number projects in document order.
+    document.querySelectorAll('.project .proj-title .no').forEach((el, i) => {
+      el.textContent = String(i + 1).padStart(2, '0');
+    });
+  </script>
+</body>
+</html>

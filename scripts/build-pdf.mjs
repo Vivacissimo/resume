@@ -1,4 +1,4 @@
-// Builds pdf/resume.pdf and pdf/portfolio.pdf from the static pages.
+// Builds pdf/resume.pdf, pdf/portfolio.pdf and pdf/submission.pdf from the static pages.
 // Usage: npm run pdf
 
 import http from 'node:http';
@@ -23,6 +23,9 @@ const PORTFOLIO_PAGES = [
   'projects/cocoavision.html',
   'projects/personal-infra.html',
 ];
+
+// Submission file: the resume followed by the condensed project pages.
+const SUBMISSION_PAGE = 'apply/portfolio.html';
 
 // Sections marked data-portfolio="exclude" stay on the web page but are left out of the portfolio PDF.
 const PORTFOLIO_PRINT_CSS = '[data-portfolio="exclude"] { display: none !important; }';
@@ -85,6 +88,7 @@ async function renderPdf(browser, url, extraCss) {
     console.warn(`  ! ${new URL(url).pathname} still has ${todos.length} TODO(s): ${todos.join(', ')}`);
   }
 
+
   const pdf = await page.pdf({
     format: 'A4',
     printBackground: true,
@@ -126,6 +130,14 @@ async function main() {
     }
     await writeFile(path.join(outDir, 'portfolio.pdf'), await finalize(portfolio, 'Joon Woo Kim — Portfolio'));
     console.log(`pdf/portfolio.pdf (${portfolio.getPageCount()} pages)`);
+
+    const submission = await PDFDocument.create({ updateMetadata: false });
+    for (const bytes of [resumeBytes, await renderPdf(browser, baseUrl + SUBMISSION_PAGE)]) {
+      const part = await PDFDocument.load(bytes, { updateMetadata: false });
+      (await submission.copyPages(part, part.getPageIndices())).forEach((p) => submission.addPage(p));
+    }
+    await writeFile(path.join(outDir, 'submission.pdf'), await finalize(submission, 'Joon Woo Kim — Resume & Portfolio'));
+    console.log(`pdf/submission.pdf (${submission.getPageCount()} pages)`);
   } finally {
     await browser.close();
     server.close();

@@ -10,3 +10,6 @@ README.md
 .gitignore
 .gitattributes
 .wrangler
+
+# Print source for pdf/submission.pdf, not a site page
+apply

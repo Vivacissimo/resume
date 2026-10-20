@@ -31,6 +31,7 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 │   └── personal-infra.html
 ├── project-detail.css          # detail page + portfolio cover styles
 ├── portfolio-cover.html        # portfolio PDF cover and contents
+├── apply/portfolio.html        # condensed project pages for the submission PDF
 ├── scripts/build-pdf.mjs       # PDF build (Playwright + pdf-lib)
 ├── pdf/                        # build output: resume.pdf, portfolio.pdf
 ├── .github/workflows/build-pdf.yml
@@ -60,6 +61,7 @@ npm run pdf
 ```
 
 - `pdf/resume.pdf`: `index.html` printed to A4 (target: two pages or fewer)
+- `pdf/submission.pdf`: `index.html` (resume) followed by the condensed project pages in `apply/portfolio.html`, for job applications
 - `pdf/portfolio.pdf`: `portfolio-cover.html` → `moongcheap` → `hotel-booking` → `cloud-native` → `cocoavision` → `personal-infra`, rendered one by one and merged
 
 The script serves the repo with Node's `http` module, waits for `document.fonts.ready`, and prints with the `print` media styles.

@@ -21,14 +21,15 @@
   <main class="project-document">
     <header class="project-hero">
       <div>
-        <p class="kicker">AWS EKS · MULTI-AZ · GITOPS · OBSERVABILITY</p>
-        <h1>MoongCheap</h1>
-        <p class="hero-subtitle">소비자가 수요를 먼저 모으면 판매자가 가격으로 응찰하는 <strong>수요 집결형 AI 역경매 공동구매 플랫폼</strong></p>
+        <p class="kicker">KT CLOUD TECH UP · 통합 프로젝트 · 팀 프로젝트 대상</p>
+        <h1>MoongCheap · AI 역경매 공동구매 플랫폼</h1>
+        <p class="hero-subtitle">AWS EKS Multi-AZ 위의 FE · BE · AI 서비스를 <strong>공통 Chart와 GitOps 규칙 하나로 배포하는 구조</strong>를 만들고, 운영 중 생긴 병목을 실측으로 해결했습니다.</p>
       </div>
       <div class="meta-card">
-        <div class="meta-row"><span>PERIOD</span><strong>2026.07 ~ 2026.10 </strong></div>
-        <div class="meta-row"><span>ROLE</span><strong>CI/CD · Kubernetes · GitOps 담당</strong></div>
-        <div class="meta-row"><span>STACK</span><strong>AWS EKS · Helm · ArgoCD · Jenkins · Prometheus · Loki · Grafana</strong></div>
+        <div class="meta-row"><span>PERIOD</span><strong>2026.07 ~ 2026.10</strong></div>
+        <div class="meta-row"><span>TEAM</span><strong>Cloud 파트 5인</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>CI/CD · GitOps · AI 배포</strong></div>
+        <div class="meta-row"><span>STACK</span><strong>EKS · Jenkins · ECR · Helm · ArgoCD</strong></div>
         <div class="meta-row"><span>REPO</span><strong><a href="https://github.com/V-MoongCheap/MoongCheap-Cloud" target="_blank" rel="noreferrer">github.com/V-MoongCheap/MoongCheap-Cloud ↗</a></strong></div>
       </div>
     </header>
@@ -36,6 +37,7 @@
     <section class="section">
       <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
       <div class="section-body">
+        <p class="lead">소비자가 수요를 먼저 모으면 판매자가 가격으로 응찰하는 수요 집결형 AI 역경매 공동구매 플랫폼입니다.</p>
         <ul class="tag-list">
           <li>EKS Multi-AZ</li>
           <li>Cloudflare Tunnel</li>
@@ -57,7 +59,7 @@
     </figure>
 
     <section class="section">
-      <div class="section-label"><span>02</span><h2>내 역할</h2></div>
+      <div class="section-label"><span>02</span><h2>담당 파트</h2></div>
       <div class="section-body">
         <p class="lead">Cloud 파트 5인 중 <strong>CI/CD 전체</strong>(서비스 컨테이너화 · Jenkins CI · ECR · GitOps · ArgoCD 배포)와 <strong>AI · LLM 서비스 배포</strong>를 맡았습니다.</p>
         <figure class="architecture scope">
@@ -138,16 +140,25 @@
       <div class="section-body">
         <p class="lead">CI/CD를 운영하며 생긴 문제를 노드를 늘리거나 장비를 바꾸지 않고, 로그와 실측 데이터로 원인을 찾아 추가 비용 없이 해결했습니다.</p>
         <article class="issue">
-          <h3>Jenkins 기동 지연 — 96분 이상 → 2.6분</h3>
+          <h3>노드에 여유가 있는데 ArgoCD · Jenkins가 Pending</h3>
           <table class="evidence-table">
-            <tr><th>증상</th><td>평일 Open 스케줄로 인프라를 켠 뒤 CI 서버가 1시간 반 넘게 열리지 않아, 그동안 빌드를 할 수 없었습니다.</td></tr>
+            <tr><th>증상</th><td>노드 자원에 여유가 있는데도 ArgoCD · Jenkins Pod가 <code>Pending</code> 상태로 남았습니다.</td></tr>
+            <tr><th>원인</th><td>노드당 Pod 한도가 17개라 <code>Too many pods</code>로 스케줄링이 거부됐습니다.</td></tr>
+            <tr><th>해결</th><td>VPC CNI Prefix Delegation을 켜고 <code>maxPods: 110</code>으로 설정했습니다. 서비스 영향이 없도록 인프라를 내리는 시간대(평일 22시 이후)에 적용했습니다.</td></tr>
+            <tr><th>결과</th><td><strong>노드당 최대 Pod 수 17개 → 110개 (6.5배)</strong>, 노드 추가 없이 해결</td></tr>
+          </table>
+        </article>
+        <article class="issue">
+          <h3>인프라를 켠 뒤 CI 서버가 1시간 반 넘게 안 열림</h3>
+          <table class="evidence-table">
+            <tr><th>증상</th><td>평일 오전 9시에 인프라를 자동으로 켠 뒤 CI 서버가 1시간 반 넘게 열리지 않아, 그동안 빌드를 할 수 없었습니다.</td></tr>
             <tr><th>원인</th><td><code>initializeOnce</code>가 꺼져 있어 Jenkins가 기동할 때마다 플러그인 약 100개를 다시 설치했습니다.</td></tr>
             <tr><th>해결</th><td><code>initializeOnce: true</code> 설정 한 줄로 최초 1회만 설치하도록 변경했습니다.</td></tr>
             <tr><th>결과</th><td><strong>기동 시간 96분 이상 → 2.6분 (97%↓)</strong></td></tr>
           </table>
         </article>
         <article class="issue">
-          <h3>백엔드 빌드 시간 — 45분 → 16분</h3>
+          <h3>백엔드 빌드 1회 45분</h3>
           <table class="evidence-table">
             <tr><th>증상</th><td>백엔드 빌드 1회에 45분이 걸렸습니다.</td></tr>
             <tr><th>원인</th><td>빌드 Pod의 메모리 요청값이 실제 사용량보다 커서, 빌드할 때마다 노드가 4번 추가되며 그만큼 스케줄링을 기다렸습니다.</td></tr>
@@ -155,15 +166,11 @@
             <tr><th>결과</th><td><strong>빌드 시간 45분 → 16분 (64%↓)</strong>, 빌드당 노드 추가 4회 → 1회</td></tr>
           </table>
         </article>
-        <article class="issue">
-          <h3>노드당 Pod 한도 — 17개 → 110개</h3>
-          <table class="evidence-table">
-            <tr><th>증상</th><td>노드 자원에 여유가 있는데도 ArgoCD · Jenkins Pod가 <code>Pending</code> 상태로 남았습니다.</td></tr>
-            <tr><th>원인</th><td>노드당 Pod 한도가 17개라 <code>Too many pods</code>로 스케줄링이 거부됐습니다.</td></tr>
-            <tr><th>해결</th><td>VPC CNI Prefix Delegation을 켜고 <code>maxPods: 110</code>으로 설정했습니다. 서비스 영향이 없도록 Close 시간에 적용했습니다.</td></tr>
-            <tr><th>결과</th><td><strong>노드당 최대 Pod 수 17개 → 110개 (6.5배)</strong>, 노드 추가 없이 해결</td></tr>
-          </table>
-        </article>
+        <div class="metric-list">
+          <div class="metric"><span>CI 기동</span><strong>97% 단축</strong><p>96분 이상 → 2.6분</p></div>
+          <div class="metric"><span>BUILD</span><strong>64% 단축</strong><p>노드 추가 4회 → 1회</p></div>
+          <div class="metric"><span>POD LIMIT</span><strong>6.5배</strong><p>노드 추가 비용 없이</p></div>
+        </div>
       </div>
     </section>
 

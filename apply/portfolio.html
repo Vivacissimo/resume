@@ -42,7 +42,7 @@
       </div>
       <div>
         <h2>트러블슈팅</h2>
-        <div class="case"><strong>노드에 여유가 있는데 ArgoCD · Jenkins가 Pending</strong><p>노드당 Pod 한도 17개로 <code>Too many pods</code> → VPC CNI Prefix Delegation · <code>maxPods: 110</code>을 Close 시간에 무중단 적용 <span class="res">17 → 110개</span></p></div>
+        <div class="case"><strong>노드에 여유가 있는데 ArgoCD · Jenkins가 Pending</strong><p>노드당 Pod 한도 17개로 <code>Too many pods</code> → VPC CNI Prefix Delegation · <code>maxPods: 110</code>을 인프라를 내리는 시간대(평일 22시 이후)에 무중단 적용 <span class="res">17 → 110개</span></p></div>
         <div class="case"><strong>인프라를 켠 뒤 CI 서버가 1시간 반 넘게 안 열림</strong><p>기동마다 플러그인 100개 재설치 → <code>initializeOnce: true</code> 한 줄 <span class="res">96분 → 2.6분</span></p></div>
         <div class="case"><strong>백엔드 빌드 1회 45분</strong><p>빌드 Pod 메모리 과다 요청으로 빌드마다 노드 4번 추가 → Pod 46개 실측으로 요청값 재산정 <span class="res">45분 → 16분</span></p></div>
       </div>
@@ -101,7 +101,6 @@
     <div class="retro-list">
         <div class="retro"><strong>클러스터에서만 생기는 로그 · 트레이스 유실을 끝까지 좁히지 못함</strong><p>로컬에서는 메트릭 · 로그 · 트레이스가 모두 연결됐지만, EKS에서는 일부 서비스 로그가 Loki로 전송되지 않고 일부 POST 요청의 Span이 Tempo에 남지 않은 채로 마무리했습니다.</p><p class="next"><b>다시 한다면</b> 배포 후 검증 단계에 로그 · 트레이스 수집 여부 확인을 넣어, 환경 차이를 배포 시점에 바로 잡겠습니다.</p></div>
         <div class="retro"><strong>버스트 트래픽의 응답시간 목표 미달</strong><p>정합성은 지켰지만 1,000명이 동시에 몰리는 순간의 p95는 239ms로 목표를 넘었습니다. HPA는 CPU 기준이라 짧은 버스트에 대응하는 확장 전략은 검증하지 못했습니다.</p><p class="next"><b>다시 한다면</b> 대기열 길이나 요청량 같은 지표 기반 스케일링과 특가 오픈 전 사전 확장을 함께 검토하겠습니다.</p></div>
-        <div class="retro"><strong>dev / prod 워크플로 중복</strong><p>두 워크플로가 대부분 같은 단계를 복사해 쓰고 있어, prod에만 있는 검증 단계처럼 환경 간 차이가 생기기 쉬웠습니다. AWS 인증도 Access Key를 Secret으로 넣는 방식이었습니다.</p><p class="next"><b>다시 한다면</b> Reusable Workflow로 공통 단계를 한 곳에 두고 환경별 값만 넘기며, AWS 인증은 GitHub OIDC로 바꿔 장기 키를 없애겠습니다.</p></div>
     </div>
 
   </section>
@@ -115,7 +114,7 @@
     <div class="meta">
       <div><span>PERIOD</span><strong>2026.05 – 06</strong></div>
       <div><span>TEAM</span><strong>4인</strong></div>
-      <div><span>ROLE</span><strong>CI/CD · K8s 운영 → 심화 팀장</strong></div>
+      <div><span>ROLE</span><strong>CI/CD · K8s 운영</strong></div>
       <div><span>STACK</span><strong>GitHub Actions · ArgoCD · EKS · Istio</strong></div>
     </div>
     <div class="jd"><span>Kubernetes 운영</span><span>Service Mesh (Istio)</span><span>CI/CD</span><span>모니터링</span></div>
@@ -128,7 +127,7 @@
           <li>jdk → jre 멀티스테이지 · 비루트 실행 이미지, Trivy <code>exit-code 1</code>로 취약 이미지 레지스트리 유입 차단</li>
           <li>git-sha 태그 Push → Helm values 갱신 → ArgoCD <code>medical-dev</code> / <code>medical-prod</code> 분리 배포, 결과는 Slack으로 공유</li>
           <li>HPA(CPU 70%, 2–10) · Readiness/Liveness Probe · Rolling Update 구성, DB 장애 · Memory Leak 유도로 Probe 동작 검증</li>
-          <li>심화 팀장: Prometheus로 K8s · Envoy 메트릭 수집, Grafana → Kiali → ArgoCD 장애 추적 Runbook 정리</li>
+          <li>심화 단계: Prometheus로 K8s · Envoy 메트릭 수집, Grafana → Kiali → ArgoCD 장애 추적 Runbook 정리</li>
         </ul>
       </div>
       <div>
@@ -146,7 +145,7 @@
     </div>
     <h2>회고</h2>
     <div class="retro-list">
-        <div class="retro"><strong>기반 인프라를 셸 스크립트로 생성</strong><p>배포 파이프라인과 트래픽 제어에 집중하느라 VPC · EKS 같은 기반 자원은 코드로 관리하지 못했습니다.</p><p class="next"><b>다시 한다면</b> Terraform으로 클러스터 바깥 인프라까지 선언형으로 관리하겠습니다. 다음 프로젝트(Hotel Booking)에서 EKS와 ArgoCD를 Terraform으로 구성하며 이 부분을 이어서 해결했습니다.</p></div>
+        <div class="retro"><strong>VPC · EKS 클러스터를 셸 스크립트로 생성</strong><p>심화 단계에서 배포 파이프라인과 트래픽 제어에 집중하느라, VPC와 EKS 클러스터 같은 클라우드 자원은 Terraform 같은 코드가 아닌 셸 스크립트로 만들었습니다.</p><p class="next"><b>다시 한다면</b> Terraform으로 클러스터 바깥 인프라까지 선언형으로 관리하겠습니다. 다음 프로젝트(Hotel Booking)에서 EKS와 ArgoCD를 Terraform으로 구성하며 이 부분을 이어서 해결했습니다.</p></div>
         <div class="retro"><strong>리소스 산정과 권한 설정의 시행착오</strong><p>비용 제한으로 레지스트리를 옮기고, 심화 단계에서는 프리티어 자원 제약과 IAM 사용자 권한 매핑 문제로 클러스터 생성과 접근 권한 확보가 반복해서 지연됐습니다.</p><p class="next"><b>다시 한다면</b> 사이드카 비용을 포함한 리소스 총량과 비용을 먼저 산정하고, 팀원별 클러스터 접근 권한을 생성 시점에 코드로 함께 정의하겠습니다.</p></div>
     </div>
 
@@ -236,8 +235,8 @@
       </div>
       <div>
         <h2>운영 중인 서비스</h2>
-        <div class="case"><strong>wiki.junu.dev · 기술 위키</strong><p>Wiki.js + PostgreSQL(Docker Compose)로 학습 문서를 정리하고 운영</p></div>
-        <div class="case"><strong>Personal Dev Tools · AI 에이전트로 개발</strong><p><b>maskly.junu.dev</b> 레이어 마스크 · 브러시 · 알파 편집을 지원하는 웹 이미지 편집기(React · Vite)</p><p><b>transformer.junu.dev</b> 이미지 · PDF · 텍스트 형식 변환을 서버 없이 처리하는 브라우저 파일 변환기</p></div>
+        <div class="case"><strong><a class="svc" href="https://wiki.junu.dev">wiki.junu.dev ↗</a> · 기술 위키</strong><p>Wiki.js + PostgreSQL(Docker Compose)로 학습 문서를 정리하고 운영</p></div>
+        <div class="case"><strong>Personal Dev Tools · AI 에이전트로 개발</strong><p><a class="svc" href="https://maskly.junu.dev">maskly.junu.dev ↗</a> 레이어 마스크 · 브러시 · 알파 편집을 지원하는 웹 이미지 편집기(React · Vite)</p><p><a class="svc" href="https://transformer.junu.dev">transformer.junu.dev ↗</a> 이미지 · PDF · 텍스트 형식 변환을 서버 없이 처리하는 브라우저 파일 변환기</p></div>
       </div>
     </div>
   </section>

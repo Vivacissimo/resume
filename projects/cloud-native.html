@@ -21,16 +21,15 @@
   <main class="project-document">
     <header class="project-hero">
       <div>
-        <p class="kicker">CI/CD · GITOPS · SERVICE MESH · OBSERVABILITY</p>
+        <p class="kicker">KT CLOUD TECH UP · 기본 + 심화 프로젝트</p>
         <h1>Medical MSA · CI/CD &amp; Service Mesh</h1>
-        <p class="hero-subtitle">의료 MSA의 <strong>CI/CD · GitOps 배포 자동화</strong>를 만들고, 심화 단계에서 같은 서비스에 Istio를 올려 <strong>트래픽 전환 · 장애 복구 · 내부 접근 차단</strong>을 검증했습니다.</p>
+        <p class="hero-subtitle">의료 MSA의 <strong>CI/CD · GitOps 배포</strong>를 자동화하고, 심화 단계에서 Istio를 올려 <strong>트래픽 전환 · 장애 복구 · 내부 접근 차단</strong>을 직접 실험했습니다.</p>
       </div>
       <div class="meta-card">
-        <div class="meta-row"><span>PERIOD</span><strong>2026.05 – 06 · KT Cloud BootCamp</strong></div>
-        <div class="meta-row"><span>TEAM</span><strong>4인 (NoMoreSh)</strong></div>
-        <div class="meta-row"><span>ROLE</span><strong>기본 CI/CD · GitOps · K8s 운영 · 심화 Team Lead · Observability</strong></div>
-        <div class="meta-row"><span>SERVICES</span><strong>Patient · Appointment · Prescription · Notification</strong></div>
-        <div class="meta-row"><span>PLATFORM</span><strong>Kubernetes · ArgoCD · AWS EKS · Istio</strong></div>
+        <div class="meta-row"><span>PERIOD</span><strong>2026.05 – 06</strong></div>
+        <div class="meta-row"><span>TEAM</span><strong>4인</strong></div>
+        <div class="meta-row"><span>ROLE</span><strong>CI/CD · K8s 운영</strong></div>
+        <div class="meta-row"><span>STACK</span><strong>GitHub Actions · ArgoCD · EKS · Istio</strong></div>
       </div>
     </header>
 
@@ -45,7 +44,7 @@
       <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
       <div class="section-body">
         <p class="lead">수동 배포에서 생기는 휴먼 에러와 서비스 중단을 줄이기 위해 배포를 자동화하고, 이어서 배포된 새 버전이 실제 트래픽과 장애 상황에서도 정상인지까지 확인하는 흐름을 만들었습니다.</p>
-        <p>환자 · 예약 · 처방 · 알림 서비스와 API Gateway로 구성된 의료 MSA를 대상으로 두 단계에 걸쳐 진행했습니다. 기본 단계(5주)에서는 GitHub Actions 기반 CI, 멀티스테이지 이미지 빌드, Trivy 보안 검사, 레지스트리와 Helm values 갱신부터 ArgoCD GitOps 배포, HPA · Probe · Rolling Update 같은 Kubernetes 운영 설정까지 배포 경로 전체를 맡았습니다. 심화 단계에서는 팀장이자 Observability 담당으로 AWS EKS 위에 Istio를 적용해 Canary · Blue/Green · Retry · Zero-Trust를 실험하고, Prometheus · Grafana · Kiali 관찰 환경과 장애 추적 순서를 정리했습니다.</p>
+        <p>환자 · 예약 · 처방 · 알림 서비스와 API Gateway로 구성된 의료 MSA를 대상으로 두 단계에 걸쳐 진행했습니다. 기본 단계(5주)에서는 GitHub Actions 기반 CI, 멀티스테이지 이미지 빌드, Trivy 보안 검사, 레지스트리와 Helm values 갱신부터 ArgoCD GitOps 배포, HPA · Probe · Rolling Update 같은 Kubernetes 운영 설정까지 배포 경로 전체를 맡았습니다. 심화 단계에서는 Observability 담당으로 AWS EKS 위에 Istio를 적용해 Canary · Blue/Green · Retry · Zero-Trust를 실험하고, Prometheus · Grafana · Kiali 관찰 환경과 장애 추적 순서를 정리했습니다.</p>
         <div class="quick-grid">
           <article class="card"><span class="mini-label">PHASE 1 · 기본</span><strong>CI/CD · GitOps 배포 자동화</strong><p>push 한 번으로 변경 서비스만 테스트 · 빌드 · 검사해 dev/prod에 배포하고 결과를 Slack으로 공유했습니다.</p></article>
           <article class="card"><span class="mini-label">PHASE 2 · 심화</span><strong>Service Mesh · Observability</strong><p>Deploy → Traffic Shift → Observe → Recover를 하나의 운영 절차로 연결했습니다.</p></article>
@@ -70,7 +69,7 @@
     </section>
 
     <section class="section">
-      <div class="section-label"><span>03</span><h2>내 역할</h2></div>
+      <div class="section-label"><span>03</span><h2>담당 파트</h2></div>
       <div class="section-body">
         <p class="lead">기본 단계 · CI/CD · GitOps · Kubernetes 운영</p>
         <div class="role-grid">
@@ -81,9 +80,8 @@
           <article class="card"><span class="mini-label">NOTIFY</span><strong>Slack 배포 결과 알림</strong><p>변경 서비스 목록, 빌드 결과, Helm 갱신 결과, 커밋 · 배포자 · workflow 정보를 <code>#deploy-status</code>로 보내 GitHub에 들어가지 않고도 배포 상태를 확인하게 했습니다.</p></article>
           <article class="card"><span class="mini-label">INFRA</span><strong>빌드 환경과 레지스트리 운영</strong><p>QEMU · Docker Buildx로 멀티 플랫폼 빌드를 구성하고, 비용 지원 제한에 맞춰 레지스트리를 KT Cloud에서 NCP로 옮겼습니다.</p></article>
         </div>
-        <p class="lead">심화 단계 · 팀장 · Observability</p>
+        <p class="lead">심화 단계 · Observability</p>
         <div class="role-grid">
-          <article class="card"><span class="mini-label">TEAM LEAD</span><strong>기본 → 심화 단계 흐름 정리</strong><p>CI/CD, Service Mesh, Observability가 따로 놀지 않도록 실험 순서와 단계별 검증 포인트를 연결했습니다.</p></article>
           <article class="card"><span class="mini-label">METRICS</span><strong>Prometheus 수집 대상 연동</strong><p>Kubernetes 컴포넌트와 Istio · Envoy 메트릭을 수집 대상으로 연결하고, Grafana에서 서비스별 요청량과 사이드카 리소스 점유율을 보도록 구성했습니다.</p></article>
           <article class="card"><span class="mini-label">TOPOLOGY</span><strong>Kiali 서비스 그래프</strong><p>Ingress Gateway부터 각 서비스까지 호출 관계를 Mesh 관점으로 그려, 실패 지점과 버전별 트래픽 흐름을 확인했습니다.</p></article>
           <article class="card"><span class="mini-label">RUNBOOK</span><strong>3단계 장애 추적 순서</strong><p>Grafana로 요청량 · 5xx · 리소스 수치 확인 → Kiali로 호출 단절 구간 확인 → ArgoCD로 배포 상태와 Git 이력을 대조해 복구하는 순서를 정했습니다.</p></article>
@@ -127,7 +125,7 @@
       <div class="section-label"><span>06</span><h2>트러블슈팅</h2></div>
       <div class="section-body">
         <article class="issue">
-          <h3>빌드 아키텍처 차이로 인한 배포 에러</h3>
+          <h3>빌드 아키텍처 차이로 배포 실패</h3>
           <table class="evidence-table">
             <tr><th>증상</th><td>CI에서 만든 이미지가 배포 환경에서 실행되지 않아 배포가 실패했습니다.</td></tr>
             <tr><th>원인</th><td>이미지를 빌드한 환경과 실행 환경의 CPU 아키텍처가 달랐습니다.</td></tr>
@@ -175,9 +173,9 @@
           <h3>배포 자동화부터 트래픽 전환 · 장애 복구 · 접근 차단까지 실제 시나리오로 재현하고 확인했습니다.</h3>
           <p>기본 단계에서는 직접 만든 파이프라인으로 4개 서비스가 push 한 번으로 테스트 · 검사를 거쳐 배포되고, ArgoCD에서 Synced · Healthy로 유지되는 것을 확인했습니다. 심화 단계에서는 "배포 완료"가 아니라 "새 버전이 트래픽을 정상 처리하는가", "장애가 나도 사용자는 실패를 보지 않는가"까지 확인해야 운영이 끝난다는 기준을 팀의 Runbook으로 정리했습니다.</p>
           <div class="metric-list">
-            <div class="metric"><span>CI/CD</span><strong>4개 서비스 자동 배포</strong><p>Trivy 통과 이미지만 dev / prod 반영</p></div>
-            <div class="metric"><span>RETRY</span><strong>클라이언트 성공률 100%</strong><p>Pod 강제 종료 중 3회 재시도</p></div>
-            <div class="metric"><span>ZERO-TRUST</span><strong>비인가 접근 차단</strong><p>mTLS STRICT · AuthorizationPolicy</p></div>
+            <div class="metric"><span>CI/CD</span><strong>4개 서비스 자동 배포</strong><p>Trivy 통과 이미지만 반영</p></div>
+            <div class="metric"><span>RETRY</span><strong>성공률 100%</strong><p>Pod 강제 종료 중</p></div>
+            <div class="metric"><span>CANARY</span><strong>4단계 전환</strong><p>20 → 50 → 70 → 100%</p></div>
           </div>
         </div>
       </div>
@@ -187,7 +185,7 @@
       <div class="section-label"><span>08</span><h2>회고</h2></div>
       <div class="section-body">
         <div class="retro-list">
-          <article class="retro"><span class="mini-label">아쉬운 점</span><strong>기반 인프라를 셸 스크립트로 생성</strong><p>배포 파이프라인과 트래픽 제어에 집중하느라 VPC · EKS 같은 기반 자원은 코드로 관리하지 못했습니다.</p><span class="mini-label next">다시 한다면</span><p>Terraform으로 클러스터 바깥 인프라까지 선언형으로 관리하겠습니다. 다음 프로젝트(Hotel Booking)에서 EKS와 ArgoCD를 Terraform으로 구성하며 이 부분을 이어서 해결했습니다.</p></article>
+          <article class="retro"><span class="mini-label">아쉬운 점</span><strong>VPC · EKS 클러스터를 셸 스크립트로 생성</strong><p>심화 단계에서 배포 파이프라인과 트래픽 제어에 집중하느라, VPC와 EKS 클러스터 같은 클라우드 자원은 Terraform 같은 코드가 아닌 셸 스크립트로 만들었습니다.</p><span class="mini-label next">다시 한다면</span><p>Terraform으로 클러스터 바깥 인프라까지 선언형으로 관리하겠습니다. 다음 프로젝트(Hotel Booking)에서 EKS와 ArgoCD를 Terraform으로 구성하며 이 부분을 이어서 해결했습니다.</p></article>
           <article class="retro"><span class="mini-label">아쉬운 점</span><strong>리소스 산정과 권한 설정의 시행착오</strong><p>비용 제한으로 레지스트리를 옮기고, 심화 단계에서는 프리티어 자원 제약과 IAM 사용자 권한 매핑 문제로 클러스터 생성과 접근 권한 확보가 반복해서 지연됐습니다.</p><span class="mini-label next">다시 한다면</span><p>사이드카 비용을 포함한 리소스 총량과 비용을 먼저 산정하고, 팀원별 클러스터 접근 권한을 생성 시점에 코드로 함께 정의하겠습니다.</p></article>
         </div>
         <p class="source-note">Tech Stack: GitHub Actions · Docker Buildx · QEMU · Trivy · NCP Container Registry · Helm · ArgoCD · Kubernetes HPA · AWS EKS · Istio · Envoy · Prometheus · Grafana · Kiali · Slack</p>

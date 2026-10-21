@@ -4,7 +4,7 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 
 - `index.html` is the **resume**: short enough to skim, projects shown as Problem / Action / Result cards.
 - Each card links to a **project detail page** (`projects/*.html`). Together, the detail pages are the **portfolio**.
-- The top-right buttons download the **resume PDF** and **portfolio PDF**, built automatically by GitHub Actions.
+- The top-right button downloads the **submission PDF** (resume + condensed project pages), built automatically by GitHub Actions.
 
 ## Resume structure
 
@@ -29,11 +29,10 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 │   ├── hotel-booking.html
 │   ├── cocoavision.html
 │   └── personal-infra.html
-├── project-detail.css          # detail page + portfolio cover styles
-├── portfolio-cover.html        # portfolio PDF cover and contents
+├── project-detail.css          # detail page styles
 ├── apply/portfolio.html        # condensed project pages for the submission PDF
 ├── scripts/build-pdf.mjs       # PDF build (Playwright + pdf-lib)
-├── pdf/                        # build output: resume.pdf, portfolio.pdf
+├── pdf/submission.pdf          # build output
 ├── .github/workflows/build-pdf.yml
 └── package.json                # Node is used only for the PDF build
 ```
@@ -52,7 +51,7 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-## Build PDFs
+## Build the PDF
 
 ```bash
 npm ci
@@ -60,14 +59,14 @@ npx playwright install chromium
 npm run pdf
 ```
 
-- `pdf/resume.pdf`: `index.html` printed to A4 (target: two pages or fewer)
-- `pdf/submission.pdf`: `index.html` (resume) followed by the condensed project pages in `apply/portfolio.html`, for job applications
-- `pdf/portfolio.pdf`: `portfolio-cover.html` → `moongcheap` → `hotel-booking` → `cloud-native` → `cocoavision` → `personal-infra`, rendered one by one and merged
+`pdf/submission.pdf` is the one file for job applications:
+
+1. `index.html` printed as a one-page resume. Elements marked `data-submission="exclude"` (experience cards, personal section) are hidden and those marked `data-submission="only"` (plain career list) are shown.
+2. The condensed project pages in `apply/portfolio.html`: MoongCheap → Hotel Booking → Medical MSA → Cocoavision → junu.dev Home Infrastructure.
 
 The script serves the repo with Node's `http` module, waits for `document.fonts.ready`, and prints with the `print` media styles.
 Same-site links are rewritten to `https://resume.junu.dev/...` before printing, so links in the PDFs open the live site.
 If a page still has `.todo` placeholders, the build prints a warning listing them.
-Sections marked `data-portfolio="exclude"` (for example the Cocoavision Real-time R&D case) stay on the web page but are left out of the portfolio PDF.
 
 ## Automatic PDF build
 
@@ -77,6 +76,6 @@ Sections marked `data-portfolio="exclude"` (for example the Cocoavision Real-tim
 2. `npm run pdf`
 3. If `pdf/` changed, commit it as `chore: rebuild PDFs [skip ci]` and push
 
-This only updates the files in the repo. It does not deploy the site.
+Cloudflare Workers Builds deploys the site on every push to `main` (`wrangler.jsonc`, with build-only files listed in `.assetsignore`).
 
 Target domain: `resume.junu.dev`

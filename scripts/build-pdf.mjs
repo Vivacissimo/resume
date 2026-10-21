@@ -1,4 +1,4 @@
-// Builds pdf/resume.pdf, pdf/portfolio.pdf and pdf/submission.pdf from the static pages.
+// Builds pdf/submission.pdf (resume + condensed project pages) from the static pages.
 // Usage: npm run pdf
 
 import http from 'node:http';
@@ -15,14 +15,6 @@ const outDir = path.join(root, 'pdf');
 const SITE_URL = 'https://resume.junu.dev/';
 
 const RESUME_PAGE = 'index.html';
-const PORTFOLIO_PAGES = [
-  'portfolio-cover.html',
-  'projects/moongcheap.html',
-  'projects/hotel-booking.html',
-  'projects/cloud-native.html',
-  'projects/cocoavision.html',
-  'projects/personal-infra.html',
-];
 
 // Submission file: the resume followed by the condensed project pages.
 // In the resume part, the experience blocks marked data-submission="exclude" give way to
@@ -59,9 +51,6 @@ const SUBMISSION_RESUME_CSS = `
   .skill-item p { display: none !important; }
 
 `;
-
-// Sections marked data-portfolio="exclude" stay on the web page but are left out of the portfolio PDF.
-const PORTFOLIO_PRINT_CSS = '[data-portfolio="exclude"] { display: none !important; }';
 
 // Fixed metadata keeps build timestamps out of the PDF. Chromium output itself is not
 // byte-identical across runs, so CI still commits fresh PDFs after each source change.
@@ -148,22 +137,6 @@ async function main() {
   const browser = await chromium.launch();
 
   try {
-    const resumeBytes = await renderPdf(browser, baseUrl + RESUME_PAGE);
-    const resume = await PDFDocument.load(resumeBytes, { updateMetadata: false });
-    await writeFile(path.join(outDir, 'resume.pdf'), await finalize(resume, 'Joon Woo Kim — Resume'));
-    console.log(`pdf/resume.pdf (${resume.getPageCount()} pages)`);
-
-    const portfolio = await PDFDocument.create({ updateMetadata: false });
-    for (const pagePath of PORTFOLIO_PAGES) {
-      const bytes = await renderPdf(browser, baseUrl + pagePath, PORTFOLIO_PRINT_CSS);
-      const part = await PDFDocument.load(bytes, { updateMetadata: false });
-      const pages = await portfolio.copyPages(part, part.getPageIndices());
-      pages.forEach((p) => portfolio.addPage(p));
-      console.log(`  + ${pagePath} (${pages.length} pages)`);
-    }
-    await writeFile(path.join(outDir, 'portfolio.pdf'), await finalize(portfolio, 'Joon Woo Kim — Portfolio'));
-    console.log(`pdf/portfolio.pdf (${portfolio.getPageCount()} pages)`);
-
     const submission = await PDFDocument.create({ updateMetadata: false });
     const submissionParts = [
       await renderPdf(browser, baseUrl + RESUME_PAGE, SUBMISSION_RESUME_CSS),

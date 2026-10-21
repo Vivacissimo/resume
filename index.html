@@ -92,7 +92,12 @@
         </div>
 
         <div class="section-content org-list">
-          <article class="org">
+          <ol class="career-list" data-submission="only">
+            <li><span class="career-period">2026.03 — 2026.10</span><div><strong>KT Cloud TECH UP · 클라우드 네이티브 과정 수료</strong><p>팀 프로젝트 대상 · 우수 수료자</p></div></li>
+            <li><span class="career-period">2024.01 — 2026.03</span><div><strong>Cocoavision · VFX본부 Pipeline / IT Infrastructure</strong><p>Linux 제작 환경 · Render Farm · Pipeline 운영 및 자동화</p></div></li>
+            <li><span class="career-period">2022.09 — 2024.01</span><div><strong>Cocoavision · NewMedia본부 R&amp;D팀</strong><p>Unreal Engine · Blender 실시간 콘텐츠 · Previs Workflow R&amp;D</p></div></li>
+          </ol>
+          <article class="org" data-submission="exclude">
             <div class="org-meta">
               <h3>KT Cloud BootCamp</h3>
               <p class="org-period">2026.03 — 2026.10 (수료)</p>
@@ -104,6 +109,7 @@
                 KT Bootcamp의 Cloud-Native 과정을 수료하며 진행했던 프로젝트입니다.
               </p>
 
+
               <article class="project-card">
                 <p class="project-type">CLOUD / DEVOPS · INTEGRATED PROJECT</p>
                 <h4><a class="card-link" href="./projects/moongcheap.html">MoongCheap · Cloud Native Platform</a></h4>
@@ -111,15 +117,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>서비스별 YAML 중복, dev/prod 설정 혼재, 애플리케이션 코드와 배포 설정의 책임 경계가 불명확했다.</dd>
+                    <dd>서비스별 YAML 중복, dev/prod 설정 혼재, 애플리케이션 코드와 배포 설정의 책임 경계가 불명확했습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>Jenkins → ECR → GitOps → ArgoCD → EKS 흐름 설계, 공통 Helm Chart + 환경별 Values, ApplicationSet, Commit SHA 기반 Image Tag.</dd>
+                    <dd>Jenkins → ECR → GitOps → ArgoCD → EKS 흐름을 설계하고, 공통 Helm Chart + 환경별 Values, ApplicationSet, Commit SHA 기반 Image Tag를 적용했습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>Frontend · Backend · AI 3개 영역과 dev/prod 환경을 공통 Chart와 ApplicationSet 규칙 하나로 배포하는 구조를 코드로 정리 함.</dd>
+                    <dd>Frontend · Backend · AI 3개 영역과 dev/prod 환경을 공통 Chart와 ApplicationSet 규칙 하나로 배포하는 구조를 코드로 정리했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">AWS · EKS · ECR · Helm · ArgoCD · Jenkins · Terraform</p>
@@ -133,15 +139,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>특가 오픈 순간 트래픽이 몰리는 5개 서비스 MSA를, 수동 배포 없이 dev/prod에 일관되게 올리고 장애를 빠르게 감지해야 했다.</dd>
+                    <dd>특가 오픈 순간 트래픽이 몰리는 5개 서비스 MSA를, 수동 배포 없이 dev/prod에 일관되게 올리고 장애를 빠르게 감지해야 했습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>Terraform으로 EKS · ArgoCD 구성, GitHub Actions 변경 감지 Matrix 빌드 + Trivy 스캔 + ECR Push, SHA Tag로 Helm values 갱신 → ArgoCD 자동 Sync, prod 매니페스트 검증.</dd>
+                    <dd>Terraform으로 EKS · ArgoCD를 구성하고, GitHub Actions 변경 감지 빌드 · Trivy · ECR Push → Helm values 갱신 → ArgoCD 자동 Sync 흐름을 만들었습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>push 한 번으로 5개 서비스를 dev/prod에 배포. 그 위에서 K6 1,000명 버스트 오버셀 0건 · 시스템 오류 0%, 장애 주입 → Slack 알림 · 복구 확인.</dd>
+                    <dd>push 한 번으로 5개 서비스를 dev/prod에 배포했습니다. 그 위에서 K6 1,000명 버스트 오버셀 0건 · 시스템 오류 0%, 장애 주입 → Slack 알림 · 복구를 확인했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">AWS EKS · Terraform · GitHub Actions · Trivy · Helm · ArgoCD · Prometheus · Loki · Tempo</p>
@@ -155,15 +161,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>수동 배포로 휴먼 에러와 서비스 중단 위험이 컸고, 배포가 성공해도 새 버전이 트래픽과 장애 상황에서 정상인지 판단할 기준이 없었다.</dd>
+                    <dd>수동 배포로 휴먼 에러와 서비스 중단 위험이 컸고, 배포가 성공해도 새 버전이 트래픽과 장애 상황에서 정상인지 판단할 기준이 없었습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>GitHub Actions 변경 감지 Matrix 빌드 · 멀티스테이지 이미지 · Trivy 차단 · git-sha Tag로 Helm values 갱신 → ArgoCD dev/prod 배포, HPA · Probe · Rolling Update 구성과 장애 유도 검증. 심화에서 Istio Canary · Blue/Green · Retry · mTLS 실험과 Prometheus · Grafana · Kiali 장애 추적 Runbook 정리.</dd>
+                    <dd>GitHub Actions(변경 감지 · Trivy) → git-sha Tag → ArgoCD dev/prod 배포와 HPA · Probe를 구성하고, 심화 단계에서 Istio Canary · Blue/Green · Retry · mTLS를 실험했습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>4개 서비스를 push 한 번으로 자동 배포. Pod 강제 종료 중 클라이언트 성공률 100%, 비인가 Pod 접근 차단(RBAC denied)을 검증.</dd>
+                    <dd>Pod 강제 종료 중에도 클라이언트 성공률 100%를 유지하고, 비인가 Pod 접근 차단(RBAC denied)을 검증했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">GitHub Actions · Trivy · Helm · ArgoCD · AWS EKS · Istio · Prometheus · Grafana · Kiali</p>
@@ -172,7 +178,7 @@
             </div>
           </article>
 
-          <article class="org">
+          <article class="org" data-submission="exclude">
             <div class="org-meta">
               <h3>Cocoavision</h3>
               <p class="org-period">2022.09 — 2026.03</p>
@@ -190,8 +196,9 @@
 
             <div class="org-body">
               <p class="org-summary">
-                실시간 콘텐츠 R&amp;D팀에서 시작해 VFX본부로 이동한 뒤, Linux 제작 환경과 Render Farm, Pipeline 운영을 담당했다.
+                실시간 콘텐츠 R&amp;D팀에서 시작해 VFX본부로 이동한 뒤, Linux 제작 환경과 Render Farm, Pipeline 운영을 담당했습니다.
               </p>
+
 
               <article class="project-card">
                 <p class="project-type">VFX / AUTOMATION</p>
@@ -200,15 +207,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>수십 대 규모 Linux Render Farm을 노드별로 수동 설정하며 반복 작업과 설정 편차가 발생했다.</dd>
+                    <dd>수십 대 규모 Linux Render Farm을 노드별로 수동 설정하며 반복 작업과 설정 편차가 발생했습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>패키지 설치 · Mount · 팀별 Tool 배포 등을 Ansible Playbook으로 작성하고 Inventory로 노드를 묶어 일괄 적용.</dd>
+                    <dd>패키지 설치 · Mount · 팀별 Tool 배포 등을 Ansible Playbook으로 작성하고 Inventory로 노드를 묶어 일괄 적용했습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>서버별 수동 작업을 재사용 가능한 운영 코드로 전환.</dd>
+                    <dd>서버별 수동 작업을 재사용 가능한 운영 코드로 전환했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Ansible · Linux · Render Farm</p>
@@ -222,15 +229,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>장비가 늘어날수록 USB 중심의 PC 초기 설치를 사람이 직접 반복해야 했다.</dd>
+                    <dd>장비가 늘어날수록 USB 중심의 PC 초기 설치를 사람이 직접 반복해야 했습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>PXE 부팅부터 DHCP/HTTP 설치 파일 제공, Kickstart 기반 자동 설치까지 연결한 환경 구성.</dd>
+                    <dd>PXE 부팅부터 DHCP/HTTP 설치 파일 제공, Kickstart 기반 자동 설치까지 연결한 환경을 구성했습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>USB 중심 설치를 네트워크 기반 설치로 전환.</dd>
+                    <dd>USB 중심 설치를 네트워크 기반 설치로 전환했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Linux · PXE · Kickstart · Network Boot</p>
@@ -244,15 +251,15 @@
                 <dl class="par">
                   <div>
                     <dt>Problem</dt>
-                    <dd>작업자가 제출 정보를 직접 구성하고 DCC마다 절차가 달라 누락과 설정 차이가 발생하기 쉬웠다.</dd>
+                    <dd>작업자가 제출 정보를 직접 구성하고 DCC마다 절차가 달라 누락과 설정 차이가 발생하기 쉬웠습니다.</dd>
                   </div>
                   <div>
                     <dt>Action</dt>
-                    <dd>Houdini · Nuke용 Custom Render / Submit Node를 Python으로 만들어, 사용자 교육 대신 도구에 제출 규칙을 넣음.</dd>
+                    <dd>Houdini · Nuke용 Custom Render / Submit Node를 Python으로 만들어, 사용자 교육 대신 도구에 제출 규칙을 넣었습니다.</dd>
                   </div>
                   <div>
                     <dt>Result</dt>
-                    <dd>DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow 표준화.</dd>
+                    <dd>DCC 안에서 일관된 제출 경로를 제공해 Submission Workflow를 표준화했습니다.</dd>
                   </div>
                 </dl>
                 <p class="project-tech">Houdini · Nuke · Tractor · Python</p>
@@ -325,22 +332,15 @@
               <p>DCC Tool · Render Submission · Pipeline Automation</p>
             </div>
           </article>
-
-          <article class="skill-item">
-            <h3>VFX Pipeline</h3>
-            <div>
-              <strong>Houdini · Nuke · Maya · Tractor</strong>
-              <p>Production Pipeline · Render Farm · Troubleshooting</p>
-            </div>
-          </article>
         </div>
       </section>
 
-      <section class="resume-section" id="personal">
+      <section class="resume-section" id="personal" data-submission="exclude">
         <div class="section-heading">
           <span class="section-number">04</span>
           <h2>PERSONAL</h2>
         </div>
+
 
         <div class="section-content personal-grid">
           <article class="project-card personal-card">
@@ -348,7 +348,7 @@
             <h4><a class="card-link" href="./projects/personal-infra.html#home-infra">junu.dev Home Infrastructure</a></h4>
             <p class="card-desc">
               Raspberry Pi · Docker Compose 기반으로 Wiki와 개인 서비스를 직접 운영하고,
-              Cloudflare Tunnel과 GitHub Actions Self-hosted Runner로 외부 연결과 배포를 자동화.
+              Cloudflare Tunnel과 GitHub Actions Self-hosted Runner로 외부 연결과 배포를 자동화했습니다.
             </p>
             <p class="project-tech">Linux · Docker · Nginx · Cloudflare Tunnel · GitHub Actions · PostgreSQL</p>
             <div class="project-links">
@@ -362,7 +362,7 @@
             <p class="project-type">PERSONAL DEV TOOLS</p>
             <h4><a class="card-link" href="./projects/personal-infra.html#dev-tools">Personal Dev Tools</a></h4>
             <p class="card-desc">
-              개인 작업에서 반복되던 이미지 편집과 파일 확장자 변환을 독립 웹 도구로 만들어 서비스별 Subdomain으로 운영.
+              개인 작업에서 반복되던 이미지 편집과 파일 확장자 변환을 독립 웹 도구로 만들어 서비스별 Subdomain으로 운영합니다.
             </p>
             <p class="project-tech">AI Agent · Web Tool · Nginx · Cloudflare</p>
             <div class="project-links">

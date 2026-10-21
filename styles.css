@@ -363,6 +363,46 @@ blockquote {
   font-size: 16px;
 }
 
+/* Plain career list: replaces the org blocks only in the submission PDF,
+   where the project pages follow the resume. */
+[data-submission="only"] {
+  display: none;
+}
+
+.career-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-list li {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.career-list li:last-child {
+  border-bottom: 0;
+}
+
+.career-period {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.career-list strong {
+  color: var(--strong);
+  font-size: 1.12em;
+}
+
+.career-list p {
+  margin: 2px 0 0;
+  color: var(--muted);
+}
+
+
 .project-card {
   position: relative;
   padding: 22px 24px 20px;
@@ -825,6 +865,13 @@ blockquote {
   .org-summary {
     margin-bottom: 8px !important;
     font-size: 9pt;
+  }
+
+  .career-list li {
+    grid-template-columns: 34mm 1fr;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 10pt;
   }
 
   .project-card {

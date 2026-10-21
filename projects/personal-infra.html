@@ -23,7 +23,7 @@
       <div>
         <p class="kicker">PERSONAL INFRASTRUCTURE · SELF-HOSTED</p>
         <h1>junu.dev Home Infrastructure</h1>
-        <p class="hero-subtitle">Raspberry Pi 한 대에 기술 위키와 웹 도구를 올리고, <strong>push 한 번으로 배포되고 포트를 열지 않고 공개되는</strong> 개인 서비스 환경을 직접 운영한다.</p>
+        <p class="hero-subtitle">Raspberry Pi 한 대에 기술 위키와 웹 도구를 올리고, <strong>push 한 번으로 배포되고 포트를 열지 않고 공개되는</strong> 개인 서비스 환경을 직접 운영합니다.</p>
       </div>
       <div class="meta-card">
         <div class="meta-row"><span>PERIOD</span><strong>운영 중</strong></div>
@@ -37,13 +37,13 @@
     <section class="section">
       <div class="section-label"><span>01</span><h2>프로젝트 개요</h2></div>
       <div class="section-body">
-        <p class="lead">실습용 VM을 만들고 지우는 대신, 실제로 매일 쓰는 서비스를 계속 운영하면서 배포 · 네트워크 · 데이터 문제를 직접 겪어 보기 위한 환경이다.</p>
-        <p>Raspberry Pi Linux 서버에서 Wiki.js 기술 위키와 개인 웹 도구를 운영한다. 위키는 Docker Compose로 Wiki.js와 PostgreSQL을 분리해 띄우고, 웹 도구는 Nginx가 정적 파일로 서비스한다. 외부 접근은 Cloudflare Tunnel로만 받아 집 공유기의 포트를 열지 않았고, 웹 도구는 GitHub Actions에서 빌드해 Pi에 설치한 Self-hosted Runner가 배포한다.</p>
+        <p class="lead">실습용 VM을 만들고 지우는 대신, 실제로 매일 쓰는 서비스를 계속 운영하면서 배포 · 네트워크 · 데이터 문제를 직접 겪어 보기 위한 환경입니다.</p>
+        <p>Raspberry Pi Linux 서버에서 Wiki.js 기술 위키와 개인 웹 도구를 운영합니다. 위키는 Docker Compose로 Wiki.js와 PostgreSQL을 분리해 띄우고, 웹 도구는 Nginx가 정적 파일로 서비스합니다. 외부 접근은 Cloudflare Tunnel로만 받아 집 공유기의 포트를 열지 않았고, 웹 도구는 GitHub Actions에서 빌드해 Pi에 설치한 Self-hosted Runner가 배포합니다.</p>
         <div class="quick-grid">
-          <article class="card"><span class="mini-label">GOAL</span><strong>실사용 서비스를 직접 운영</strong><p>설치하고 끝나는 실습이 아니라, 바뀌고 고장 나는 서비스를 계속 유지한다.</p></article>
-          <article class="card"><span class="mini-label">EDGE</span><strong>Origin을 공개하지 않는 노출</strong><p>Cloudflare Tunnel이 바깥으로 연결을 맺어, 인바운드 포트 없이 서브도메인별로 서비스를 연결한다.</p></article>
-          <article class="card"><span class="mini-label">DELIVERY</span><strong>빌드와 배포 Runner 분리</strong><p>무거운 빌드는 GitHub-hosted Runner에서, 파일 반영만 Pi의 Self-hosted Runner에서 실행한다.</p></article>
-          <article class="card"><span class="mini-label">DATA</span><strong>컨테이너와 데이터 분리</strong><p>위키 데이터는 PostgreSQL 볼륨과 SQL Dump로 관리해 컨테이너를 다시 만들어도 유지된다.</p></article>
+          <article class="card"><span class="mini-label">GOAL</span><strong>실사용 서비스를 직접 운영</strong><p>설치하고 끝나는 실습이 아니라, 바뀌고 고장 나는 서비스를 계속 유지합니다.</p></article>
+          <article class="card"><span class="mini-label">EDGE</span><strong>Origin을 공개하지 않는 노출</strong><p>Cloudflare Tunnel이 바깥으로 연결을 맺어, 인바운드 포트 없이 서브도메인별로 서비스를 연결합니다.</p></article>
+          <article class="card"><span class="mini-label">DELIVERY</span><strong>빌드와 배포 Runner 분리</strong><p>무거운 빌드는 GitHub-hosted Runner에서, 파일 반영만 Pi의 Self-hosted Runner에서 실행합니다.</p></article>
+          <article class="card"><span class="mini-label">DATA</span><strong>컨테이너와 데이터 분리</strong><p>위키 데이터는 PostgreSQL 볼륨과 SQL Dump로 관리해 컨테이너를 다시 만들어도 유지됩니다.</p></article>
         </div>
       </div>
     </section>
@@ -66,12 +66,12 @@
       <div class="section-label"><span>03</span><h2>내 역할</h2></div>
       <div class="section-body">
         <div class="role-grid">
-          <article class="card"><span class="mini-label">CI/CD</span><strong>GitHub Actions 2단계 파이프라인</strong><p>Build Job이 lint와 build를 통과한 결과물만 Artifact로 올리고, Deploy Job이 이를 받아 반영한다. lint가 실패하면 배포까지 가지 않는다.</p></article>
-          <article class="card"><span class="mini-label">RUNNER</span><strong>Self-hosted Runner 라벨 라우팅</strong><p>Pi에 Runner를 설치하고 <code>raspberrypi</code> · <code>deploy</code> · 서비스 이름 라벨을 붙여, 배포 Job이 정해진 장비에서만 실행되게 했다.</p></article>
-          <article class="card"><span class="mini-label">RELEASE</span><strong>동기화 방식의 정적 배포</strong><p><code>rsync --delete</code>로 서비스 디렉터리를 빌드 결과와 똑같이 맞춰 이전 파일이 남지 않게 하고, 배포 후 디렉터리 755 · 파일 644로 권한을 정리한다.</p></article>
-          <article class="card"><span class="mini-label">CONCURRENCY</span><strong>중복 배포 방지</strong><p>워크플로에 <code>concurrency</code> 그룹을 두어, 연속으로 push해도 마지막 변경만 배포되도록 이전 실행을 취소한다.</p></article>
-          <article class="card"><span class="mini-label">CONTAINER</span><strong>Docker Compose 위키 구성</strong><p>Wiki.js와 PostgreSQL을 컨테이너로 분리하고 볼륨으로 데이터를 유지하며, SQL Dump로 백업한다.</p></article>
-          <article class="card"><span class="mini-label">HARDWARE</span><strong>microSD → NVMe 이전</strong><p>계속 쓰고 지우는 서버 특성상 수명과 속도가 약한 microSD를 NVMe로 바꿔 저장장치를 안정화했다.</p></article>
+          <article class="card"><span class="mini-label">CI/CD</span><strong>GitHub Actions 2단계 파이프라인</strong><p>Build Job이 lint와 build를 통과한 결과물만 Artifact로 올리고, Deploy Job이 이를 받아 반영합니다. lint가 실패하면 배포까지 가지 않습니다.</p></article>
+          <article class="card"><span class="mini-label">RUNNER</span><strong>Self-hosted Runner 라벨 라우팅</strong><p>Pi에 Runner를 설치하고 <code>raspberrypi</code> · <code>deploy</code> · 서비스 이름 라벨을 붙여, 배포 Job이 정해진 장비에서만 실행되게 했습니다.</p></article>
+          <article class="card"><span class="mini-label">RELEASE</span><strong>동기화 방식의 정적 배포</strong><p><code>rsync --delete</code>로 서비스 디렉터리를 빌드 결과와 똑같이 맞춰 이전 파일이 남지 않게 하고, 배포 후 디렉터리 755 · 파일 644로 권한을 정리합니다.</p></article>
+          <article class="card"><span class="mini-label">CONCURRENCY</span><strong>중복 배포 방지</strong><p>워크플로에 <code>concurrency</code> 그룹을 두어, 연속으로 push해도 마지막 변경만 배포되도록 이전 실행을 취소합니다.</p></article>
+          <article class="card"><span class="mini-label">CONTAINER</span><strong>Docker Compose 위키 구성</strong><p>Wiki.js와 PostgreSQL을 컨테이너로 분리하고 볼륨으로 데이터를 유지하며, SQL Dump로 백업합니다.</p></article>
+          <article class="card"><span class="mini-label">HARDWARE</span><strong>microSD → NVMe 이전</strong><p>계속 쓰고 지우는 서버 특성상 수명과 속도가 약한 microSD를 NVMe로 바꿔 저장장치를 안정화했습니다.</p></article>
         </div>
       </div>
     </section>
@@ -79,10 +79,10 @@
     <section class="section" id="dev-tools">
       <div class="section-label"><span>04</span><h2>Personal Dev Tools</h2></div>
       <div class="section-body">
-        <p class="lead">개인 작업에서 반복되던 일을 AI 에이전트와 함께 작은 웹 도구로 개발하고, 위 배포 흐름과 Cloudflare Tunnel로 각자 서브도메인에서 운영한다.</p>
+        <p class="lead">개인 작업에서 반복되던 일을 AI 에이전트와 함께 작은 웹 도구로 개발하고, 위 배포 흐름과 Cloudflare Tunnel로 각자 서브도메인에서 운영합니다.</p>
         <div class="role-grid">
-          <article class="card"><span class="mini-label">MASKLY · maskly.junu.dev</span><strong>웹 기반 이미지 편집기</strong><p>React · Vite로 만든 레이어 기반 편집기. 레이어 마스크, 브러시, 알파 편집, 실행 취소를 브라우저에서 처리한다.</p></article>
-          <article class="card"><span class="mini-label">TRANSFORMER · transformer.junu.dev</span><strong>브라우저 파일 변환기</strong><p>이미지 포맷 · 품질 · 크기 변환, 이미지/텍스트 → PDF, TXT · JSON · CSV · HTML · Markdown 변환을 서버 없이 브라우저에서 처리한다.</p></article>
+          <article class="card"><span class="mini-label">MASKLY · maskly.junu.dev</span><strong>웹 기반 이미지 편집기</strong><p>React · Vite로 만든 레이어 기반 편집기입니다. 레이어 마스크, 브러시, 알파 편집, 실행 취소를 브라우저에서 처리합니다.</p></article>
+          <article class="card"><span class="mini-label">TRANSFORMER · transformer.junu.dev</span><strong>브라우저 파일 변환기</strong><p>이미지 포맷 · 품질 · 크기 변환, 이미지/텍스트 → PDF, TXT · JSON · CSV · HTML · Markdown 변환을 서버 없이 브라우저에서 처리합니다.</p></article>
         </div>
       </div>
     </section>
@@ -91,8 +91,8 @@
       <div class="section-label"><span>05</span><h2>결과</h2></div>
       <div class="section-body">
         <div class="result-panel">
-          <h3>코드를 push하면 빌드 · 검사를 거쳐 Pi에 자동 반영되고, 집 네트워크에 포트를 열지 않은 채 서비스가 공개된다.</h3>
-          <p>배포가 끝난 뒤에도 DNS, Tunnel 연결, 컨테이너 재시작, 데이터 백업처럼 서비스를 살려 두기 위해 확인해야 하는 일을 직접 반복하고 있다. 부트캠프에서 다룬 Self-hosted Runner, 빌드 · 배포 분리, 데이터 볼륨 분리를 작은 규모로 계속 써 보는 환경이기도 하다.</p>
+          <h3>코드를 push하면 빌드 · 검사를 거쳐 Pi에 자동 반영되고, 집 네트워크에 포트를 열지 않은 채 서비스가 공개됩니다.</h3>
+          <p>배포가 끝난 뒤에도 DNS, Tunnel 연결, 컨테이너 재시작, 데이터 백업처럼 서비스를 살려 두기 위해 확인해야 하는 일을 직접 반복하고 있습니다. 부트캠프에서 다룬 Self-hosted Runner, 빌드 · 배포 분리, 데이터 볼륨 분리를 작은 규모로 계속 써 보는 환경이기도 합니다.</p>
           <div class="metric-list">
             <div class="metric"><span>DELIVERY</span><strong>push → 자동 배포</strong><p>Build(GitHub-hosted) · Deploy(Pi) 분리</p></div>
             <div class="metric"><span>EDGE</span><strong>인바운드 포트 없이 공개</strong><p>Cloudflare Tunnel · 서브도메인별 연결</p></div>

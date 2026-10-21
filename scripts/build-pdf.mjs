@@ -25,7 +25,40 @@ const PORTFOLIO_PAGES = [
 ];
 
 // Submission file: the resume followed by the condensed project pages.
+// In the resume part, the experience blocks marked data-submission="exclude" give way to
+// the plain career list marked data-submission="only", since the project pages follow.
 const SUBMISSION_PAGE = 'apply/portfolio.html';
+const SUBMISSION_RESUME_CSS = `
+  [data-submission="exclude"] { display: none !important; }
+  [data-submission="only"] { display: block !important; }
+  .org + .org { break-before: auto !important; }
+  .resume-section { padding: 18px 0 !important; }
+
+  /* Spread the three sections over the whole page instead of leaving the bottom empty */
+  .resume { display: flex !important; flex-direction: column; min-height: 270mm; }
+  .resume > .resume-section { flex: 1 1 auto; align-content: start; }
+
+  /* Same label | content columns as the other sections */
+  .experience-section { grid-template-columns: 132px 1fr !important; gap: 18px !important; }
+  .career-list li { grid-template-columns: 40mm 1fr !important; padding: 13px 0 !important; font-size: 10.8pt !important; }
+  .career-list p { font-size: 9.6pt; }
+
+  /* Larger intro and headings so the content itself fills the page */
+  .section-heading h2 { font-size: 14pt !important; }
+  .intro-copy .lead { font-size: 11pt !important; line-height: 1.65 !important; margin-bottom: 10px !important; }
+  .intro-copy p { font-size: 9.8pt !important; line-height: 1.75 !important; }
+  blockquote { margin-top: 12px !important; padding: 10px 14px !important; font-size: 10.4pt !important; }
+  .career-period { white-space: nowrap; }
+  .org-list { border-top: 0 !important; padding-top: 0 !important; }
+
+  /* Skills as plain "category | tools" rows */
+  .skill-list { display: block !important; border-top: 0 !important; }
+  .skill-item { display: grid !important; grid-template-columns: 50mm 1fr !important; gap: 10px !important; padding: 8px 0 !important; border-bottom: 0 !important; }
+  .skill-item h3 { font-size: 9.6pt !important; }
+  .skill-item strong { font-size: 10.6pt !important; }
+  .skill-item p { display: none !important; }
+
+`;
 
 // Sections marked data-portfolio="exclude" stay on the web page but are left out of the portfolio PDF.
 const PORTFOLIO_PRINT_CSS = '[data-portfolio="exclude"] { display: none !important; }';
@@ -132,7 +165,11 @@ async function main() {
     console.log(`pdf/portfolio.pdf (${portfolio.getPageCount()} pages)`);
 
     const submission = await PDFDocument.create({ updateMetadata: false });
-    for (const bytes of [resumeBytes, await renderPdf(browser, baseUrl + SUBMISSION_PAGE)]) {
+    const submissionParts = [
+      await renderPdf(browser, baseUrl + RESUME_PAGE, SUBMISSION_RESUME_CSS),
+      await renderPdf(browser, baseUrl + SUBMISSION_PAGE),
+    ];
+    for (const bytes of submissionParts) {
       const part = await PDFDocument.load(bytes, { updateMetadata: false });
       (await submission.copyPages(part, part.getPageIndices())).forEach((p) => submission.addPage(p));
     }

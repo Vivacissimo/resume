@@ -400,3 +400,14 @@ code {
 @media print {
   .combined-project + .combined-project { break-before: page; margin-top: 0; }
 }
+
+/* Labels for "previous / current structure" groups */
+.flow-label,
+.group-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+.flow-note { margin: 10px 0 0; color: var(--accent); font-size: 13px; font-weight: 700; }
+.role-grid + .group-label { margin-top: 22px; }
+@media print {
+  .flow-label, .group-label { font-size: 7.6pt; margin-bottom: 6px; }
+  .flow-note { font-size: 8.2pt; margin-top: 6px; }
+  .role-grid + .group-label { margin-top: 12px; }
+}

@@ -205,15 +205,16 @@
   <section class="project" id="personal">
     <p class="proj-kicker">PERSONAL PROJECT · 운영 중</p>
     <div class="proj-title"><h1>junu.dev Home Infrastructure</h1><span class="no"></span></div>
-    <p class="proj-sub">Raspberry Pi 한 대에 기술 위키와 웹 도구를 올리고, push 한 번에 자동으로 배포되는 환경을 구성해 운영하고 있습니다.</p>
+    <p class="proj-sub">Raspberry Pi에는 기술 위키를, Cloudflare Pages에는 웹 도구를 올려 서비스 특성에 맞게 배포 위치를 나눠 운영하고 있습니다.</p>
     <p class="more">상세: <a href="https://resume.junu.dev/projects/personal-infra">resume.junu.dev/projects/personal-infra</a></p>
     <div class="meta">
       <div><span>PERIOD</span><strong>운영 중</strong></div>
       <div><span>TEAM</span><strong>개인 (1인)</strong></div>
       <div><span>ROLE</span><strong>Design · Deploy · Operate</strong></div>
-      <div><span>STACK</span><strong>Raspberry Pi · Docker Compose · Cloudflare Tunnel · GitHub Actions</strong></div>
+      <div><span>STACK</span><strong>Raspberry Pi · Docker Compose · Cloudflare Tunnel · Cloudflare Pages · GitHub Actions</strong></div>
     </div>
     <div class="jd"><span>CI/CD</span><span>Linux 서버 운영</span><span>네트워크 · DNS</span><span>컨테이너</span></div>
+    <p class="flow-label">이전 구조 · 웹 도구 Pi 직접 배포</p>
     <div class="flow">
       <div>GitHub Push<small>master 브랜치</small></div>
       <div>Build Job<small>npm ci · lint · build</small></div>
@@ -222,21 +223,29 @@
       <div>Nginx<small>rsync --delete</small></div>
       <div>Cloudflare Tunnel<small>*.junu.dev 공개</small></div>
     </div>
+    <p class="flow-note">현재: Cloudflare Pages로 이전</p>
     <div class="cols">
       <div>
         <h2>구현 내용</h2>
+        <p class="pts-label">이전 구조 · 웹 도구를 Pi에 직접 배포하던 시기에 구성</p>
         <ul class="pts">
           <li>Build Job이 lint · build를 통과한 결과물만 Artifact로 올리고 Deploy Job이 받아 반영하는 2단계 GitHub Actions 파이프라인 구성</li>
           <li>Pi에 Self-hosted Runner를 설치하고 <code>raspberrypi</code> · <code>deploy</code> · 서비스 이름 라벨로 배포 Job이 정해진 장비에서만 실행되게 구성</li>
           <li><code>rsync --delete</code>로 서비스 디렉터리를 빌드 결과와 똑같이 맞추고, <code>concurrency</code> 그룹으로 연속 push 시 마지막 변경만 배포</li>
+        </ul>
+        <p class="pts-label">현재 구조</p>
+        <ul class="pts">
+          <li>서버 처리가 필요 없는 웹 도구는 Cloudflare Pages로 이전하고, Pi에는 데이터베이스가 필요한 위키만 남겨 운영</li>
           <li>Cloudflare Tunnel로 인바운드 포트 없이 서브도메인별 서비스 공개</li>
           <li>Wiki.js · PostgreSQL을 Docker Compose로 분리하고 볼륨 · SQL Dump로 데이터 유지, 저장장치를 microSD에서 NVMe로 이전</li>
         </ul>
       </div>
       <div>
         <h2>운영 중인 서비스</h2>
+        <div class="services">
         <div class="case"><strong><a class="svc" href="https://wiki.junu.dev">wiki.junu.dev ↗</a> · 기술 위키</strong><p>Wiki.js + PostgreSQL(Docker Compose)로 학습 문서를 정리하고 운영</p></div>
-        <div class="case"><strong>Personal Dev Tools · AI 에이전트로 개발</strong><p><a class="svc" href="https://maskly.junu.dev">maskly.junu.dev ↗</a> 레이어 마스크 · 브러시 · 알파 편집을 지원하는 웹 이미지 편집기(React · Vite)</p><p><a class="svc" href="https://transformer.junu.dev">transformer.junu.dev ↗</a> 이미지 · PDF · 텍스트 형식 변환을 서버 없이 처리하는 브라우저 파일 변환기</p></div>
+        <div class="case"><strong>Personal Dev Tools · AI 에이전트로 개발 · Cloudflare Pages 배포</strong><p><a class="svc" href="https://maskly.junu.dev">maskly.junu.dev ↗</a> 레이어 마스크 · 브러시 · 알파 편집을 지원하는 웹 이미지 편집기(React · Vite)</p><p><a class="svc" href="https://transformer.junu.dev">transformer.junu.dev ↗</a> 이미지 · PDF · 텍스트 형식 변환을 서버 없이 처리하는 브라우저 파일 변환기</p></div>
+        </div>
       </div>
     </div>
   </section>

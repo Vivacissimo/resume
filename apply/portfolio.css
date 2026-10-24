@@ -96,3 +96,17 @@ ul.pts li::marker { color: var(--light); }
 .flow small { display: block; margin-top: 3px; color: var(--muted); font-size: 7.4pt; font-weight: 500; }
 
 .svc { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+.flow-label { margin: 20px 0 0; color: var(--muted); font-size: 8pt; font-weight: 800; letter-spacing: .04em; }
+.flow-label + .flow { margin-top: 6px; }
+.flow-note { margin: 6px 0 0; color: var(--accent); font-size: 8.4pt; font-weight: 700; }
+.pts-label { margin: 0 0 6px; color: var(--muted); font-size: 8.4pt; font-weight: 700; }
+ul.pts + .pts-label { margin-top: 12px; }
+
+/* The personal page carries both the old and current structure; tighten it to keep one page. */
+#personal h2 { margin: 14px 0 6px; }
+#personal ul.pts li { margin-bottom: 3px; }
+#personal .case { margin-bottom: 8px; padding: 8px 12px; }
+#personal .flow div { padding: 8px 6px; }
+#personal .services { display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px; }
+#personal .services .case { margin: 0; }

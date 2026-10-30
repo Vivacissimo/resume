@@ -1,3 +1,7 @@
 .vscode/
 node_modules/
 .wrangler/
+
+# Company-specific application files (kept local)
+apply/toss/
+pdf/toss/

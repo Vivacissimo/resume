@@ -2,7 +2,7 @@
 // Usage: npm run pdf
 
 import http from 'node:http';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -51,6 +51,11 @@ const SUBMISSION_RESUME_CSS = `
   .skill-item p { display: none !important; }
 
 `;
+
+// Toss Securities application: the resume & career description. The portfolio field takes submission.pdf.
+// apply/toss/ and pdf/toss/ are git-ignored, so this part only runs where those pages exist.
+const TOSS_DIR = 'toss';
+const TOSS_RESUME_PAGE = 'apply/toss/resume.html';
 
 // Fixed metadata keeps build timestamps out of the PDF. Chromium output itself is not
 // byte-identical across runs, so CI still commits fresh PDFs after each source change.
@@ -148,6 +153,15 @@ async function main() {
     }
     await writeFile(path.join(outDir, 'submission.pdf'), await finalize(submission, 'Joon Woo Kim — Resume & Portfolio'));
     console.log(`pdf/submission.pdf (${submission.getPageCount()} pages)`);
+
+    if (!(await access(path.join(root, TOSS_RESUME_PAGE)).then(() => true, () => false))) return;
+    await mkdir(path.join(outDir, TOSS_DIR), { recursive: true });
+    const tossResume = await PDFDocument.load(await renderPdf(browser, baseUrl + TOSS_RESUME_PAGE), { updateMetadata: false });
+    await writeFile(
+      path.join(outDir, TOSS_DIR, '김준우_이력서및경력기술서.pdf'),
+      await finalize(tossResume, '김준우 — 이력서 및 경력기술서'),
+    );
+    console.log(`pdf/${TOSS_DIR}/김준우_이력서및경력기술서.pdf (${tossResume.getPageCount()} pages)`);
   } finally {
     await browser.close();
     server.close();

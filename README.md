@@ -10,7 +10,7 @@ Personal resume site for Joon Woo Kim (DevOps / Cloud Engineer).
 
 ```text
 01 INTRODUCE
-02 EXPERIENCE              KT Cloud BootCamp → Cocoavision
+02 EXPERIENCE              KT Cloud TECH UP → Cocoavision
 03 SKILLS
 04 PERSONAL
 ```
